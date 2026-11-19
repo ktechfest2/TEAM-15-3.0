@@ -1,0 +1,15 @@
+{
+  "name": "voteguard-360",
+  "private": true,
+  "version": "0.1.0",
+  "description": "VOTE-GUARD 360: an independent evidence layer for polling-unit result sheets (demo data only)",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

@@ -6,19 +6,19 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 
 - [ ] 1.1 [A] Create monorepo skeleton: `apps/web`, `packages/evidence`, `packages/shared`, `database/`, `docs/`, `public/sample-result-sheets/`
 - [ ] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
-- [ ] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
-- [ ] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
+- [x] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
+- [x] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
 - [ ] 1.5 [D] Generate three synthetic result sheets stamped DEMO: clean, one altered figure, bad arithmetic
 - [ ] 1.6 Gate: live Vercel URL, shared types merged, Supabase reachable
 
 ## 2. Integrity engine, tests first (B, 21:30–00:30)
 
-- [ ] 2.1 Failing tests then `sha256`: known vectors, one flipped byte, browser and server agree
-- [ ] 2.2 Failing tests then `validateArithmetic`: all five rules plus negatives, blanks, missing
-- [ ] 2.3 Failing tests then `compareSubmissions`: agree, one field differs, same file hash is not independent
-- [ ] 2.4 Failing tests then `statusFor`: every transition in the status machine and nothing else
-- [ ] 2.5 Failing tests then `chainAuditEvent` and `verifyChain`: prev-hash link, tamper detection
-- [ ] 2.6 Failing tests then `narrate` (English, then Pidgin): verified fields only, no "correct", "fraud" or "winner", numbers spoken in full
+- [x] 2.1 Failing tests then `sha256`: known vectors, one flipped byte, browser and server agree
+- [x] 2.2 Failing tests then `validateArithmetic`: all five rules plus negatives, blanks, missing
+- [x] 2.3 Failing tests then `compareSubmissions`: agree, one field differs, same file hash is not independent
+- [x] 2.4 Failing tests then `statusFor`: every transition in the status machine and nothing else
+- [x] 2.5 Failing tests then `chainAuditEvent` and `verifyChain`: prev-hash link, tamper detection
+- [x] 2.6 Failing tests then `narrate` (English, then Pidgin): verified fields only, no "correct", "fraud" or "winner", numbers spoken in full
 
 ## 3. Platform and data (A, 21:30–00:30 then 01:15–04:00)
 
