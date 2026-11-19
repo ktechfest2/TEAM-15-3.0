@@ -5,11 +5,11 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 ## 1. Foundations (20:20–21:30, all lanes)
 
 - [x] 1.1 [A] Create monorepo skeleton: `apps/web`, `packages/evidence`, `packages/shared`, `database/`, `docs/`, `public/sample-result-sheets/`
-- [ ] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
+- [x] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
 - [x] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
 - [x] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
 - [x] 1.5 [D] Generate three synthetic result sheets stamped DEMO: clean, one altered figure, bad arithmetic
-- [ ] 1.6 Gate: live Vercel URL, shared types merged, Supabase reachable
+- [x] 1.6 Gate: live Vercel URL, shared types merged, Supabase reachable
 
 ## 2. Integrity engine, tests first (B, 21:30–00:30)
 
@@ -22,11 +22,11 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 
 ## 3. Platform and data (A, 21:30–00:30 then 01:15–04:00)
 
-- [ ] 3.1 Schema (written in database/schema.sql, not yet applied): polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
-- [ ] 3.2 RLS policies per role; failing RLS tests first (public cannot read submitter ids; observer cannot create reviews)
-- [ ] 3.3 Audit trigger refusing UPDATE and DELETE; revoke those privileges; server function to append chained events
+- [x] 3.1 Schema (database/schema.sql, applied to Supabase project voteguard-360 and verified: 7 tables, RLS on all 7): polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
+- [ ] 3.2 (policies applied; anon checks verified over REST: submitter_id hidden, reviews/submissions not writable or readable; database/tests/rls.test.sql hangs in the dashboard SQL editor, still to run for authenticated and reviewer roles) RLS policies per role; failing RLS tests first (public cannot read submitter ids; observer cannot create reviews)
+- [ ] 3.3 (applied; anon INSERT/UPDATE/DELETE on audit_events and rpc append_audit_event all refused; chain append via service role still to test) Audit trigger refusing UPDATE and DELETE; revoke those privileges; server function to append chained events
 - [ ] 3.4 Write-once storage bucket and signed upload URL flow
-- [ ] 3.5 Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
+- [ ] 3.5 (144 synthetic units loaded into Supabase; demo users and ward figure still to do) Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
 - [ ] 3.6 Route handlers: `/api/uploads`, `/api/submissions/:id/extract`, `/confirm`, `/api/units`, `/api/units/:id/evidence`, `/narration`, `/api/reviews`
 - [ ] 3.7 Server hash re-check wired into extract, mismatch flagged and audited
 
