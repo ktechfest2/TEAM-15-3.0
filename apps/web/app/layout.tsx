@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
+import "./globals.css";
 
 export const metadata = {
   title: "VOTE-GUARD 360",
@@ -8,10 +10,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#f6f9f8", color: "#14212b" }}>
-        <div style={{ background: "#fff4e0", color: "#8a4b08", fontSize: 13, fontWeight: 700, textAlign: "center", padding: "6px 12px" }}>
-          DEMO DATA · independent evidence layer, not an INEC system
-        </div>
+      <body>
+        <div className="demo-banner">DEMO DATA · independent evidence layer, not an INEC system</div>
+        <header className="top">
+          <Link href="/">VOTE-GUARD 360</Link>
+          <nav>
+            <Link href="/">Explore</Link>
+            <Link href="/capture">Capture</Link>
+          </nav>
+        </header>
         {children}
       </body>
     </html>

@@ -35,15 +35,15 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 - [x] 4.1 Extraction adapter returning typed JSON with per-field confidence; **Anthropic call is stubbed for now** (no network, no key); real call to be added later, key server-side only
 - [x] 4.2 Cache extraction output for the three demo sheets as fixtures; add live/cached toggle
 - [x] 4.3 Contract test for the adapter using fixtures
-- [ ] 4.4 Easy-read status sentences in English and Pidgin; native-speaker check
+- [ ] 4.4 (English + Pidgin status text done in apps/web/lib/status-copy.ts; native-speaker check pending) Easy-read status sentences in English and Pidgin; native-speaker check
 - [ ] 4.5 Drafts: `docs/problem-brief.md` (one page), system sketch SVG/PNG, `docs/writeup.md` (problem, solution, AI usage, tools), `docs/architecture.md`
 - [ ] 4.6 Demo script and sample scenario (planted altered figure)
 
 ## 5. Frontend (C, 21:30–04:00)
 
-- [ ] 5.1 Mobile-first shell with persistent DEMO DATA and not-INEC banner
-- [ ] 5.2 Polling unit explorer (state, LGA, ward, code or name search)
-- [ ] 5.3 Capture screen with unit confirmation, on-device SHA-256 and fingerprint time
+- [x] 5.1 Mobile-first shell with persistent DEMO DATA and not-INEC banner
+- [x] 5.2 Polling unit explorer (state, LGA, ward, code or name search)
+- [x] 5.3 Capture screen with unit confirmation, on-device SHA-256, fingerprint time and offline IndexedDB queue (server upload still to wire)
 - [ ] 5.4 Extraction review screen: values, confidence flags, arithmetic checks, confirm or fix
 - [ ] 5.5 Evidence record screen: image, status, fingerprint with honest tooltip, audit timeline
 - [ ] 5.6 Comparison screen with differing field highlighted and neutral wording

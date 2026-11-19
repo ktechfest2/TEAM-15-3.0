@@ -5,6 +5,7 @@ import type { ExtractionAdapter } from "./types";
 export type { ExtractionAdapter, ExtractionInput, ExtractionResult } from "./types";
 export { CachedExtractionAdapter, LOW_CONFIDENCE_THRESHOLD } from "./cached";
 export { AnthropicStubAdapter } from "./live-stub";
+export { default as fixtures } from "./fixtures.json";
 
 export interface ExtractionConfig {
   mode: "cached" | "live";

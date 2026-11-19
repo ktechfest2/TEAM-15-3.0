@@ -1,0 +1,1298 @@
+[
+ {
+  "id": "61f10ebf-f82e-5532-a52d-126b59701cfd",
+  "code": "LA-IKJ-01-001",
+  "name": "Ikeja Primary School",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "5837d750-cb55-5e06-9dd3-32aec65f0390",
+  "code": "LA-IKJ-01-002",
+  "name": "Ikeja Town Hall",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "4fad1290-2fb1-5a3c-a81d-b21b13efeff9",
+  "code": "LA-IKJ-01-003",
+  "name": "Ikeja Market Square",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f0f1602e-2199-550c-a13a-9f2980fc765f",
+  "code": "LA-IKJ-01-004",
+  "name": "Ikeja Health Centre",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d36b1b84-7cc4-558a-a4d0-21bc721746d7",
+  "code": "LA-IKJ-01-005",
+  "name": "Ikeja Community Hall",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "70d0d64b-a6d3-59e4-be77-844254c742be",
+  "code": "LA-IKJ-01-006",
+  "name": "Ikeja Open Ground",
+  "ward": "Ward 01",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "18da85c4-33ce-547f-8bd6-d62918b8967f",
+  "code": "LA-IKJ-02-001",
+  "name": "Ikeja Primary School",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "9f4bdd09-58c4-5ab0-8fed-91072d819dfd",
+  "code": "LA-IKJ-02-002",
+  "name": "Ikeja Town Hall",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "bfe453bb-ddd7-51aa-9b05-012ccee4edc3",
+  "code": "LA-IKJ-02-003",
+  "name": "Ikeja Market Square",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ac632cc6-bf59-5c73-aa64-b8ecd79d0f0e",
+  "code": "LA-IKJ-02-004",
+  "name": "Ikeja Health Centre",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c6803551-2b3d-5c10-8523-5e5fe9010282",
+  "code": "LA-IKJ-02-005",
+  "name": "Ikeja Community Hall",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "12bf4e6d-d637-5414-8d4a-1b71f1a6d895",
+  "code": "LA-IKJ-02-006",
+  "name": "Ikeja Open Ground",
+  "ward": "Ward 02",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "45605d3c-79de-51bd-8185-8459e03d5d9e",
+  "code": "LA-IKJ-03-001",
+  "name": "Ikeja Primary School",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f4a68665-b055-578a-b92c-980822ca5a49",
+  "code": "LA-IKJ-03-002",
+  "name": "Ikeja Town Hall",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "2e4555ec-2ca3-5294-b6ba-c91348d505f4",
+  "code": "LA-IKJ-03-003",
+  "name": "Ikeja Market Square",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8c2c112b-9b9c-57b2-9a92-5ef254b374fc",
+  "code": "LA-IKJ-03-004",
+  "name": "Ikeja Health Centre",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "44d05cab-bf43-57e4-a923-e2a36598bdfb",
+  "code": "LA-IKJ-03-005",
+  "name": "Ikeja Community Hall",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "2e6a965a-5e2b-5cd2-9b81-7705c8d3297b",
+  "code": "LA-IKJ-03-006",
+  "name": "Ikeja Open Ground",
+  "ward": "Ward 03",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "80afe82d-8cdf-5cc6-8b13-da386e6d6236",
+  "code": "LA-IKJ-04-012",
+  "name": "Ikeja Primary School",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "5534c42e-5c76-5b93-99f5-0084a720719f",
+  "code": "LA-IKJ-04-013",
+  "name": "Ikeja Town Hall",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "55a21f67-5c8a-5de2-aa29-094f49303261",
+  "code": "LA-IKJ-04-014",
+  "name": "Ikeja Market Square",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d2b7bbc0-8462-5500-b46a-e574b2d00089",
+  "code": "LA-IKJ-04-015",
+  "name": "Ikeja Health Centre",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "0ab1ba45-674e-59b3-be10-73265ee2feef",
+  "code": "LA-IKJ-04-016",
+  "name": "Ikeja Community Hall",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b60b07c8-4b53-5069-b1b9-e43e39675ca0",
+  "code": "LA-IKJ-04-017",
+  "name": "Ikeja Open Ground",
+  "ward": "Ward 04",
+  "lga": "Ikeja",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "40f3a64b-281b-5f11-b9f5-daf8bb07634f",
+  "code": "LA-SUR-01-001",
+  "name": "Surulere Primary School",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f763e794-5a0b-54aa-b28c-1d6452413703",
+  "code": "LA-SUR-01-002",
+  "name": "Surulere Town Hall",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c002e7c0-6ecd-5362-97ff-56edeca4a7a0",
+  "code": "LA-SUR-01-003",
+  "name": "Surulere Market Square",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8a8a589b-0a83-5cfa-8a36-c78308834050",
+  "code": "LA-SUR-01-004",
+  "name": "Surulere Health Centre",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "e2e98071-08ef-5165-9531-a7d3090831a5",
+  "code": "LA-SUR-01-005",
+  "name": "Surulere Community Hall",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "9ba9a483-2a34-5b7f-94cf-d04227b95c48",
+  "code": "LA-SUR-01-006",
+  "name": "Surulere Open Ground",
+  "ward": "Ward 01",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d42d9dbc-70a1-50e4-9e62-9eda7ee52542",
+  "code": "LA-SUR-02-001",
+  "name": "Surulere Primary School",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "40c7b362-7786-5c59-8d06-9734132d004c",
+  "code": "LA-SUR-02-002",
+  "name": "Surulere Town Hall",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f0fb90d2-d62f-53eb-8540-9f0ade442c8b",
+  "code": "LA-SUR-02-003",
+  "name": "Surulere Market Square",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "4f9d0e75-52d7-5b67-b056-eabf742bfd4c",
+  "code": "LA-SUR-02-004",
+  "name": "Surulere Health Centre",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "cd293bb8-72ea-50a8-8c93-6194d1cebc95",
+  "code": "LA-SUR-02-005",
+  "name": "Surulere Community Hall",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "52c3c1ec-9ee0-5bc1-bfb5-260d91e3c5bd",
+  "code": "LA-SUR-02-006",
+  "name": "Surulere Open Ground",
+  "ward": "Ward 02",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "e860768f-3002-5d74-aae1-0b82bf74fbd8",
+  "code": "LA-SUR-03-001",
+  "name": "Surulere Primary School",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6ddf5651-9dba-56f1-9ee9-d893df0d1aaa",
+  "code": "LA-SUR-03-002",
+  "name": "Surulere Town Hall",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "967522bb-0611-54ff-b4b1-641dae7ba643",
+  "code": "LA-SUR-03-003",
+  "name": "Surulere Market Square",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "03da8212-ca36-5624-aeec-32ade66dee15",
+  "code": "LA-SUR-03-004",
+  "name": "Surulere Health Centre",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8ca064fa-79ee-549e-8e34-df412f609e86",
+  "code": "LA-SUR-03-005",
+  "name": "Surulere Community Hall",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6bd493b0-57cc-5dd9-8f08-255fa0e2d231",
+  "code": "LA-SUR-03-006",
+  "name": "Surulere Open Ground",
+  "ward": "Ward 03",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "01d3ff66-b220-56fa-8aca-c582ef2d61e9",
+  "code": "LA-SUR-04-001",
+  "name": "Surulere Primary School",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "18099b23-5d0c-53b9-b8b7-e33b3930e3ac",
+  "code": "LA-SUR-04-002",
+  "name": "Surulere Town Hall",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "40d70ed7-28e3-58ce-98e2-df6d9b4a3f8e",
+  "code": "LA-SUR-04-003",
+  "name": "Surulere Market Square",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6520d506-6cc3-563f-9534-5d9b8fd8ca9d",
+  "code": "LA-SUR-04-004",
+  "name": "Surulere Health Centre",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6fb9ffc4-0114-5f6f-995d-f68aad9b6f04",
+  "code": "LA-SUR-04-005",
+  "name": "Surulere Community Hall",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "76f26dbc-06f5-56d6-8b6b-7d13fa2d17b7",
+  "code": "LA-SUR-04-006",
+  "name": "Surulere Open Ground",
+  "ward": "Ward 04",
+  "lga": "Surulere",
+  "state": "Lagos",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "4c9af708-1953-5ba7-8f1a-fae0b71ce7c7",
+  "code": "FC-AMA-01-001",
+  "name": "Abuja Municipal Primary School",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "2a144507-a4cb-5695-be60-c9c5f7d6624a",
+  "code": "FC-AMA-01-002",
+  "name": "Abuja Municipal Town Hall",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "03d8be91-87e4-5fde-ab61-d70d61e9f44c",
+  "code": "FC-AMA-01-003",
+  "name": "Abuja Municipal Market Square",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "44880ff0-a505-5ab4-802b-268f4a0911fc",
+  "code": "FC-AMA-01-004",
+  "name": "Abuja Municipal Health Centre",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "82ef1b86-a1a9-5952-bbd8-6a1721fa0ae0",
+  "code": "FC-AMA-01-005",
+  "name": "Abuja Municipal Community Hall",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "3c20fa0b-11cb-503e-b0b9-cfe8f01051cc",
+  "code": "FC-AMA-01-006",
+  "name": "Abuja Municipal Open Ground",
+  "ward": "Ward 01",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d9b232ff-434e-5ab3-a6ad-31d798757240",
+  "code": "FC-AMA-02-001",
+  "name": "Abuja Municipal Primary School",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f0010122-f2aa-51c4-abd3-4dd26c71c668",
+  "code": "FC-AMA-02-002",
+  "name": "Abuja Municipal Town Hall",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "52163471-1096-56f4-9c88-e12c785b2992",
+  "code": "FC-AMA-02-003",
+  "name": "Abuja Municipal Market Square",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "1efb22f5-ba36-5c4b-8fec-113bca4deb95",
+  "code": "FC-AMA-02-004",
+  "name": "Abuja Municipal Health Centre",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6cf9fc8a-d0b7-5100-ac16-cfac0068e77e",
+  "code": "FC-AMA-02-005",
+  "name": "Abuja Municipal Community Hall",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "081a9037-3a9b-56de-86df-4fe9ae8ff60c",
+  "code": "FC-AMA-02-006",
+  "name": "Abuja Municipal Open Ground",
+  "ward": "Ward 02",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "3939b6b7-9c89-5612-9833-64f4efbcd220",
+  "code": "FC-AMA-03-001",
+  "name": "Abuja Municipal Primary School",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "2915f65b-3c3c-5bdf-a2f2-e13930d68749",
+  "code": "FC-AMA-03-002",
+  "name": "Abuja Municipal Town Hall",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c9cca34e-2827-5c31-9143-7a6ae748d259",
+  "code": "FC-AMA-03-003",
+  "name": "Abuja Municipal Market Square",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "199ffeae-93e0-5b6f-9672-484cb5fcd2cc",
+  "code": "FC-AMA-03-004",
+  "name": "Abuja Municipal Health Centre",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6ab3ecd4-cd79-591c-a993-9bf5e64acccf",
+  "code": "FC-AMA-03-005",
+  "name": "Abuja Municipal Community Hall",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "9e3f3a2c-51b5-5e90-9e6e-d45152bb0fc2",
+  "code": "FC-AMA-03-006",
+  "name": "Abuja Municipal Open Ground",
+  "ward": "Ward 03",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "5bf67b3e-19bd-5ad9-9b44-ac18a37f2259",
+  "code": "FC-AMA-04-001",
+  "name": "Abuja Municipal Primary School",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "791e5403-ea1f-51d2-ba11-0eee5560896d",
+  "code": "FC-AMA-04-002",
+  "name": "Abuja Municipal Town Hall",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "01c7ddfd-edee-5985-a0b2-43811985ea86",
+  "code": "FC-AMA-04-003",
+  "name": "Abuja Municipal Market Square",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ec0cec38-5059-5f6e-a322-ee709ee10f95",
+  "code": "FC-AMA-04-004",
+  "name": "Abuja Municipal Health Centre",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "90eecfdc-7896-5b75-b88d-dbe92b0a7954",
+  "code": "FC-AMA-04-005",
+  "name": "Abuja Municipal Community Hall",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "11176b61-37ee-579d-9d63-d035db21455f",
+  "code": "FC-AMA-04-006",
+  "name": "Abuja Municipal Open Ground",
+  "ward": "Ward 04",
+  "lga": "Abuja Municipal",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "53eccc44-a35a-520b-b640-9cc93ef7d7f5",
+  "code": "FC-BWR-01-001",
+  "name": "Bwari Primary School",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "a47525d3-db9c-5674-b9a9-b1790111e682",
+  "code": "FC-BWR-01-002",
+  "name": "Bwari Town Hall",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8615893a-ffc6-5fa8-acfe-121283dafd29",
+  "code": "FC-BWR-01-003",
+  "name": "Bwari Market Square",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "80c83540-a95b-5739-93ca-7f6f29349f8d",
+  "code": "FC-BWR-01-004",
+  "name": "Bwari Health Centre",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "cf988934-62dc-53e3-a747-e6cbcb267f27",
+  "code": "FC-BWR-01-005",
+  "name": "Bwari Community Hall",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "1bd086de-4112-54c4-8e6e-a5df9861a2ea",
+  "code": "FC-BWR-01-006",
+  "name": "Bwari Open Ground",
+  "ward": "Ward 01",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f6c811a0-ffb1-578c-8349-704e8cb071f0",
+  "code": "FC-BWR-02-001",
+  "name": "Bwari Primary School",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "65284568-c534-5cea-9e35-108d24d73bc0",
+  "code": "FC-BWR-02-002",
+  "name": "Bwari Town Hall",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c0b75d38-9134-5b5d-afcf-7120c2a33672",
+  "code": "FC-BWR-02-003",
+  "name": "Bwari Market Square",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b41fed7d-fb8e-5e98-a7f8-81c3a05ec6aa",
+  "code": "FC-BWR-02-004",
+  "name": "Bwari Health Centre",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b2b051fc-0c56-5f0f-a903-5b1c7bc8e2ca",
+  "code": "FC-BWR-02-005",
+  "name": "Bwari Community Hall",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8f364593-83b1-5546-8185-0e1abc832eec",
+  "code": "FC-BWR-02-006",
+  "name": "Bwari Open Ground",
+  "ward": "Ward 02",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "6443ee2e-29d4-5272-b664-c970cf49604e",
+  "code": "FC-BWR-03-001",
+  "name": "Bwari Primary School",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "1884d8fe-9056-53e3-a9eb-c9c577eb1362",
+  "code": "FC-BWR-03-002",
+  "name": "Bwari Town Hall",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d71c9001-36a9-50d8-8f02-6a77c46e71f6",
+  "code": "FC-BWR-03-003",
+  "name": "Bwari Market Square",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "fe323ec1-76d1-57be-a629-d256031437a3",
+  "code": "FC-BWR-03-004",
+  "name": "Bwari Health Centre",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "219ca185-cf9d-52d3-afd6-81c071f4d918",
+  "code": "FC-BWR-03-005",
+  "name": "Bwari Community Hall",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "1231c9ae-2363-55e1-936b-3dc16b026275",
+  "code": "FC-BWR-03-006",
+  "name": "Bwari Open Ground",
+  "ward": "Ward 03",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "090315c3-81b6-589b-adca-3dd5da4f4bd7",
+  "code": "FC-BWR-04-001",
+  "name": "Bwari Primary School",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "4852a02c-3574-56a1-a25e-f3ffc85a7010",
+  "code": "FC-BWR-04-002",
+  "name": "Bwari Town Hall",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b4d338ad-8903-58f9-819f-4476b11456b5",
+  "code": "FC-BWR-04-003",
+  "name": "Bwari Market Square",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c8c7a058-49f6-5826-a504-148d973075e9",
+  "code": "FC-BWR-04-004",
+  "name": "Bwari Health Centre",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b09f1044-483c-52fe-8f69-c2132d84c11d",
+  "code": "FC-BWR-04-005",
+  "name": "Bwari Community Hall",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "7280bd62-79f2-5568-9669-70b4431b063d",
+  "code": "FC-BWR-04-006",
+  "name": "Bwari Open Ground",
+  "ward": "Ward 04",
+  "lga": "Bwari",
+  "state": "FCT",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "3b295abd-2b25-5a48-8c8c-baee3705f14e",
+  "code": "KN-NAS-01-001",
+  "name": "Nassarawa Primary School",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "105a0c0e-0927-5fd2-9cbb-35fb78d52374",
+  "code": "KN-NAS-01-002",
+  "name": "Nassarawa Town Hall",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "973fdd3e-8c4f-54c8-b233-2b7a9a127169",
+  "code": "KN-NAS-01-003",
+  "name": "Nassarawa Market Square",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ef48825a-290d-58e1-9dea-c8bba454d16c",
+  "code": "KN-NAS-01-004",
+  "name": "Nassarawa Health Centre",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "087dbadd-5b39-5ba1-9f11-b6e35a07b464",
+  "code": "KN-NAS-01-005",
+  "name": "Nassarawa Community Hall",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b37c142a-5a0d-5329-9b2e-b05652c49413",
+  "code": "KN-NAS-01-006",
+  "name": "Nassarawa Open Ground",
+  "ward": "Ward 01",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "7c987b75-6ecf-515d-91bd-61411671b823",
+  "code": "KN-NAS-02-001",
+  "name": "Nassarawa Primary School",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "5a9c7c09-da3f-558d-84f2-d6bfb443f4b1",
+  "code": "KN-NAS-02-002",
+  "name": "Nassarawa Town Hall",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "9431bc41-fb94-5521-8b74-4e0d45f69222",
+  "code": "KN-NAS-02-003",
+  "name": "Nassarawa Market Square",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "aad62da8-28d7-5a3b-9638-a62e39c02d5d",
+  "code": "KN-NAS-02-004",
+  "name": "Nassarawa Health Centre",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "36d227e5-0beb-55eb-9834-3b72fb0b5988",
+  "code": "KN-NAS-02-005",
+  "name": "Nassarawa Community Hall",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "7e471a46-0f01-50e1-96a0-ab59ffd8c7ae",
+  "code": "KN-NAS-02-006",
+  "name": "Nassarawa Open Ground",
+  "ward": "Ward 02",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "5bffa31b-b458-548b-a4eb-9b96de655ee7",
+  "code": "KN-NAS-03-001",
+  "name": "Nassarawa Primary School",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "20ad6dfa-1540-5188-8901-dc545d60e147",
+  "code": "KN-NAS-03-002",
+  "name": "Nassarawa Town Hall",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ae729adb-1ece-518f-a0d5-e413ae2c5482",
+  "code": "KN-NAS-03-003",
+  "name": "Nassarawa Market Square",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d5ba0cb1-315b-509e-849e-e8acf8b79d40",
+  "code": "KN-NAS-03-004",
+  "name": "Nassarawa Health Centre",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "62fc9cc9-dd28-5962-98b1-60cdfd6576e8",
+  "code": "KN-NAS-03-005",
+  "name": "Nassarawa Community Hall",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "2cfb892b-7f1c-5fac-8323-e679e18522b4",
+  "code": "KN-NAS-03-006",
+  "name": "Nassarawa Open Ground",
+  "ward": "Ward 03",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "41298ff7-b647-585b-852f-80f12c6455ee",
+  "code": "KN-NAS-04-001",
+  "name": "Nassarawa Primary School",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "a32be605-38b2-52ee-8fb2-2b2d36fc7d0f",
+  "code": "KN-NAS-04-002",
+  "name": "Nassarawa Town Hall",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8fe6c957-d41e-56b0-a750-41d53db4075a",
+  "code": "KN-NAS-04-003",
+  "name": "Nassarawa Market Square",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f18541a5-e89f-5011-b590-f63021f1f2a7",
+  "code": "KN-NAS-04-004",
+  "name": "Nassarawa Health Centre",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d668d6d4-fbe3-5467-a816-be040253abaf",
+  "code": "KN-NAS-04-005",
+  "name": "Nassarawa Community Hall",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "83b0409b-8326-5709-8743-a4afe4df8809",
+  "code": "KN-NAS-04-006",
+  "name": "Nassarawa Open Ground",
+  "ward": "Ward 04",
+  "lga": "Nassarawa",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f6621f47-3bb7-5b5f-a952-0798d04e1bcd",
+  "code": "KN-FAG-01-001",
+  "name": "Fagge Primary School",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d20255d8-fc7c-564e-b4e8-e1883ec9c814",
+  "code": "KN-FAG-01-002",
+  "name": "Fagge Town Hall",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "171d171c-9fe2-5ae7-8410-9156af67bff0",
+  "code": "KN-FAG-01-003",
+  "name": "Fagge Market Square",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ec8d32bc-0428-5d38-ab92-dabbe3f15127",
+  "code": "KN-FAG-01-004",
+  "name": "Fagge Health Centre",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "663de56f-2522-537b-9791-191d43ff7608",
+  "code": "KN-FAG-01-005",
+  "name": "Fagge Community Hall",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "8625a1d0-19d5-5621-a095-81e2790e8965",
+  "code": "KN-FAG-01-006",
+  "name": "Fagge Open Ground",
+  "ward": "Ward 01",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "39a912a6-71d0-515a-a98f-a39ef50d5aec",
+  "code": "KN-FAG-02-001",
+  "name": "Fagge Primary School",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "79d84b8d-9372-581f-8a82-175c28cc9b2e",
+  "code": "KN-FAG-02-002",
+  "name": "Fagge Town Hall",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b3d9288a-ad7b-59c3-8829-e6b1b1b32cab",
+  "code": "KN-FAG-02-003",
+  "name": "Fagge Market Square",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "fe63cc3a-fd92-5ce3-9fe3-f2251a5f846b",
+  "code": "KN-FAG-02-004",
+  "name": "Fagge Health Centre",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ecf262b8-3937-5d4d-967d-91398f2f2745",
+  "code": "KN-FAG-02-005",
+  "name": "Fagge Community Hall",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "566b45a6-69a5-5b7c-88b1-8c90ddab1e2d",
+  "code": "KN-FAG-02-006",
+  "name": "Fagge Open Ground",
+  "ward": "Ward 02",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "c5d6ed51-96da-5c06-9b3f-a64949e56408",
+  "code": "KN-FAG-03-001",
+  "name": "Fagge Primary School",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "d38bae05-bb39-575d-a11f-f61cc386be20",
+  "code": "KN-FAG-03-002",
+  "name": "Fagge Town Hall",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "97e07e19-5250-5507-b32a-f8b5e47f2d0e",
+  "code": "KN-FAG-03-003",
+  "name": "Fagge Market Square",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "714f5a46-3ee3-5c90-87bd-5ef4d42eaece",
+  "code": "KN-FAG-03-004",
+  "name": "Fagge Health Centre",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "635c6874-e2aa-5119-9322-54713eb0cc89",
+  "code": "KN-FAG-03-005",
+  "name": "Fagge Community Hall",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "54e196c6-b85b-5f20-9bea-645795ad208d",
+  "code": "KN-FAG-03-006",
+  "name": "Fagge Open Ground",
+  "ward": "Ward 03",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "60814add-be51-5865-8ab7-ffbb4593712f",
+  "code": "KN-FAG-04-001",
+  "name": "Fagge Primary School",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "928d3260-6a8d-54c5-b1d6-e8e61aecc964",
+  "code": "KN-FAG-04-002",
+  "name": "Fagge Town Hall",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "f679066b-8b73-5e09-97b7-59682a4b220a",
+  "code": "KN-FAG-04-003",
+  "name": "Fagge Market Square",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "ce82a191-cea2-51b3-b0ea-feae3e9728ee",
+  "code": "KN-FAG-04-004",
+  "name": "Fagge Health Centre",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "b6b74c82-8a20-5215-abb6-3dbec9b80c2d",
+  "code": "KN-FAG-04-005",
+  "name": "Fagge Community Hall",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ },
+ {
+  "id": "79c4ee3f-704e-5fdb-9004-903c1ac2b76c",
+  "code": "KN-FAG-04-006",
+  "name": "Fagge Open Ground",
+  "ward": "Ward 04",
+  "lga": "Fagge",
+  "state": "Kano",
+  "source": "demo_synthetic"
+ }
+]
