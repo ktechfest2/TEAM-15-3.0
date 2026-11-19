@@ -180,6 +180,6 @@ insert into storage.buckets (id, name, public) values ('evidence', 'evidence', t
 on conflict (id) do nothing;
 
 create policy evidence_read on storage.objects for select to anon, authenticated using (bucket_id = 'evidence');
-create policy evidence_upload_own_folder on storage.objects for insert to authenticated
-  with check (bucket_id = 'evidence' and (storage.foldername(name))[1] = auth.uid()::text);
+-- no insert policy either: every upload goes through a server-issued signed upload URL (see /api/uploads),
+-- and object paths contain no user id because this bucket is public.
 -- deliberately no update or delete policy: stored evidence cannot be replaced or removed
