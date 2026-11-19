@@ -4,7 +4,7 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 
 ## 1. Foundations (20:20–21:30, all lanes)
 
-- [ ] 1.1 [A] Create monorepo skeleton: `apps/web`, `packages/evidence`, `packages/shared`, `database/`, `docs/`, `public/sample-result-sheets/`
+- [x] 1.1 [A] Create monorepo skeleton: `apps/web`, `packages/evidence`, `packages/shared`, `database/`, `docs/`, `public/sample-result-sheets/`
 - [ ] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
 - [x] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
 - [x] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
