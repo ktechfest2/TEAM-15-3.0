@@ -7,9 +7,12 @@ import { changedFields, parseResultFields } from "./validate";
 
 export interface ExtractionSummary {
   submission_id: string;
+  polling_unit_id: string;
+  image_url: string;
   hash_match: boolean;
   verified: boolean;
   low_confidence: boolean;
+  low_fields: string[];
   status: Status;
   fields: ResultFields;
   confidence: Record<string, number>;
@@ -23,10 +26,10 @@ async function ownSubmission(deps: Deps, user: AuthUser, id: string, allowReview
   return sub;
 }
 
-function summarise(s: LoadedSubmission, status: Status): ExtractionSummary {
+function summarise(deps: Deps, s: LoadedSubmission, status: Status): ExtractionSummary {
   return {
-    submission_id: s.sub.id, hash_match: s.sub.hash_match === true, verified: s.verified,
-    low_confidence: s.lowConfidence, status, fields: s.fields, confidence: s.extraction.confidence, checks: s.checks,
+    submission_id: s.sub.id, polling_unit_id: s.sub.polling_unit_id, image_url: deps.storage.publicUrl(s.sub.image_path), hash_match: s.sub.hash_match === true, verified: s.verified,
+    low_confidence: s.lowConfidence, low_fields: s.lowFields, status, fields: s.fields, confidence: s.extraction.confidence, checks: s.checks,
   };
 }
 
@@ -39,7 +42,7 @@ export async function runExtraction(deps: Deps, user: AuthUser, submissionId: st
   const sub = await ownSubmission(deps, user, submissionId, true);
   const unitBefore = await loadUnit(deps, sub.polling_unit_id);
   const done = unitBefore.submissions.find((s) => s.sub.id === sub.id);
-  if (done) return summarise(done, unitBefore.status);
+  if (done) return summarise(deps, done, unitBefore.status);
 
   const bytes = await deps.storage.download(sub.image_path);
   if (!bytes) throw new HttpError(409, "The photo has not been uploaded yet.");
@@ -73,7 +76,7 @@ export async function runExtraction(deps: Deps, user: AuthUser, submissionId: st
     payload: { arithmetic_ok: mine.checks.every((c) => c.ok), failed_rules: mine.checks.filter((c) => !c.ok).map((c) => c.rule) },
   });
   await recordStatus(deps, unitBefore.status, after);
-  return summarise(mine, after.status);
+  return summarise(deps, mine, after.status);
 }
 
 /**

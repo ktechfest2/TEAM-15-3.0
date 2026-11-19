@@ -1,4 +1,4 @@
-import type { AuditEvent, ResultFields } from "@voteguard/shared";
+import type { AuditEvent, ResultFields, Status } from "@voteguard/shared";
 import type { ExtractionAdapter } from "@voteguard/extraction";
 
 export type Role = "observer" | "reviewer";
@@ -50,6 +50,10 @@ export interface Db {
   lastAuditEvent(): Promise<AuditEvent | null>;
   appendAuditEvent(event: AuditEvent): Promise<void>;
   listAuditEvents(subjectIds: string[]): Promise<AuditEvent[]>;
+  /** The whole chain, oldest first. */
+  listAllAuditEvents(): Promise<AuditEvent[]>;
+  /** Stored status per unit id for units that have any activity. Units not listed are waiting for review. */
+  unitStatuses(): Promise<Record<string, Status>>;
 }
 
 export interface Storage {

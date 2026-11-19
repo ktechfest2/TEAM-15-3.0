@@ -1,0 +1,11 @@
+{
+  "Lagos|Ikeja|Ward 04": {
+    "source": "Synthetic demo figure, not real data",
+    "registered": 3120,
+    "accredited": 1860,
+    "valid": 1446,
+    "rejected": 54,
+    "cast": 1500,
+    "parties": { "Party A": 672, "Party B": 588, "Party C": 186 }
+  }
+}

@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { createExtractionAdapter } from "@voteguard/extraction";
-import type { AuditEvent } from "@voteguard/shared";
+import type { AuditEvent, Status } from "@voteguard/shared";
 import {
   ChainConflictError, type Auth, type Db, type Deps, type ExtractionRow, type ReviewRow,
   type Storage, type SubmissionRow, type UnitRow,
@@ -71,6 +71,22 @@ function makeDb(c: SupabaseClient): Db {
     async listAuditEvents(subjectIds) {
       if (subjectIds.length === 0) return [];
       return (must(await c.from("audit_events").select("*").in("subject_id", subjectIds).order("id"), "listAuditEvents") as any[]).map(auditRow);
+    },
+    async listAllAuditEvents() {
+      const out: AuditEvent[] = [];
+      for (let from = 0; ; from += 1000) {
+        const page = must(await c.from("audit_events").select("*").order("id").range(from, from + 999), "listAllAuditEvents") as any[];
+        out.push(...page.map(auditRow));
+        if (page.length < 1000) return out;
+      }
+    },
+    async unitStatuses() {
+      const out: Record<string, Status> = {};
+      const v = must(await c.from("verification_results").select("status, submissions!inner(polling_unit_id)"), "unitStatuses") as any[];
+      for (const r of v) out[r.submissions.polling_unit_id] = r.status as Status;
+      const reviews = must(await c.from("reviews").select("polling_unit_id"), "unitStatuses.reviews") as any[];
+      for (const r of reviews) out[r.polling_unit_id] = "reviewed";
+      return out;
     },
   };
 }

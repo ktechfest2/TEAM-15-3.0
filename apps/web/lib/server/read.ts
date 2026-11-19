@@ -4,15 +4,16 @@ import { loadUnit } from "./evidence";
 import { HttpError, type Deps } from "./ports";
 
 export interface UnitFilter { state?: string; lga?: string; ward?: string; q?: string }
-export interface PublicUnit { id: string; code: string; name: string; ward: string; lga: string; state: string }
+export interface PublicUnit { id: string; code: string; name: string; ward: string; lga: string; state: string; status: Status }
 
 export async function listUnits(deps: Deps, f: UnitFilter): Promise<PublicUnit[]> {
   const q = f.q?.trim().toLowerCase();
+  const statuses = await deps.db.unitStatuses();
   return (await deps.db.listUnits())
     .filter((u) => (!f.state || u.state === f.state) && (!f.lga || u.lga === f.lga) && (!f.ward || u.ward === f.ward))
     .filter((u) => !q || u.code.toLowerCase().includes(q) || u.name.toLowerCase().includes(q))
     .slice(0, 100)
-    .map(({ id, code, name, ward, lga, state }) => ({ id, code, name, ward, lga, state }));
+    .map(({ id, code, name, ward, lga, state }) => ({ id, code, name, ward, lga, state, status: statuses[id] ?? "waiting_for_review" }));
 }
 
 export interface PublicSubmission {
@@ -24,6 +25,7 @@ export interface PublicSubmission {
   fields: ResultFields;
   confidence: Record<string, number>;
   low_confidence: boolean;
+  low_fields: string[];
   verified: boolean;
   confirmed_by_observer: boolean;
   checks: ArithmeticCheck[];
@@ -35,7 +37,7 @@ export async function unitEvidence(deps: Deps, unitId: string) {
   const subs: PublicSubmission[] = u.submissions.map((s) => ({
     id: s.sub.id, sha256: s.sub.sha256_server ?? s.sub.sha256_client, hash_match: s.sub.hash_match,
     captured_at: s.sub.captured_at, image_url: deps.storage.publicUrl(s.sub.image_path),
-    fields: s.fields, confidence: s.extraction.confidence, low_confidence: s.lowConfidence,
+    fields: s.fields, confidence: s.extraction.confidence, low_confidence: s.lowConfidence, low_fields: s.lowFields,
     verified: s.verified, confirmed_by_observer: s.extraction.confirmed_values !== null, checks: s.checks,
   }));
   const timeline = (await deps.db.listAuditEvents([u.unit.id, ...u.submissions.map((s) => s.sub.id)])).map((e) => ({

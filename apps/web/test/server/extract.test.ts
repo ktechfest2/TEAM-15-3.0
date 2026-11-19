@@ -53,6 +53,7 @@ describe("runExtraction", () => {
     const id = await upload(ctx, OBSERVER_1, new Uint8Array([1, 2, 3, 4]));
     const res = await runExtraction(ctx.deps, OBSERVER_1, id);
     expect(res.low_confidence).toBe(true);
+    expect(res.low_fields.length).toBeGreaterThan(0);
     expect(res.status).toBe("needs_human_review");
     expect(Object.values(res.fields.parties).every((v) => v === null)).toBe(true);
   });

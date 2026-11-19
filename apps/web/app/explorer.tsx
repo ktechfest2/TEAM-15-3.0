@@ -1,18 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import type { Language } from "@voteguard/shared";
+import { useEffect, useMemo, useState } from "react";
+import type { Status } from "@voteguard/shared";
 import { optionsFor, searchUnits } from "../lib/units";
 import { statusCopy } from "../lib/status-copy";
-import { statusForUnit } from "../lib/demo";
+import { StatusPill } from "../components/status-pill";
+import { useApp } from "./providers";
 
 export function Explorer() {
+  const { api, prefs } = useApp();
+  const lang = prefs.lang;
   const [state, setState] = useState("");
   const [lga, setLga] = useState("");
   const [ward, setWard] = useState("");
   const [query, setQuery] = useState("");
-  const [lang, setLang] = useState<Language>("en");
+  const [statuses, setStatuses] = useState<Record<string, Status> | null>(null);
+
+  // Units are bundled so this page works offline; live statuses come from the server when reachable.
+  useEffect(() => {
+    let live = true;
+    api.units({}).then((r) => { if (live) setStatuses(Object.fromEntries(r.units.map((u) => [u.code, u.status]))); }).catch(() => { if (live) setStatuses(null); });
+    return () => { live = false; };
+  }, [api]);
 
   const opts = useMemo(() => optionsFor({ state: state || undefined, lga: lga || undefined }), [state, lga]);
   const results = useMemo(
@@ -40,21 +50,19 @@ export function Explorer() {
       <label className="field"><span>Unit code or name</span>
         <input type="search" placeholder="e.g. LA-IKJ-04-012 or Ikeja Primary" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
 
-      <div className="lang" role="group" aria-label="Language">
-        <button aria-pressed={lang === "en"} onClick={() => setLang("en")}>English</button>
-        <button aria-pressed={lang === "pcm"} onClick={() => setLang("pcm")}>Pidgin</button>
-      </div>
-      <p className="muted" role="status">{results.length} unit{results.length === 1 ? "" : "s"}{results.length > shown.length ? ` (showing ${shown.length})` : ""}</p>
+      <p className="muted" role="status">{results.length} unit{results.length === 1 ? "" : "s"}{results.length > shown.length ? ` (showing ${shown.length})` : ""}{statuses === null ? " · status unavailable right now" : ""}</p>
 
       {shown.map((u) => {
-        const c = statusCopy(statusForUnit(u.code), lang);
-        const status = statusForUnit(u.code);
+        const status = statuses?.[u.code];
         return (
           <div className="card" key={u.id}>
             <h3>{u.name} <span className="muted">· {u.code}</span></h3>
             <div className="muted">{u.ward} · {u.lga} · {u.state}</div>
-            <p style={{ margin: "6px 0" }}><span className={`pill ${status}`}>{c.icon} {c.label}</span> <span className="muted">{c.sentence}</span></p>
-            <div className="actions"><Link className="btn alt" href={`/capture?unit=${encodeURIComponent(u.code)}`}>Capture a sheet</Link></div>
+            {status && <p className="status-line"><StatusPill status={status} lang={lang} /> <span className="muted">{statusCopy(status, lang).sentence}</span></p>}
+            <div className="actions">
+              <Link className="btn small" href={`/unit/${encodeURIComponent(u.code)}`}>View evidence</Link>
+              <Link className="btn small alt" href={`/capture?unit=${encodeURIComponent(u.code)}`}>Capture a sheet</Link>
+            </div>
           </div>
         );
       })}

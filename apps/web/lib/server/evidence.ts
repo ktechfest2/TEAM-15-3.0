@@ -11,6 +11,8 @@ export interface LoadedSubmission {
   checks: ArithmeticCheck[];
   verified: boolean;
   lowConfidence: boolean;
+  /** Figures read with low confidence. Empty once the observer has confirmed the values. */
+  lowFields: string[];
   evidence: SubmissionEvidence;
 }
 
@@ -37,9 +39,10 @@ export async function loadUnit(deps: Deps, unitId: string): Promise<LoadedUnit> 
     const fields = confirmed ?? extraction.machine_values;
     const result = validateArithmetic(fields);
     const verified = result.ok && sub.hash_match !== false;
-    const lowConfidence = confirmed ? false : Object.values(extraction.confidence).some((c) => c < LOW_CONFIDENCE_THRESHOLD);
+    const lowFields = confirmed ? [] : Object.entries(extraction.confidence).filter(([, c]) => c < LOW_CONFIDENCE_THRESHOLD).map(([k]) => k);
+    const lowConfidence = lowFields.length > 0;
     submissions.push({
-      sub, extraction, fields, checks: result.checks, verified, lowConfidence,
+      sub, extraction, fields, checks: result.checks, verified, lowConfidence, lowFields,
       evidence: { submitterId: sub.submitter_id, sha256: sub.sha256_server ?? sub.sha256_client, fields, verified, lowConfidence },
     });
   }

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { CachedExtractionAdapter } from "@voteguard/extraction";
-import type { AuditEvent } from "@voteguard/shared";
+import type { AuditEvent, Status } from "@voteguard/shared";
 import {
   ChainConflictError, type Db, type Deps, type ExtractionRow, type ReviewRow,
   type Storage, type SubmissionRow, type UnitRow, type VerificationRow, type AuthUser,
@@ -69,6 +69,16 @@ export class MemoryDb implements Db {
     this.audit.push(e);
   }
   async listAuditEvents(subjectIds: string[]) { return this.audit.filter((e) => subjectIds.includes(e.subject_id)); }
+  async listAllAuditEvents() { return [...this.audit]; }
+  async unitStatuses() {
+    const out: Record<string, Status> = {};
+    for (const [subId, v] of this.verifications) {
+      const sub = this.submissions.find((x) => x.id === subId);
+      if (sub) out[sub.polling_unit_id] = v.status as Status;
+    }
+    for (const r of this.reviews) out[r.polling_unit_id] = "reviewed";
+    return out;
+  }
 }
 
 export class MemoryStorage implements Storage {

@@ -10,6 +10,12 @@ export interface QueueInput {
 export interface QueueItem extends QueueInput {
   id: string;
   status: "waiting";
+  /** Upload progress, kept so a retry resumes instead of creating a second submission. */
+  submissionId?: string;
+  path?: string;
+  token?: string;
+  uploaded?: boolean;
+  error?: string;
 }
 
 const DB = "voteguard";
@@ -56,4 +62,19 @@ export async function removeFromQueue(id: string): Promise<void> {
 
 export async function clearQueue(): Promise<void> {
   await run("readwrite", (s) => s.clear());
+}
+
+/** Merge progress into a queued item (read and write in one transaction). */
+export async function updateQueueItem(id: string, patch: Partial<Omit<QueueItem, "id" | "bytes">>): Promise<void> {
+  const db = await open();
+  await new Promise<void>((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    const store = tx.objectStore(STORE);
+    const get = store.get(id);
+    get.onsuccess = () => {
+      if (get.result) store.put({ ...get.result, ...patch });
+    };
+    tx.oncomplete = () => { db.close(); resolve(); };
+    tx.onerror = () => reject(tx.error);
+  });
 }
