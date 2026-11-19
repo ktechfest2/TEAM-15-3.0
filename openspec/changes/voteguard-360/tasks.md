@@ -22,9 +22,9 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 
 ## 3. Platform and data (A, 21:30–00:30 then 01:15–04:00)
 
-- [x] 3.1 Schema: polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
-- [x] 3.2 RLS policies per role; failing RLS tests first (public cannot read submitter ids; observer cannot create reviews)
-- [x] 3.3 Audit trigger refusing UPDATE and DELETE; revoke those privileges; server function to append chained events
+- [ ] 3.1 Schema (written in database/schema.sql, not yet applied): polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
+- [ ] 3.2 RLS policies per role; failing RLS tests first (public cannot read submitter ids; observer cannot create reviews)
+- [ ] 3.3 Audit trigger refusing UPDATE and DELETE; revoke those privileges; server function to append chained events
 - [ ] 3.4 Write-once storage bucket and signed upload URL flow
 - [ ] 3.5 Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
 - [ ] 3.6 Route handlers: `/api/uploads`, `/api/submissions/:id/extract`, `/confirm`, `/api/units`, `/api/units/:id/evidence`, `/narration`, `/api/reviews`
