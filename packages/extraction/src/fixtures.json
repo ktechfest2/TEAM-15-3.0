@@ -46,5 +46,21 @@
       "rejected": 9,
       "cast": 260
     }
+  },
+  "42f2d39b094548789e7b9dcca4185bdbe30406bd8e0a03939fc8427a3f54bbe0": {
+    "sheet": "sheet-a-second-photo",
+    "note": "Same figures as sheet A, photographed again by a second observer",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 98,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 250
+    }
   }
 }
