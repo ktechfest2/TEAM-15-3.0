@@ -25,10 +25,10 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 - [x] 3.1 Schema (database/schema.sql, applied to Supabase project voteguard-360 and verified: 7 tables, RLS on all 7): polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
 - [x] 3.2 RLS policies per role; RLS tests in database/tests/pieces (public cannot read submitter ids; observer cannot create reviews; reviewer can) pass on the live project
 - [x] 3.3 Audit trigger refusing UPDATE, DELETE and TRUNCATE; revoked privileges; server function appends chained events (tests 4 and 5 pass on the live project)
-- [ ] 3.4 Write-once storage bucket and signed upload URL flow
-- [ ] 3.5 (144 synthetic units loaded into Supabase; demo users and ward figure still to do) Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
-- [ ] 3.6 Route handlers: `/api/uploads`, `/api/submissions/:id/extract`, `/confirm`, `/api/units`, `/api/units/:id/evidence`, `/narration`, `/api/reviews`
-- [ ] 3.7 Server hash re-check wired into extract, mismatch flagged and audited
+- [x] 3.4 Write-once storage bucket and signed upload URL flow (verified live: second write to the same path is refused; paths hold no user id)
+- [ ] 3.5 (144 synthetic units and 3 demo users, 2 observers and 1 reviewer, are in Supabase; credentials in gitignored .demo-users.local; synthetic ward figure still to do) Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
+- [x] 3.6 Route handlers: `/api/uploads`, `/api/submissions/:id/extract`, `/confirm`, `/api/units`, `/api/units/:id/evidence`, `/narration`, `/api/reviews` (95 tests; deployed; authenticated round trip checked on production)
+- [x] 3.7 Server hash re-check wired into extract, mismatch flagged and audited
 
 ## 4. Extraction, content and demo (D)
 
