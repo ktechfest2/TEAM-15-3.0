@@ -36,40 +36,40 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 - [x] 4.2 Cache extraction output for the three demo sheets as fixtures; add live/cached toggle
 - [x] 4.3 Contract test for the adapter using fixtures
 - [ ] 4.4 (English + Pidgin status text done in apps/web/lib/status-copy.ts; native-speaker check pending) Easy-read status sentences in English and Pidgin; native-speaker check
-- [ ] 4.5 Drafts: `docs/problem-brief.md` (one page), system sketch SVG/PNG, `docs/writeup.md` (problem, solution, AI usage, tools), `docs/architecture.md`
-- [ ] 4.6 Demo script and sample scenario (planted altered figure)
+- [x] 4.5 Drafts: `docs/problem-brief.md` (one page), system sketch SVG/PNG, `docs/writeup.md` (problem, solution, AI usage, tools), `docs/architecture.md`
+- [x] 4.6 Demo script and sample scenario (planted altered figure)
 
 ## 5. Frontend (C, 21:30–04:00)
 
 - [x] 5.1 Mobile-first shell with persistent DEMO DATA and not-INEC banner
 - [x] 5.2 Polling unit explorer (state, LGA, ward, code or name search)
-- [x] 5.3 Capture screen with unit confirmation, on-device SHA-256, fingerprint time and offline IndexedDB queue (server upload still to wire)
-- [ ] 5.4 Extraction review screen: values, confidence flags, arithmetic checks, confirm or fix
-- [ ] 5.5 Evidence record screen: image, status, fingerprint with honest tooltip, audit timeline
-- [ ] 5.6 Comparison screen with differing field highlighted and neutral wording
-- [ ] 5.7 Public dashboard and collation roll-up
-- [ ] 5.8 Reviewer console: queue, side-by-side photos, decisions, public note
+- [x] 5.3 Capture screen with unit confirmation, on-device SHA-256, fingerprint time and offline IndexedDB queue (background upload and receipts wired)
+- [x] 5.4 Extraction review screen: values, confidence flags, arithmetic checks, confirm or fix
+- [x] 5.5 Evidence record screen: image, status, fingerprint with honest tooltip, audit timeline
+- [x] 5.6 Comparison screen with differing field highlighted and neutral wording
+- [x] 5.7 Public dashboard and collation roll-up
+- [x] 5.8 Reviewer console: queue, side-by-side photos, decisions, public note
 
 ## 6. Integration 1: walking skeleton (00:30–01:15, all)
 
-- [ ] 6.1 Wire upload, hash, store, extract, validate, evidence page end to end
-- [ ] 6.2 Gate: a sheet uploaded from a phone shows extracted fields and an arithmetic result
+- [x] 6.1 Wire upload, hash, store, extract, validate, evidence page end to end
+- [ ] 6.2 Gate: a sheet uploaded from a phone shows extracted fields and an arithmetic result (all API steps verified on production; the signed-in phone flow still needs a person to run it on a real phone)
 
 ## 7. Compare, review, audit wiring (01:15–04:00)
 
-- [ ] 7.1 [A/B] Second-submission comparison and status updates persisted
-- [ ] 7.2 [A/B] Review decisions recorded with audit events
-- [ ] 7.3 [A] Audit event appended for every step; chain verification page or check
-- [ ] 7.4 Gate: planted discrepancy flows Disputed, human review, public dashboard
+- [x] 7.1 [A/B] Second-submission comparison and status updates persisted
+- [x] 7.2 [A/B] Review decisions recorded with audit events
+- [x] 7.3 [A] Audit event appended for every step; chain verification page or check
+- [x] 7.4 Gate: planted discrepancy flows Disputed, human review, public dashboard
 
 ## 8. Offline and access layer (05:30–07:00)
 
-- [ ] 8.1 [C] PWA manifest, service worker, IndexedDB queue, "waiting to upload" state, receipt on sync
-- [ ] 8.2 [C] A2 accessibility mode: large text, high contrast, reduced motion, slow voice, screen-reader labels, keyboard use, persistence
-- [ ] 8.3 [C] A1 Listen using text-to-speech and the narration endpoint; text fallback when no voice
-- [ ] 8.4 [C/D] A3 easy-read status sentences and icons wired into every status display
+- [x] 8.1 [C] PWA manifest, service worker, IndexedDB queue, "waiting to upload" state, receipt on sync
+- [x] 8.2 [C] A2 accessibility mode: large text, high contrast, reduced motion, slow voice, screen-reader labels, keyboard use, persistence
+- [x] 8.3 [C] A1 Listen using text-to-speech and the narration endpoint; text fallback when no voice
+- [x] 8.4 [C/D] A3 easy-read status sentences and icons wired into every status display
 - [ ] 8.5 [D] 2 to 3 quick user tests; keep one quote each for the write-up
-- [ ] 8.6 Gate: full demo works on a phone in airplane mode then reconnect
+- [ ] 8.6 Gate: full demo works on a phone in airplane mode then reconnect (not yet run on a real phone)
 
 ## 9. Freeze and submit (07:00–09:00)
 
