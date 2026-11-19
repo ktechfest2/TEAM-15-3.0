@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOTE-GUARD Design Pack</title>
+<style>
+  :root {
+    --navy: #12304a; --teal: #0e8374; --mint: #92e3c5; --mint-soft: #e4f7ef;
+    --bg: #f6f9f8; --card: #ffffff; --ink: #14212b; --muted: #55656f; --line: #d7e2de;
+    --warn: #b45309; --warn-bg: #fff4e0; --bad: #b42318; --bad-bg: #fdecea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c1a24; --card: #132736; --ink: #e8f1ee; --muted: #9db2ba; --line: #24404f;
+            --mint-soft: #0f3a33; --warn-bg: #3a2a0c; --warn: #f5b85a; --bad-bg: #3d1713; --bad: #ff9a8f; --navy:#8fc3e6; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  :where(.grid, .flex) > * { min-width: 0; }
+  :where(p, h1, h2, h3, li, td, th, code) { overflow-wrap: anywhere; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 80px; }
+  header.hero { background: linear-gradient(135deg, #12304a, #0e8374); color: #fff; border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden; }
+  header.hero::after { content: ""; position: absolute; right: -60px; top: -40px; width: 220px; height: 320px; background: var(--mint); opacity: .22; border-radius: 60% 40% 60% 40%; transform: rotate(25deg); }
+  .eyebrow { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--mint); }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 8px 0 10px; }
+  .hero p { max-width: 62ch; margin: 0; opacity: .94; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  section { margin-top: 44px; }
+  h2 { font-size: 26px; margin: 0 0 6px; color: var(--navy); }
+  h2 .n { display: inline-block; background: var(--teal); color: #fff; border-radius: 8px; padding: 0 9px; margin-right: 10px; font-size: 18px; }
+  .lede { color: var(--muted); margin: 0 0 18px; max-width: 75ch; }
+  h3 { font-size: 17px; margin: 0 0 6px; }
+  .grid { display: grid; gap: 14px; }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .card p { margin: 4px 0; }
+  .callout { border-radius: 14px; padding: 16px 18px; border: 1px solid; }
+  .callout.warn { background: var(--warn-bg); border-color: var(--warn); }
+  .callout.bad { background: var(--bad-bg); border-color: var(--bad); }
+  .callout.ok { background: var(--mint-soft); border-color: var(--teal); }
+  .callout h3 { margin-bottom: 4px; }
+  .callout p { margin: 4px 0 0; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 14.5px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; letter-spacing: .04em; }
+  @media (prefers-color-scheme: dark) { th { color: #0c1a24; } }
+  td { padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  .tbl { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: var(--mint-soft); color: var(--teal); border: 1px solid var(--teal); white-space: nowrap; }
+  .tag.must { background: var(--teal); color: #fff; }
+  .tag.should { background: transparent; }
+  .tag.stretch { background: transparent; color: var(--muted); border-color: var(--muted); border-style: dashed; }
+  .bar { height: 10px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 6px 0 8px; }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--mint)); }
+  .score { display: flex; justify-content: space-between; font-weight: 700; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+  figcaption { color: var(--muted); font-size: 14px; padding: 8px 6px 2px; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { fill: var(--ink); font: 13px ui-sans-serif, system-ui, sans-serif; }
+  svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+  svg .t-b { font-weight: 700; }
+  svg .t-w { fill: #fff; font-weight: 700; }
+  svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+  svg .hi { fill: var(--teal); stroke: var(--teal); }
+  svg .soft { fill: var(--mint-soft); stroke: var(--teal); stroke-width: 1.5; }
+  svg .edge { stroke: var(--teal); stroke-width: 2; fill: none; }
+  svg .dash { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .phase { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .phase:first-of-type { border-top: 0; }
+  .hrs { font-weight: 800; color: var(--teal); font-size: 15px; }
+  .phase ul { margin: 6px 0 0; padding-left: 18px; }
+  .gate { margin-top: 8px; font-size: 14px; background: var(--mint-soft); border-left: 4px solid var(--teal); padding: 6px 10px; border-radius: 6px; }
+  @media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+  code, pre { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  code { background: var(--mint-soft); padding: 1px 5px; border-radius: 5px; }
+  pre { background: #0c1a24; color: #d6efe6; padding: 14px 16px; border-radius: 12px; overflow-x: auto; margin: 0; }
+  .states { display: flex; flex-wrap: wrap; gap: 8px; }
+  .states span { padding: 4px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); background: var(--card); }
+  fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; background: var(--card); }
+  legend { font-weight: 700; padding: 0 6px; color: var(--navy); }
+  label { display: block; padding: 5px 0; cursor: pointer; }
+  label small { color: var(--muted); display: block; margin-left: 24px; margin-top: -3px; }
+  input[type=text], select { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+  button.go { background: var(--teal); color: #fff; border: 0; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; }
+  .check li { list-style: none; margin-left: -18px; padding: 3px 0; }
+
+  nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  nav.jump a{background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:999px;color:var(--teal);font-weight:700;text-decoration:none;font-size:14px}
+  .lane{fill:var(--mint-soft);opacity:.55}.lane2{fill:var(--card)}
+  .persona{font-size:14.5px;color:var(--muted)}
+  table.sm{font-size:13px}table.sm td,table.sm th{padding:7px 9px}
+  .phone{width:100%;max-width:290px;margin:0 auto;border:6px solid #12304a;border-radius:30px;background:var(--bg);overflow:hidden}
+  .pbar{background:#12304a;color:#fff;font-weight:800;font-size:13px;padding:9px 12px;text-align:center}
+  .demo{background:#fff4e0;color:#8a4b08;font-size:10.5px;font-weight:700;text-align:center;padding:3px 6px}
+  .screen{padding:10px 12px 12px;font-size:12.5px;line-height:1.4}
+  .screen .mut,.mut{color:var(--muted);font-size:11.5px}
+  .field{display:flex;gap:8px;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 10px;margin:6px 0}
+  .field .ph,.ph{color:var(--muted);font-weight:400}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:8px 0}
+  .mcard.small{font-size:11.5px}
+  .pill{display:inline-block;border-radius:999px;padding:0 8px;font-size:11px;font-weight:800}
+  .pill.ok{background:var(--teal);color:#fff}.pill.bad{background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad)}
+  .pill.warn{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn)}.pill.mute{background:var(--line);color:var(--muted)}
+  .btn{display:block;text-align:center;background:var(--teal);color:#fff;border-radius:10px;padding:9px;font-weight:800;margin:8px 0}
+  .btn.alt{background:transparent;color:var(--teal);border:2px solid var(--teal)}.btn.lg{font-size:16px;padding:14px}.btn.sm{display:inline-block;padding:6px 10px;font-size:11.5px;margin:6px 4px 0 0}
+  .nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);margin:10px -12px -12px;padding:8px 4px;background:var(--card);font-size:11px;font-weight:700;color:var(--muted)}
+  .nav .on{color:var(--teal)}
+  .cam{background:#0c1a24;border-radius:10px;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#9db2ba;font-size:11px;margin:8px 0}
+  .cam .frame{width:70%;height:62%;border:2px dashed var(--mint);border-radius:6px}
+  .chipline{margin:4px 0}
+  .kv{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--line)}.kv.low{background:var(--warn-bg);margin:0 -6px;padding:5px 6px}
+  .ck{color:var(--teal);font-weight:800}
+  .sheet{background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px;margin:6px 0}
+  .sheet i{display:block;height:6px;background:#cfd8d4;border-radius:3px;margin:6px 0}.sheet i:nth-child(odd){width:70%}
+  .tip{font-size:10.5px;color:var(--muted);margin-top:4px;border-top:1px dashed var(--line);padding-top:4px}
+  .tl div{padding:3px 0 3px 10px;border-left:3px solid var(--teal);margin-left:4px;font-size:11.5px}
+  .cmp{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:4px;padding:5px 6px;border-bottom:1px solid var(--line);font-size:12.5px}.cmp .h{font-size:11px;font-weight:800;color:var(--muted)}
+  .cmp.diff{background:var(--warn-bg);border-radius:6px}
+  .phone.big .screen{font-size:14px}.bigt{font-size:19px;font-weight:800;margin:10px 0 4px}
+  .phone .lang{display:flex;gap:4px;flex-wrap:wrap}.phone .lang span{border:1px solid var(--teal);border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700;color:var(--teal)}.phone .lang .on{background:var(--teal);color:#fff}
+  .tog{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+  .cap{font-size:13px;color:var(--muted);text-align:center;margin:10px 4px 0}
+  .desk{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+  .dbar{background:#12304a;color:#fff;padding:8px 12px;display:flex;gap:6px;align-items:center;font-size:12px;font-weight:700}.dbar i{width:9px;height:9px;border-radius:50%;background:#92e3c5;opacity:.7}.dbar span{margin-left:8px}
+  .dbody{padding:12px;font-size:12.5px}.dbody.two{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.stats div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px;text-align:center}.stats b{display:block;font-size:20px;color:var(--teal)}.stats span{font-size:11px;color:var(--muted)}
+  .queue .q{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;margin-bottom:6px;font-size:11.5px}.queue .q.on{border:2px solid var(--teal)}
+  .sbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <div class="eyebrow">VOTE-GUARD 360 · Design pack</div>
+  <h1>Screens, journeys and architecture</h1>
+  <p>How it looks, who uses it and how the pieces fit, before we write a proposal. Everything here is a design, not code. All data in the mock-ups is synthetic.</p>
+  <div class="chips"><span class="chip">4 user journeys</span><span class="chip">8 screens</span><span class="chip">6 architecture views</span></div>
+</header>
+
+<nav class="jump">
+  <a href="#journeys">1 · Journeys</a><a href="#screens">2 · Screens</a><a href="#arch">3 · Architecture</a><a href="#data">4 · Data &amp; access</a><a href="#tests">5 · Modules &amp; tests</a>
+</nav>
+
+<!-- ============ JOURNEYS ============ -->
+<section id="journeys">
+  <h2><span class="n">1</span>User journeys</h2>
+  <p class="lede">Four people use the product. The swimlane shows how their actions connect; the tables below give each person's journey step by step, with the pain we are solving.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 340" role="img" aria-labelledby="sw-t">
+      <title id="sw-t">Swimlane: from photographing a result sheet to a public status</title>
+      <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#0e8374"/></marker></defs>
+      <rect class="lane" x="0" y="8" width="960" height="82" rx="8"/><rect class="lane2" x="0" y="90" width="960" height="82" rx="0"/><rect class="lane" x="0" y="172" width="960" height="82" rx="0"/><rect class="lane2" x="0" y="254" width="960" height="82" rx="8"/>
+      <text class="t-b" x="12" y="54">Observer</text><text class="t-sm" x="12" y="70">Chidi</text>
+      <text class="t-b" x="12" y="136">The app</text>
+      <text class="t-b" x="12" y="218">Reviewer</text><text class="t-sm" x="12" y="234">Tunde</text>
+      <text class="t-b" x="12" y="300">Public</text><text class="t-sm" x="12" y="316">Amaka, Ngozi</text>
+
+      <rect class="soft" x="95" y="29" width="96" height="40" rx="8"/><text x="143" y="46" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Photograph</text><text x="143" y="60" text-anchor="middle" class="t-sm" style="fill:var(--ink)">the sheet</text>
+      <rect class="soft" x="200" y="111" width="96" height="40" rx="8"/><text x="248" y="128" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Hash on</text><text x="248" y="142" text-anchor="middle" class="t-sm" style="fill:var(--ink)">the phone</text>
+      <rect class="soft" x="305" y="111" width="96" height="40" rx="8"/><text x="353" y="128" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Sync and</text><text x="353" y="142" text-anchor="middle" class="t-sm" style="fill:var(--ink)">store</text>
+      <rect class="soft" x="410" y="111" width="96" height="40" rx="8"/><text x="458" y="128" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Read and</text><text x="458" y="142" text-anchor="middle" class="t-sm" style="fill:var(--ink)">check sums</text>
+      <rect class="soft" x="515" y="29" width="96" height="40" rx="8"/><text x="563" y="46" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Confirm</text><text x="563" y="60" text-anchor="middle" class="t-sm" style="fill:var(--ink)">values</text>
+      <rect class="soft" x="620" y="111" width="96" height="40" rx="8"/><text x="668" y="128" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Compare</text><text x="668" y="142" text-anchor="middle" class="t-sm" style="fill:var(--ink)">submissions</text>
+      <rect class="soft" x="725" y="193" width="96" height="40" rx="8"/><text x="773" y="210" text-anchor="middle" class="t-sm" style="fill:var(--ink)">Decide on</text><text x="773" y="224" text-anchor="middle" class="t-sm" style="fill:var(--ink)">a dispute</text>
+      <rect class="hi" x="830" y="275" width="96" height="40" rx="8"/><text x="878" y="292" text-anchor="middle" class="t-sm" style="fill:#fff;font-weight:700">View and</text><text x="878" y="306" text-anchor="middle" class="t-sm" style="fill:#fff;font-weight:700">Listen</text>
+
+      <path class="edge" marker-end="url(#ah)" d="M191 49 H196 V131 H200"/>
+      <path class="edge" marker-end="url(#ah)" d="M296 131 H305"/>
+      <path class="edge" marker-end="url(#ah)" d="M401 131 H410"/>
+      <path class="edge" marker-end="url(#ah)" d="M506 131 H510 V49 H515"/>
+      <path class="edge" marker-end="url(#ah)" d="M611 49 H616 V131 H620"/>
+      <path class="edge" marker-end="url(#ah)" d="M716 131 H721 V213 H725"/>
+      <path class="edge" marker-end="url(#ah)" d="M821 213 H826 V295 H830"/>
+      <path class="dash" marker-end="url(#ah)" d="M668 151 V295 H830"/>
+      <text class="t-sm" x="560" y="250">Status is public as soon as a comparison exists, review or not</text>
+    </svg>
+    <figcaption>Offline is the path where "Hash on the phone" finishes while "Sync and store" waits for signal. The fingerprint was taken at capture time, which is the whole point.</figcaption>
+  </figure>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <h3>Chidi · accredited observer</h3>
+      <p class="persona">29, cracked Android phone, patchy 3G at the ward centre. <b>Wants:</b> to preserve the sheet fast and be sure it was received.</p>
+      <div class="tbl"><table class="sm"><tr><th>Step</th><th>The app shows</th><th>Pain solved</th></tr>
+        <tr><td>1 Find the unit</td><td>Search by code or name; "DEMO DATA" banner</td><td>Uploading against the wrong polling unit</td></tr>
+        <tr><td>2 Photograph</td><td>Guide frame, offline chip, fingerprint time</td><td>No signal means no evidence. Not here.</td></tr>
+        <tr><td>3 Check the read</td><td>Each number with confidence, sums checked</td><td>OCR mistakes. He confirms; both versions are kept</td></tr>
+        <tr><td>4 Sync</td><td>"Waiting" turns into a receipt with the fingerprint</td><td>Fear the photo got lost</td></tr></table></div>
+    </div>
+    <div class="card">
+      <h3>Amaka · voter</h3>
+      <p class="persona">52, small-screen phone, finds print hard to read, prefers Pidgin. <b>Wants:</b> to know whether the sheet on the wall matches.</p>
+      <div class="tbl"><table class="sm"><tr><th>Step</th><th>The app shows</th><th>Pain solved</th></tr>
+        <tr><td>1 Open the link</td><td>Light page, low-data mode, large text on</td><td>Slow data, tiny print</td></tr>
+        <tr><td>2 Find her unit</td><td>Pick state, LGA, ward in three taps</td><td>Typing long codes</td></tr>
+        <tr><td>3 Read status</td><td>One sentence and an icon, English or Pidgin</td><td>Jargon like "corroborated"</td></tr>
+        <tr><td>4 Listen</td><td>Numbers and status read aloud</td><td>Can't read the sheet or the screen</td></tr></table></div>
+    </div>
+    <div class="card">
+      <h3>Ngozi · journalist or civic analyst</h3>
+      <p class="persona">34, laptop, needs to cite evidence without making accusations. <b>Wants:</b> to find units that need a second look.</p>
+      <div class="tbl"><table class="sm"><tr><th>Step</th><th>The app shows</th><th>Pain solved</th></tr>
+        <tr><td>1 Filter</td><td>Ward roll-up by status</td><td>Hunting through photos in chat groups</td></tr>
+        <tr><td>2 Open a dispute</td><td>Both photos and a field-by-field diff</td><td>Guessing what differs</td></tr>
+        <tr><td>3 Check provenance</td><td>Audit history, fingerprints, source type</td><td>Photos with no origin</td></tr>
+        <tr><td>4 Share</td><td>Permalink with the "what a hash proves" caveat</td><td>Overclaiming in a story</td></tr></table></div>
+    </div>
+    <div class="card">
+      <h3>Tunde · reviewer</h3>
+      <p class="persona">41, trained volunteer at a civic group, desktop. <b>Wants:</b> to resolve disputes fairly and visibly.</p>
+      <div class="tbl"><table class="sm"><tr><th>Step</th><th>The app shows</th><th>Pain solved</th></tr>
+        <tr><td>1 Open the queue</td><td>Disputes and low-confidence reads first</td><td>No way to prioritise</td></tr>
+        <tr><td>2 Compare</td><td>Photos side by side with the differing field marked</td><td>Squinting at separate images</td></tr>
+        <tr><td>3 Decide</td><td>"Photo matches 1 / 2", "Request new photo", "Leave open", plus a note</td><td>Silent edits</td></tr>
+        <tr><td>4 Publish</td><td>Decision appended to the audit chain</td><td>Trust in the reviewer</td></tr></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENS ============ -->
+<section id="screens">
+  <h2><span class="n">2</span>The screens</h2>
+  <p class="lede">Mobile-first. Six phone screens, then the two desktop views. Navy and teal match the StrongBridge brand; nothing here is an INEC look-alike on purpose.</p>
+
+  <div class="grid g3">
+    <div><div class="phone"><div class="pbar">VOTE-GUARD 360</div><div class="demo">DEMO DATA · independent evidence layer, not INEC</div><div class="screen">
+      <b>Find a polling unit</b>
+      <div class="field"><span>State</span><b>Lagos ▾</b></div><div class="field"><span>LGA</span><b>Ikeja ▾</b></div><div class="field"><span>Ward</span><b>Ward 04 ▾</b></div>
+      <div class="field"><span>🔍</span><b class="ph">Unit code or name</b></div>
+      <div class="mcard"><b>PU 012</b> · Ikeja Primary School<br><span class="pill bad">Disputed</span> <span class="mut">2 submissions</span></div>
+      <div class="mcard"><b>PU 013</b> · Town Hall<br><span class="pill ok">Two people agree</span></div>
+      <div class="mcard"><b>PU 014</b> · Market Square<br><span class="pill mute">Waiting for review</span></div>
+      <div class="nav"><span class="on">Explore</span><span>Capture</span><span>Review</span><span>Aa</span></div></div></div>
+      <p class="cap"><b>S1 · Explorer.</b> The entry point for everyone. Status pills use plain words, not jargon.</p></div>
+
+    <div><div class="phone"><div class="pbar">Capture result sheet</div><div class="screen">
+      <div class="mcard"><b>PU 012</b> · Ikeja Primary School<br><span class="mut">Ward 04 · Ikeja · Lagos</span></div>
+      <div class="cam"><div class="frame"></div><span>Fit the whole sheet in the frame</span></div>
+      <div class="chipline"><span class="pill warn">● Offline</span> <span class="mut">saved on this phone</span></div>
+      <div class="mcard small">Fingerprint taken <b>14:32:07</b><br><code>9f2c…a41b</code></div>
+      <div class="btn">Save evidence</div>
+      <div class="mut" style="text-align:center">1 waiting to upload</div></div></div>
+      <p class="cap"><b>S2 · Capture.</b> Works with no signal. The fingerprint is made on the phone at this moment.</p></div>
+
+    <div><div class="phone"><div class="pbar">Check what we read</div><div class="screen">
+      <div class="mut">Machine-assisted. Please compare with the photo.</div>
+      <div class="kv"><span>Registered voters</span><b>520</b></div>
+      <div class="kv"><span>Accredited</span><b>310</b></div>
+      <div class="kv"><span>Party A</span><b>112</b></div>
+      <div class="kv"><span>Party B</span><b>98</b></div>
+      <div class="kv low"><span>Party C</span><b>31 <span class="pill warn">check</span></b></div>
+      <div class="kv"><span>Valid / Rejected</span><b>241 / 9</b></div>
+      <div class="mcard small"><span class="ck">✓</span> Parties add up to valid<br><span class="ck">✓</span> Valid + rejected = 250 cast<br><span class="ck">✓</span> Cast is not above accredited</div>
+      <div class="btn">Confirm what I see</div><div class="btn alt">Fix a number</div></div></div>
+      <p class="cap"><b>S3 · Check the read.</b> Low-confidence values are flagged. A fix is stored next to the machine value, never over it.</p></div>
+
+    <div><div class="phone"><div class="pbar">PU 012 · evidence</div><div class="screen">
+      <div class="sheet"><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="pill ok">Two people agree</span> <span class="mut">Numbers add up</span>
+      <div class="mcard small"><b>Fingerprint</b> ⓘ<br><code>SHA-256 9f2c…a41b</code><div class="tip">This shows the file has not changed since capture. It does not prove the document was genuine.</div></div>
+      <div class="tl"><div><b>14:32</b> Captured on phone</div><div><b>14:41</b> Received</div><div><b>14:42</b> Read and checked</div><div><b>15:10</b> Second photo agrees</div></div>
+      <div class="btn">▶ Listen</div></div></div>
+      <p class="cap"><b>S4 · Evidence record.</b> The photo, status, fingerprint with its honest caveat, and the history.</p></div>
+
+    <div><div class="phone"><div class="pbar">Compare submissions</div><div class="screen">
+      <span class="pill bad">Disputed</span>
+      <div class="cmp"><div class="h"></div><div class="h">Photo 1</div><div class="h">Photo 2</div></div>
+      <div class="cmp"><span>Party A</span><b>112</b><b>112</b></div>
+      <div class="cmp diff"><span>Party B</span><b>98</b><b>89</b></div>
+      <div class="cmp"><span>Party C</span><b>31</b><b>31</b></div>
+      <div class="mcard small">Party B differs between the two photos. This is a reason to look closely. It is not proof of a problem.</div>
+      <div class="btn">Send to human review</div></div></div>
+      <p class="cap"><b>S5 · Compare.</b> Neutral wording. The differing field is the only thing highlighted.</p></div>
+
+    <div><div class="phone big"><div class="pbar">Listen</div><div class="screen">
+      <div class="lang"><span class="on">English</span><span>Pidgin</span><span>Hausa</span><span>Yorùbá</span><span>Igbo</span></div>
+      <p class="bigt">Ward 04, Unit 012</p>
+      <div class="kv"><span>Party A</span><b>112</b></div><div class="kv"><span>Party B</span><b>98</b></div><div class="kv"><span>Party C</span><b>31</b></div>
+      <div class="btn lg">▶ Listen to this sheet</div>
+      <div class="mcard small">"Party A, one hundred and twelve. Party B, ninety-eight. Party C, thirty-one. Two people agree. The numbers add up."</div>
+      <div class="tog"><span>Large text</span><b>On</b></div><div class="tog"><span>High contrast</span><b>Off</b></div><div class="tog"><span>Slow voice</span><b>Off</b></div></div></div>
+      <p class="cap"><b>S6 · Listen + access mode.</b> The reading is built from verified fields and status, so it never says more than the evidence.</p></div>
+  </div>
+
+  <h3 style="margin:26px 0 8px">Desktop views</h3>
+  <div class="grid g2">
+    <div><div class="desk"><div class="dbar"><i></i><i></i><i></i><span>Ward 04 · roll-up</span></div><div class="dbody">
+      <div class="stats"><div><b>14</b><span>units</span></div><div><b>9</b><span>agree</span></div><div><b>2</b><span>disputed</span></div><div><b>3</b><span>waiting</span></div></div>
+      <div class="tbl"><table class="sm"><tr><th>Unit</th><th>Photos</th><th>Published (demo)</th><th>Matches?</th><th>Status</th></tr>
+        <tr><td>012</td><td>2</td><td>B = 89</td><td>No</td><td><span class="pill bad">Disputed</span></td></tr>
+        <tr><td>013</td><td>2</td><td>A = 140</td><td>Yes</td><td><span class="pill ok">Agree</span></td></tr>
+        <tr><td>014</td><td>1</td><td>none yet</td><td>n/a</td><td><span class="pill mute">Waiting</span></td></tr></table></div>
+      <div class="mut" style="margin-top:6px">A mismatch means a person should take a look. This is not an official collation.</div></div></div>
+      <p class="cap"><b>S7 · Public dashboard and collation tracker.</b> Unit to ward, evidence held against the (synthetic) published figure.</p></div>
+
+    <div><div class="desk"><div class="dbar"><i></i><i></i><i></i><span>Reviewer console</span></div><div class="dbody two">
+      <div class="queue"><div class="q on"><b>PU 012</b><br><span class="pill bad">Disputed</span></div><div class="q"><b>PU 031</b><br><span class="pill warn">Low confidence</span></div><div class="q"><b>PU 044</b><br><span class="pill warn">Sums fail</span></div></div>
+      <div><div class="sbs"><div class="sheet"><i></i><i></i><i></i><i></i></div><div class="sheet"><i></i><i></i><i></i><i></i></div></div>
+        <div class="cmp diff"><span>Party B</span><b>98</b><b>89</b></div>
+        <div class="btn sm">Photo matches 1</div><div class="btn sm">Photo matches 2</div><div class="btn alt sm">Request new photo</div>
+        <div class="field"><span>Note</span><b class="ph">Reason for decision (public)</b></div></div></div></div>
+      <p class="cap"><b>S8 · Reviewer console.</b> Decisions are notes plus an audit event. Nobody edits a number silently.</p></div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section id="arch">
+  <h2><span class="n">3</span>Architecture</h2>
+  <p class="lede">One Next.js app on Vercel, one Supabase project, one external AI call. The evidence code is a single shared package so the phone and the server agree on every hash and every check.</p>
+
+  <h3>3a · Components</h3>
+  <figure>
+    <svg viewBox="0 0 960 380" role="img" aria-labelledby="c-t">
+      <title id="c-t">Component diagram</title>
+      <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#0e8374"/></marker></defs>
+      <rect class="box" x="10" y="40" width="190" height="130" rx="12"/><text class="t-b" x="105" y="62" text-anchor="middle">Phone (PWA)</text>
+      <rect class="soft" x="24" y="74" width="162" height="38" rx="8"/><text x="105" y="98" text-anchor="middle">SHA-256 (Web Crypto)</text>
+      <rect class="soft" x="24" y="120" width="162" height="38" rx="8"/><text x="105" y="140" text-anchor="middle">Service worker +</text><text x="105" y="153" text-anchor="middle" class="t-sm">IndexedDB queue</text>
+      <rect class="box" x="10" y="200" width="190" height="86" rx="12"/><text class="t-b" x="105" y="222" text-anchor="middle">Browser</text>
+      <rect class="soft" x="24" y="232" width="162" height="40" rx="8"/><text x="105" y="256" text-anchor="middle">Dashboard · Reviewer</text>
+
+      <rect class="box" x="270" y="40" width="230" height="246" rx="12"/><text class="t-b" x="385" y="62" text-anchor="middle">Next.js on Vercel</text>
+      <rect class="soft" x="284" y="74" width="202" height="46" rx="8"/><text x="385" y="102" text-anchor="middle">App Router pages</text>
+      <rect class="soft" x="284" y="130" width="202" height="76" rx="8"/><text x="385" y="154" text-anchor="middle">API route handlers</text><text class="t-sm" x="385" y="172" text-anchor="middle">uploads · extract · compare</text><text class="t-sm" x="385" y="188" text-anchor="middle">review · narrate</text>
+      <rect class="soft" x="284" y="216" width="202" height="56" rx="8"/><text x="385" y="240" text-anchor="middle">Server hash re-check</text><text class="t-sm" x="385" y="258" text-anchor="middle">+ validators + comparator</text>
+
+      <rect class="box" x="580" y="40" width="190" height="246" rx="12"/><text class="t-b" x="675" y="62" text-anchor="middle">Supabase</text>
+      <rect class="soft" x="594" y="74" width="162" height="42" rx="8"/><text x="675" y="99" text-anchor="middle">Auth + roles</text>
+      <rect class="soft" x="594" y="124" width="162" height="48" rx="8"/><text x="675" y="146" text-anchor="middle">Storage</text><text class="t-sm" x="675" y="162" text-anchor="middle">write-once images</text>
+      <rect class="soft" x="594" y="180" width="162" height="48" rx="8"/><text x="675" y="202" text-anchor="middle">Postgres + RLS</text><text class="t-sm" x="675" y="218" text-anchor="middle">policy per role</text>
+      <rect class="soft" x="594" y="236" width="162" height="40" rx="8"/><text x="675" y="260" text-anchor="middle">Audit chain trigger</text>
+
+      <rect class="box" x="830" y="100" width="120" height="96" rx="12"/><text class="t-b" x="890" y="130" text-anchor="middle">Claude</text><text x="890" y="150" text-anchor="middle">vision</text><text class="t-sm" x="890" y="170" text-anchor="middle">fields as JSON</text>
+      <rect class="hi" x="10" y="312" width="940" height="52" rx="10"/><text class="t-w" x="480" y="334" text-anchor="middle">packages/evidence + packages/shared</text><text class="t-w" x="480" y="352" text-anchor="middle" style="font-weight:400">The same hash, validator and comparator code runs on the phone and on the server</text>
+
+      <path class="edge" marker-end="url(#ah2)" d="M200 105 H270"/><path class="edge" marker-end="url(#ah2)" d="M200 243 H270"/>
+      <path class="edge" marker-end="url(#ah2)" d="M500 150 H580"/><path class="edge" marker-end="url(#ah2)" d="M500 205 H580"/>
+      <path class="edge" marker-end="url(#ah2)" d="M385 40 V20 H890 V100"/><text class="t-sm" x="640" y="14" text-anchor="middle">server-side call, API key never reaches the phone</text>
+      <path class="dash" d="M105 170 V200"/>
+    </svg>
+    <figcaption>Secrets stay server-side: the Anthropic key and the Supabase service key live only in Vercel environment variables.</figcaption>
+  </figure>
+
+  <h3 style="margin-top:22px">3b · Upload sequence</h3>
+  <figure>
+    <svg viewBox="0 0 960 430" role="img" aria-labelledby="s-t">
+      <title id="s-t">Sequence of an evidence upload</title>
+      <defs><marker id="ah3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#0e8374"/></marker></defs>
+      <g class="t-b">
+        <rect class="soft" x="20" y="8" width="100" height="32" rx="8"/><text x="70" y="29" text-anchor="middle">Phone PWA</text>
+        <rect class="soft" x="220" y="8" width="100" height="32" rx="8"/><text x="270" y="29" text-anchor="middle">Next.js API</text>
+        <rect class="soft" x="420" y="8" width="100" height="32" rx="8"/><text x="470" y="29" text-anchor="middle">Storage</text>
+        <rect class="soft" x="600" y="8" width="100" height="32" rx="8"/><text x="650" y="29" text-anchor="middle">Postgres</text>
+        <rect class="soft" x="800" y="8" width="100" height="32" rx="8"/><text x="850" y="29" text-anchor="middle">Claude</text>
+      </g>
+      <path class="dash" d="M70 40 V420"/><path class="dash" d="M270 40 V420"/><path class="dash" d="M470 40 V420"/><path class="dash" d="M650 40 V420"/><path class="dash" d="M850 40 V420"/>
+      <rect x="82" y="62" width="130" height="24" rx="6" class="soft"/><text class="t-sm" x="147" y="78" text-anchor="middle" style="fill:var(--ink)">hash the file now</text>
+      <path class="edge" marker-end="url(#ah3)" d="M70 118 H268"/><text class="t-sm" x="170" y="111" text-anchor="middle">request upload (unit, hash)</text>
+      <path class="edge" marker-end="url(#ah3)" d="M270 154 H648"/><text class="t-sm" x="460" y="147" text-anchor="middle">save submission + audit event</text>
+      <path class="edge" marker-end="url(#ah3)" d="M268 190 H72"/><text class="t-sm" x="170" y="183" text-anchor="middle">signed upload URL</text>
+      <path class="edge" marker-end="url(#ah3)" d="M70 226 H468"/><text class="t-sm" x="270" y="219" text-anchor="middle">PUT image (write-once)</text>
+      <path class="edge" marker-end="url(#ah3)" d="M270 262 H468"/><text class="t-sm" x="370" y="255" text-anchor="middle">re-read, recompute hash</text>
+      <path class="edge" marker-end="url(#ah3)" d="M270 298 H848"/><text class="t-sm" x="560" y="291" text-anchor="middle">extract fields (image)</text>
+      <path class="edge" marker-end="url(#ah3)" d="M270 334 H648"/><text class="t-sm" x="460" y="327" text-anchor="middle">save fields, checks, status + audit</text>
+      <path class="dash" marker-end="url(#ah3)" d="M268 380 H72"/><text class="t-sm" x="170" y="373" text-anchor="middle">receipt: fingerprint + status</text>
+      <text class="t-sm" x="290" y="410">If the two hashes differ, the submission is flagged and the audit chain records it.</text>
+    </svg>
+    <figcaption>Offline, the first step still happens. Everything after it waits in the queue and replays when signal returns.</figcaption>
+  </figure>
+
+  <h3 style="margin-top:22px">3c · How a status is decided</h3>
+  <figure>
+    <svg viewBox="0 0 960 250" role="img" aria-labelledby="st-t">
+      <title id="st-t">Status state machine</title>
+      <defs><marker id="ah4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#0e8374"/></marker></defs>
+      <rect class="box" x="10" y="95" width="120" height="44" rx="10"/><text x="70" y="122" text-anchor="middle">Submitted</text>
+      <rect class="box" x="210" y="95" width="130" height="44" rx="10"/><text x="275" y="122" text-anchor="middle">Read + checked</text>
+      <rect class="soft" x="400" y="25" width="160" height="44" rx="10"/><text x="480" y="52" text-anchor="middle">Waiting for review</text>
+      <rect class="soft" x="400" y="165" width="160" height="44" rx="10"/><text x="480" y="192" text-anchor="middle">Needs human review</text>
+      <rect class="hi" x="640" y="5" width="150" height="44" rx="10"/><text class="t-w" x="715" y="32" text-anchor="middle">Two people agree</text>
+      <rect class="soft" x="640" y="85" width="150" height="44" rx="10" style="stroke:var(--bad)"/><text x="715" y="112" text-anchor="middle">Disputed</text>
+      <rect class="box" x="820" y="125" width="130" height="44" rx="10"/><text x="885" y="152" text-anchor="middle">Reviewed</text>
+      <path class="edge" marker-end="url(#ah4)" d="M130 117 H210"/><text class="t-sm" x="170" y="109" text-anchor="middle">read</text>
+      <path class="edge" marker-end="url(#ah4)" d="M340 117 H370 V47 H400"/><text class="t-sm" x="372" y="85" text-anchor="end">passes</text>
+      <path class="edge" marker-end="url(#ah4)" d="M340 117 H370 V187 H400"/><text class="t-sm" x="372" y="155" text-anchor="end">fails / unsure</text>
+      <path class="edge" marker-end="url(#ah4)" d="M560 47 H600 V27 H640"/><text class="t-sm" x="600" y="17" text-anchor="middle">2nd agrees</text>
+      <path class="edge" marker-end="url(#ah4)" d="M560 47 H600 V107 H640"/><text class="t-sm" x="604" y="80" text-anchor="start">2nd differs</text>
+      <path class="edge" marker-end="url(#ah4)" d="M790 107 H805 V147 H820"/>
+      <path class="edge" marker-end="url(#ah4)" d="M560 187 H820"/><text class="t-sm" x="690" y="180" text-anchor="middle">a reviewer decides</text>
+      <text class="t-sm" x="10" y="238">No state means "fraud" or "winner". Every arrow writes an audit event.</text>
+    </svg>
+    <figcaption>"Two people agree" needs two different people. The same file hash from two senders counts as one photo, not as agreement.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ DATA & ACCESS ============ -->
+<section id="data">
+  <h2><span class="n">4</span>Data and access</h2>
+  <figure>
+    <svg viewBox="0 0 960 340" role="img" aria-labelledby="e-t">
+      <title id="e-t">Data model</title>
+      <rect class="box" x="10" y="10" width="210" height="112" rx="10"/><text class="t-b" x="22" y="30">polling_units</text><text class="t-sm" x="22" y="50">id · code · name</text><text class="t-sm" x="22" y="66">ward · lga · state</text><text class="t-sm" x="22" y="82">source: demo_synthetic</text>
+      <rect class="box" x="300" y="10" width="250" height="150" rx="10"/><text class="t-b" x="312" y="30">submissions</text><text class="t-sm" x="312" y="50">id · polling_unit_id · submitter_id</text><text class="t-sm" x="312" y="66">source_type · image_path</text><text class="t-sm" x="312" y="82">sha256_client · sha256_server</text><text class="t-sm" x="312" y="98">captured_at · received_at</text><text class="t-sm" x="312" y="114">image_hash_match (true / false)</text>
+      <rect class="box" x="650" y="10" width="200" height="82" rx="10"/><text class="t-b" x="662" y="30">profiles</text><text class="t-sm" x="662" y="50">id · role · org</text><text class="t-sm" x="662" y="66">public | observer | reviewer</text>
+      <rect class="box" x="10" y="190" width="210" height="92" rx="10"/><text class="t-b" x="22" y="210">verification_results</text><text class="t-sm" x="22" y="230">submission_id</text><text class="t-sm" x="22" y="246">checks · status</text>
+      <rect class="box" x="300" y="190" width="250" height="106" rx="10"/><text class="t-b" x="312" y="210">extractions</text><text class="t-sm" x="312" y="230">submission_id</text><text class="t-sm" x="312" y="246">machine_values · confidence</text><text class="t-sm" x="312" y="262">confirmed_values (kept apart)</text>
+      <rect class="box" x="650" y="130" width="200" height="92" rx="10"/><text class="t-b" x="662" y="150">reviews</text><text class="t-sm" x="662" y="170">polling_unit_id · reviewer_id</text><text class="t-sm" x="662" y="186">decision · public note</text>
+      <rect class="hi" x="650" y="246" width="200" height="82" rx="10"/><text class="t-w" x="662" y="266">audit_events</text><text class="t-w" x="662" y="286" style="font-weight:400;font-size:11.5px">id · type · subject_id · payload</text><text class="t-w" x="662" y="304" style="font-weight:400;font-size:11.5px">prev_hash · hash · created_at</text>
+      <path class="edge" d="M220 66 H300"/><text class="t-sm" x="260" y="58" text-anchor="middle">1:N</text>
+      <path class="edge" d="M650 50 H550"/><text class="t-sm" x="600" y="42" text-anchor="middle">1:N</text>
+      <path class="edge" d="M425 160 V190"/><text class="t-sm" x="436" y="180">1:N</text>
+      <path class="edge" d="M110 190 V172 H300"/><text class="t-sm" x="205" y="166" text-anchor="middle">1:1</text>
+      <path class="edge" d="M650 176 H600 V110 H550"/>
+      <path class="dash" d="M750 222 V246"/><text class="t-sm" x="762" y="238">refers to any row</text>
+    </svg>
+    <figcaption>Nothing important is edited in place. Machine reads, human confirmations, reviews and audit events are all separate, append-only records.</figcaption>
+  </figure>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div><h3>Who can do what</h3><div class="tbl"><table class="sm">
+      <tr><th>Data</th><th>Public</th><th>Observer</th><th>Reviewer</th></tr>
+      <tr><td>Submissions</td><td>Read, with submitter hidden</td><td>Add; read own</td><td>Read all</td></tr>
+      <tr><td>Images</td><td>Read</td><td>Upload by signed URL only</td><td>Read</td></tr>
+      <tr><td>Extractions</td><td>Read</td><td>Confirm own</td><td>Read</td></tr>
+      <tr><td>Reviews</td><td>Read</td><td>None</td><td>Add</td></tr>
+      <tr><td>Audit events</td><td>Read</td><td>None</td><td>None</td></tr></table></div>
+      <p class="mut" style="font-size:14px">Audit events are written by a server function only; UPDATE and DELETE are revoked for every role, and a trigger refuses them as well.</p></div>
+    <div><h3>API surface</h3><div class="tbl"><table class="sm">
+      <tr><th>Route</th><th>Purpose</th></tr>
+      <tr><td><code>POST /api/uploads</code></td><td>Create submission, return signed URL</td></tr>
+      <tr><td><code>POST /api/submissions/:id/extract</code></td><td>Verify hash, call Claude, validate</td></tr>
+      <tr><td><code>POST /api/submissions/:id/confirm</code></td><td>Store observer's confirmed values</td></tr>
+      <tr><td><code>GET /api/units</code></td><td>Explorer search</td></tr>
+      <tr><td><code>GET /api/units/:id/evidence</code></td><td>Evidence, status, audit history</td></tr>
+      <tr><td><code>GET /api/units/:id/narration</code></td><td>Text for Listen, per language</td></tr>
+      <tr><td><code>POST /api/reviews</code></td><td>Reviewer decision</td></tr></table></div></div>
+  </div>
+</section>
+
+<!-- ============ TESTS ============ -->
+<section id="tests">
+  <h2><span class="n">5</span>Modules and the tests we write first</h2>
+  <p class="lede">The heart of the product is plain functions with no network or database, so lane B can write failing tests before anything else exists.</p>
+  <div class="tbl"><table>
+    <tr><th>Module (<code>packages/evidence</code>)</th><th>First failing tests</th></tr>
+    <tr><td><code>sha256(file)</code></td><td>Known vectors; same bytes give same hash; one flipped byte changes it; browser and server agree</td></tr>
+    <tr><td><code>validateArithmetic(fields)</code></td><td>Parties sum to valid; valid + rejected = cast; cast ≤ accredited ≤ registered; negatives, blanks and missing fields flagged</td></tr>
+    <tr><td><code>compareSubmissions(a, b)</code></td><td>Identical values agree; one differing field is reported by name; the same file hash from two senders is not independent</td></tr>
+    <tr><td><code>statusFor(unit)</code></td><td>Every transition in diagram 3c, and nothing outside it</td></tr>
+    <tr><td><code>chainAuditEvent / verifyChain</code></td><td>Each event stores the previous hash; changing or removing any event makes verification fail</td></tr>
+    <tr><td><code>narrate(unit, language)</code></td><td>Reads only verified fields and the status; never uses "correct", "fraud" or "winner"; numbers spoken in full</td></tr>
+  </table></div>
+  <div class="callout ok" style="margin-top:14px"><h3>Open design points, with my default</h3>
+    <p><b>Who counts as "independent"?</b> Two different signed-in observers. <b>Can the public submit?</b> Not in the prototype: observers only, to keep abuse out. <b>Where do the 12 sample units live?</b> A seed script, all stamped DEMO.</p></div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Ideas</title>
+<style>
+  :root {
+    --navy: #12304a; --teal: #0e8374; --mint: #92e3c5; --mint-soft: #e4f7ef;
+    --bg: #f6f9f8; --card: #ffffff; --ink: #14212b; --muted: #55656f; --line: #d7e2de;
+    --warn: #b45309; --warn-bg: #fff4e0; --bad: #b42318; --bad-bg: #fdecea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c1a24; --card: #132736; --ink: #e8f1ee; --muted: #9db2ba; --line: #24404f;
+            --mint-soft: #0f3a33; --warn-bg: #3a2a0c; --warn: #f5b85a; --bad-bg: #3d1713; --bad: #ff9a8f; --navy:#8fc3e6; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  :where(.grid, .flex) > * { min-width: 0; }
+  :where(p, h1, h2, h3, li, td, th, code) { overflow-wrap: anywhere; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 80px; }
+  header.hero { background: linear-gradient(135deg, #12304a, #0e8374); color: #fff; border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden; }
+  header.hero::after { content: ""; position: absolute; right: -60px; top: -40px; width: 220px; height: 320px; background: var(--mint); opacity: .22; border-radius: 60% 40% 60% 40%; transform: rotate(25deg); }
+  .eyebrow { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--mint); }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 8px 0 10px; }
+  .hero p { max-width: 62ch; margin: 0; opacity: .94; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  section { margin-top: 44px; }
+  h2 { font-size: 26px; margin: 0 0 6px; color: var(--navy); }
+  h2 .n { display: inline-block; background: var(--teal); color: #fff; border-radius: 8px; padding: 0 9px; margin-right: 10px; font-size: 18px; }
+  .lede { color: var(--muted); margin: 0 0 18px; max-width: 75ch; }
+  h3 { font-size: 17px; margin: 0 0 6px; }
+  .grid { display: grid; gap: 14px; }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .card p { margin: 4px 0; }
+  .callout { border-radius: 14px; padding: 16px 18px; border: 1px solid; }
+  .callout.warn { background: var(--warn-bg); border-color: var(--warn); }
+  .callout.bad { background: var(--bad-bg); border-color: var(--bad); }
+  .callout.ok { background: var(--mint-soft); border-color: var(--teal); }
+  .callout h3 { margin-bottom: 4px; }
+  .callout p { margin: 4px 0 0; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 14.5px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; letter-spacing: .04em; }
+  @media (prefers-color-scheme: dark) { th { color: #0c1a24; } }
+  td { padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  .tbl { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: var(--mint-soft); color: var(--teal); border: 1px solid var(--teal); white-space: nowrap; }
+  .tag.must { background: var(--teal); color: #fff; }
+  .tag.should { background: transparent; }
+  .tag.stretch { background: transparent; color: var(--muted); border-color: var(--muted); border-style: dashed; }
+  .bar { height: 10px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 6px 0 8px; }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--mint)); }
+  .score { display: flex; justify-content: space-between; font-weight: 700; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+  figcaption { color: var(--muted); font-size: 14px; padding: 8px 6px 2px; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { fill: var(--ink); font: 13px ui-sans-serif, system-ui, sans-serif; }
+  svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+  svg .t-b { font-weight: 700; }
+  svg .t-w { fill: #fff; font-weight: 700; }
+  svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+  svg .hi { fill: var(--teal); stroke: var(--teal); }
+  svg .soft { fill: var(--mint-soft); stroke: var(--teal); stroke-width: 1.5; }
+  svg .edge { stroke: var(--teal); stroke-width: 2; fill: none; }
+  svg .dash { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .phase { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .phase:first-of-type { border-top: 0; }
+  .hrs { font-weight: 800; color: var(--teal); font-size: 15px; }
+  .phase ul { margin: 6px 0 0; padding-left: 18px; }
+  .gate { margin-top: 8px; font-size: 14px; background: var(--mint-soft); border-left: 4px solid var(--teal); padding: 6px 10px; border-radius: 6px; }
+  @media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+  code, pre { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  code { background: var(--mint-soft); padding: 1px 5px; border-radius: 5px; }
+  pre { background: #0c1a24; color: #d6efe6; padding: 14px 16px; border-radius: 12px; overflow-x: auto; margin: 0; }
+  .states { display: flex; flex-wrap: wrap; gap: 8px; }
+  .states span { padding: 4px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); background: var(--card); }
+  fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; background: var(--card); }
+  legend { font-weight: 700; padding: 0 6px; color: var(--navy); }
+  label { display: block; padding: 5px 0; cursor: pointer; }
+  label small { color: var(--muted); display: block; margin-left: 24px; margin-top: -3px; }
+  input[type=text], select { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+  button.go { background: var(--teal); color: #fff; border: 0; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; }
+  .check li { list-style: none; margin-left: -18px; padding: 3px 0; }
+  .mock { max-width: 330px; margin: 0 auto; background: var(--card); border: 6px solid var(--navy); border-radius: 28px; padding: 18px 16px; }
+  .mock .big { font-size: 22px; font-weight: 800; line-height: 1.25; }
+  .mock .row { display:flex; justify-content:space-between; font-size: 20px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .mock .listen { display:flex; align-items:center; gap:10px; background: var(--teal); color:#fff; border-radius: 14px; padding: 14px 16px; font-weight: 800; font-size: 18px; margin: 12px 0 8px; }
+  .mock .lang { display:flex; gap:6px; flex-wrap:wrap; }
+  .mock .lang span { border:1px solid var(--teal); border-radius:999px; padding:2px 10px; font-size:13px; font-weight:700; color: var(--teal); }
+  .mock .lang span.on { background: var(--teal); color:#fff; }
+  .v { font-weight: 800; }
+  .v.yes { color: var(--teal); } .v.maybe { color: var(--warn); } .v.no { color: var(--bad); }
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <div class="eyebrow">Exploring · Every Vote, Every Voice</div>
+  <h1>Making voting more accessible: what could we do?</h1>
+  <p>The organisers list this as one of the example areas: "making voting more accessible for elderly voters and people with disabilities." Here are the ideas, honestly scored against our 12.5-hour clock and the VOTE-GUARD 360 core we locked.</p>
+  <div class="chips"><span class="chip">9 ideas</span><span class="chip">2 ways to use them</span><span class="chip">Nothing built yet</span></div>
+</header>
+
+<section id="plain" style="margin-top:28px">
+  <div class="callout ok" style="padding:20px 24px">
+    <h2 style="margin-bottom:8px">The short version</h2>
+    <p style="font-size:18px;margin:0 0 10px">Many people can't easily read a printed result sheet: blind or low-vision voters, people who can't read English, and elderly voters who struggle with small print or complicated screens.</p>
+    <p style="font-size:18px;margin:0"><b>My suggestion:</b> keep VOTE-GUARD as the main product, and add a small <b>"Access layer"</b> on top, built from three of these ideas. Its star feature is <b>"Listen to this result sheet"</b>: the app reads the extracted numbers aloud in plain language. It reuses the OCR we're already building, so it costs little and it is a genuinely fresh idea.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">1</span>The star idea, drawn</h2>
+  <p class="lede">What a voter with low vision, or who can't read English, would see. Big text, one clear action, language choice.</p>
+  <div class="grid g2" style="align-items:center">
+    <div class="mock" aria-label="Mockup of the listen feature">
+      <div class="lang"><span class="on">English</span><span>Pidgin</span><span>Hausa</span><span>Yorùbá</span><span>Igbo</span></div>
+      <p class="big" style="margin:12px 0 4px">Result sheet · Ward 04, Unit 012</p>
+      <div class="row"><span>Party A</span><b>112</b></div>
+      <div class="row"><span>Party B</span><b>98</b></div>
+      <div class="row"><span>Party C</span><b>31</b></div>
+      <div class="listen">▶ Listen to this sheet</div>
+      <p style="font-size:15px;margin:0">Status: <b>Two people agree.</b> Numbers add up.</p>
+    </div>
+    <div>
+      <h3>Why it works for us</h3>
+      <ul>
+        <li>It reuses the <b>OCR output</b> we already build: no new data pipeline.</li>
+        <li>The reading is generated from the <b>verified fields and status</b>, so it never says more than the evidence supports ("two people agree", not "this is correct").</li>
+        <li>Browsers have built-in text-to-speech. English and Pidgin-friendly English are workable; <b>Hausa, Yorùbá and Igbo voices are weak</b>, so I'd show text translations and be honest about audio limits rather than fake it.</li>
+        <li>Translations need a native speaker to check them. Ask a teammate or friend; don't trust machine output blindly.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>All nine ideas, scored</h2>
+  <p class="lede">Cost is rough build time in our setup. "Fit" is how naturally it plugs into VOTE-GUARD.</p>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Idea</th><th>Who it helps</th><th>Fit</th><th>Cost</th><th>Verdict</th></tr>
+    <tr><td>A1</td><td><b>Listen to this result sheet</b><br>Reads verified numbers aloud, large text, language switch</td><td>Blind or low-vision, can't read English, low literacy</td><td>Excellent</td><td>~1.5 h</td><td class="v yes">Include</td></tr>
+    <tr><td>A2</td><td><b>Accessibility mode for the whole app</b><br>Large text, high contrast, reduced motion, screen-reader labels, tested against WCAG 2.2 AA basics</td><td>Elderly, low vision, screen-reader users</td><td>Excellent</td><td>~1 h</td><td class="v yes">Include (already planned, now explicit)</td></tr>
+    <tr><td>A3</td><td><b>Easy-read status explainer</b><br>Each status as one short sentence plus an icon, in English and Pidgin</td><td>Low literacy, non-English readers</td><td>Excellent</td><td>~1 h</td><td class="v yes">Include</td></tr>
+    <tr><td>A4</td><td><b>Barrier reports at a polling unit</b><br>"No ramp", "upstairs", "no seating", "priority lane working" with photo and status, shown on the Explorer</td><td>Wheelchair users, elderly, parents with prams</td><td>Good: same polling units, statuses and audit chain</td><td>~3 h</td><td class="v maybe">Maybe, if we're ahead at 04:00</td></tr>
+    <tr><td>A5</td><td><b>"Know your rights" card</b><br>Short guide on assisted voting and priority for people with disabilities, linking to a report if denied</td><td>PWDs, elderly, companions</td><td>Medium</td><td>~1 h</td><td class="v maybe">Maybe. Must verify wording against the Electoral Act and INEC guidelines first</td></tr>
+    <tr><td>A6</td><td><b>Voice access by phone call or USSD / SMS</b><br>Dial a number, hear info or results</td><td>Basic phones, no data, low literacy</td><td>Low: different channel and infrastructure</td><td>8+ h</td><td class="v no">Roadmap slide only</td></tr>
+    <tr><td>A7</td><td><b>Advance assistance requests</b><br>Voters register that they need help; officials see only aggregate counts per unit</td><td>Mobility-impaired, elderly</td><td>Low-medium</td><td>~4 h</td><td class="v no">Roadmap. Disability data is sensitive: needs consent, aggregation and legal review</td></tr>
+    <tr><td>A8</td><td><b>Pictogram "how to vote" guide</b><br>Step-by-step with images, audio</td><td>First-time, low literacy, intellectual disability</td><td>Low: pre-vote stage, not results</td><td>~3 h</td><td class="v no">Roadmap slide</td></tr>
+    <tr><td>A9</td><td><b>Volunteer rides / "vote buddy"</b><br>Match elderly voters with escorts</td><td>Elderly, mobility-impaired</td><td>Low</td><td>6+ h</td><td class="v no">Skip. Election-day transport has legal and vote-buying risks, plus safety and trust issues</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">3</span>Two ways to use these</h2>
+  <div class="grid g2">
+    <div class="card" style="border-color:var(--teal);border-width:2px"><span class="tag must">Recommended</span>
+      <h3>A · Access layer on VOTE-GUARD</h3>
+      <p>Keep the plan as is, add A1 + A2 + A3 (about 3.5 hours across lanes C and D, mostly in the 05:30 robustness slot). Optional A4 if we're ahead.</p>
+      <p><b>Gain:</b> answers the brief's "voters who don't read English, basic phones, community leaders" line and gives a memorable demo moment. Innovation and relevance both rise.</p>
+      <p><b>Cost:</b> small. Nothing in the Must list moves.</p></div>
+    <div class="card"><span class="tag">Alternative</span>
+      <h3>B · Pivot to accessibility as the main product</h3>
+      <p>Make ACCESS-VOTE the core: accessible polling-unit directory, barrier reports, rights card, listen and easy-read features.</p>
+      <p><b>Gain:</b> directly on one of the brief's example areas and very human.</p>
+      <p><b>Cost:</b> the integrity engine, which is our 25% technical-execution story, goes. With the lanes already planned and ~12 hours left, I'd advise against a pivot.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>Your call</h2>
+  <form data-lavish-question="access" onsubmit="event.preventDefault();
+    const f = new FormData(event.currentTarget);
+    const items = [...event.currentTarget.querySelectorAll('input[name=items]:checked')].map(i => ({id:i.value, label:i.dataset.label}));
+    const route = f.get('route');
+    window.lavish.queuePrompt('Accessibility decision: route=' + route + '; include ' + items.map(i=>i.id+' '+i.label).join(', ') + '. Update the plan (and the plan page) accordingly and account for every listed ID.', {tag:'tracked-batch', text:'Accessibility: ' + route + ', ' + items.length + ' ideas', element:event.currentTarget, data:{route, items}});">
+    <fieldset><legend>How do we use accessibility?</legend>
+      <label><input type="radio" name="route" value="A: Access layer on VOTE-GUARD" checked> A · Access layer on VOTE-GUARD <small>Recommended</small></label>
+      <label><input type="radio" name="route" value="B: Pivot to accessibility as the main product"> B · Pivot to accessibility as the main product</label>
+    </fieldset>
+    <fieldset><legend>Which ideas go into the build?</legend>
+      <label><input type="checkbox" name="items" value="A1" data-label="Listen to this result sheet" checked> A1 · Listen to this result sheet</label>
+      <label><input type="checkbox" name="items" value="A2" data-label="Accessibility mode" checked> A2 · Accessibility mode for the whole app</label>
+      <label><input type="checkbox" name="items" value="A3" data-label="Easy-read status explainer" checked> A3 · Easy-read status explainer</label>
+      <label><input type="checkbox" name="items" value="A4" data-label="Barrier reports at polling units"> A4 · Barrier reports at polling units</label>
+      <label><input type="checkbox" name="items" value="A5" data-label="Know your rights card"> A5 · "Know your rights" card (needs legal wording check)</label>
+    </fieldset>
+    <button class="go" type="submit">Queue my accessibility decision</button>
+  </form>
+</section>
+</main>
+</body>
+</html>

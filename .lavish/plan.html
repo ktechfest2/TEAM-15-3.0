@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOTE-GUARD 360 Build Plan</title>
+<style>
+  :root {
+    --navy: #12304a; --teal: #0e8374; --mint: #92e3c5; --mint-soft: #e4f7ef;
+    --bg: #f6f9f8; --card: #ffffff; --ink: #14212b; --muted: #55656f; --line: #d7e2de;
+    --warn: #b45309; --warn-bg: #fff4e0; --bad: #b42318; --bad-bg: #fdecea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c1a24; --card: #132736; --ink: #e8f1ee; --muted: #9db2ba; --line: #24404f;
+            --mint-soft: #0f3a33; --warn-bg: #3a2a0c; --warn: #f5b85a; --bad-bg: #3d1713; --bad: #ff9a8f; --navy:#8fc3e6; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  :where(.grid, .flex) > * { min-width: 0; }
+  :where(p, h1, h2, h3, li, td, th, code) { overflow-wrap: anywhere; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 80px; }
+  header.hero { background: linear-gradient(135deg, #12304a, #0e8374); color: #fff; border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden; }
+  header.hero::after { content: ""; position: absolute; right: -60px; top: -40px; width: 220px; height: 320px; background: var(--mint); opacity: .22; border-radius: 60% 40% 60% 40%; transform: rotate(25deg); }
+  .eyebrow { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--mint); }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 8px 0 10px; }
+  .hero p { max-width: 62ch; margin: 0; opacity: .94; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  section { margin-top: 44px; }
+  h2 { font-size: 26px; margin: 0 0 6px; color: var(--navy); }
+  h2 .n { display: inline-block; background: var(--teal); color: #fff; border-radius: 8px; padding: 0 9px; margin-right: 10px; font-size: 18px; }
+  .lede { color: var(--muted); margin: 0 0 18px; max-width: 75ch; }
+  h3 { font-size: 17px; margin: 0 0 6px; }
+  .grid { display: grid; gap: 14px; }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .card p { margin: 4px 0; }
+  .callout { border-radius: 14px; padding: 16px 18px; border: 1px solid; }
+  .callout.warn { background: var(--warn-bg); border-color: var(--warn); }
+  .callout.bad { background: var(--bad-bg); border-color: var(--bad); }
+  .callout.ok { background: var(--mint-soft); border-color: var(--teal); }
+  .callout h3 { margin-bottom: 4px; }
+  .callout p { margin: 4px 0 0; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 14.5px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; letter-spacing: .04em; }
+  @media (prefers-color-scheme: dark) { th { color: #0c1a24; } }
+  td { padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  .tbl { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: var(--mint-soft); color: var(--teal); border: 1px solid var(--teal); white-space: nowrap; }
+  .tag.must { background: var(--teal); color: #fff; }
+  .tag.should { background: transparent; }
+  .tag.stretch { background: transparent; color: var(--muted); border-color: var(--muted); border-style: dashed; }
+  .bar { height: 10px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 6px 0 8px; }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--mint)); }
+  .score { display: flex; justify-content: space-between; font-weight: 700; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+  figcaption { color: var(--muted); font-size: 14px; padding: 8px 6px 2px; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { fill: var(--ink); font: 13px ui-sans-serif, system-ui, sans-serif; }
+  svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+  svg .t-b { font-weight: 700; }
+  svg .t-w { fill: #fff; font-weight: 700; }
+  svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+  svg .hi { fill: var(--teal); stroke: var(--teal); }
+  svg .soft { fill: var(--mint-soft); stroke: var(--teal); stroke-width: 1.5; }
+  svg .edge { stroke: var(--teal); stroke-width: 2; fill: none; }
+  svg .dash { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .phase { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .phase:first-of-type { border-top: 0; }
+  .hrs { font-weight: 800; color: var(--teal); font-size: 15px; }
+  .phase ul { margin: 6px 0 0; padding-left: 18px; }
+  .gate { margin-top: 8px; font-size: 14px; background: var(--mint-soft); border-left: 4px solid var(--teal); padding: 6px 10px; border-radius: 6px; }
+  @media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+  code, pre { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  code { background: var(--mint-soft); padding: 1px 5px; border-radius: 5px; }
+  pre { background: #0c1a24; color: #d6efe6; padding: 14px 16px; border-radius: 12px; overflow-x: auto; margin: 0; }
+  .states { display: flex; flex-wrap: wrap; gap: 8px; }
+  .states span { padding: 4px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); background: var(--card); }
+  fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; background: var(--card); }
+  legend { font-weight: 700; padding: 0 6px; color: var(--navy); }
+  label { display: block; padding: 5px 0; cursor: pointer; }
+  label small { color: var(--muted); display: block; margin-left: 24px; margin-top: -3px; }
+  input[type=text], select { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+  button.go { background: var(--teal); color: #fff; border: 0; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; }
+  .check li { list-style: none; margin-left: -18px; padding: 3px 0; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <div class="eyebrow">StrongBridge IT Solutions · Every Vote, Every Voice</div>
+  <h1>VOTE-GUARD 360 — the overnight build plan</h1>
+  <p>"Every vote leaves evidence. Every result deserves verification." One weak link, built deeply: preserving, verifying and tracing polling-unit result evidence. Planned against the organisers' real rules and judging weights, and compressed to the ~12.5 hours actually left.</p>
+  <div class="chips">
+    <span class="chip">Now 20:20 · deadline 09:00</span>
+    <span class="chip">Need ≥ 70% to reach the top 5</span>
+    <span class="chip">Finals: KTech Fest 3.0, Abuja · 3–5 Dec 2026</span>
+    <span class="chip">3–4 people · 4 parallel lanes</span><span class="chip">Access layer: Listen · Access mode · Easy-read</span><span class="chip">Tests first, then code</span>
+  </div>
+</header>
+
+<section id="plain" style="margin-top:28px">
+  <div class="callout ok" style="padding:22px 24px">
+    <h2 style="margin-bottom:10px">What we are building, in plain English</h2>
+    <p style="font-size:18px;line-height:1.6;margin:0 0 12px">After people vote in Nigeria, the results are written on a paper sheet and stuck on the wall at the polling unit. People take photos of it. Days later, when the final numbers are announced, nobody can easily check if they match what was on the wall.</p>
+    <p style="font-size:18px;line-height:1.6;margin:0 0 12px"><b>We are building a website that works on a phone.</b> A person takes a photo of the result sheet, and the site does four things:</p>
+    <ol style="font-size:17px;line-height:1.7;margin:0 0 12px;padding-left:22px">
+      <li><b>Keeps the photo safe</b> and stamps it with a digital fingerprint, so anyone can tell later if the photo was changed.</li>
+      <li><b>Reads the numbers</b> off the sheet automatically and checks the maths (do the votes add up?).</li>
+      <li><b>Compares photos</b> from different people. If two people photographed the same sheet and the numbers differ, it flags it for a human to look at.</li>
+      <li><b>Shows everything publicly</b> on a simple page: the photo, the numbers, a clear status and a history of what happened.</li>
+    </ol>
+    <p style="font-size:18px;line-height:1.6;margin:0"><b>It does not replace INEC</b> and it never says who won or accuses anyone of cheating. A mismatch just means "someone should take a look." It also works with a weak internet connection: the photo is saved on the phone and sent when the signal returns.</p>
+    <p style="font-size:18px;line-height:1.6;margin:12px 0 0"><b>Everyone can use it.</b> There is a large-text, high-contrast mode, short plain-English and Pidgin explanations of each status, and a <b>"Listen"</b> button that reads a result sheet aloud, for people who can't easily read it.</p>
+  </div>
+</section>
+
+<!-- 1 -->
+<section id="findings">
+  <h2><span class="n">1</span>Five things that shaped the plan</h2>
+  <p class="lede">I read the organisers' Google Doc (rules, judging, deliverables) alongside your blueprint PDF. The blueprint is strong, but these points need to shape the plan.</p>
+  <div class="grid g2">
+    <div class="callout bad" id="f-oneweak">
+      <h3>1 · Scope locked: one idea, done deeply</h3>
+      <p>The brief says <b>pick one weak link</b>. Judges score <i>how clearly you understand the problem</i>. So "build all that is specified" is best read as: build <b>all of VOTE-GUARD 360</b> (every MVP feature, the full checklist, every safeguard) and show the other 11 ideas as the "how this connects to the wider system" plan the brief explicitly rewards. Confirm below.</p>
+    </div>
+    <div class="callout bad" id="f-original">
+      <h3>2 · Keep the work provably original</h3>
+      <p>Rule 1.3: a project <b>built before the event</b> is disqualified. The clock has started and this repo is empty, so a clean commit history from here is our proof. Don't reuse code from <code>epm-mobile</code>, <code>nphcda-epm-v2</code> or others. Any open-source library must be credited (rule 1.2).</p>
+    </div>
+    <div class="callout warn" id="f-data">
+      <h3>3 · Real INEC data is a dependency we can't count on</h3>
+      <p>The "Collation Tracker" needs higher-level records, and IReV access or terms may not allow bulk use. Plan: build against a <b>clearly labelled synthetic dataset</b> behind an adapter interface, so real records can plug in later. The checklist requires synthetic data to be labelled anyway.</p>
+    </div>
+    <div class="callout ok" id="f-demo">
+      <h3>4 · The demo must survive a bad network</h3>
+      <p>The top 5 present live in Abuja. OCR via an API is a failure point on stage. Plan: <b>pre-cache extraction results</b> for the sample sheets and add a "live OCR" toggle, with a recorded fallback video. The offline PWA also makes a good story, since it answers the brief's "poor network coverage".</p>
+    </div>
+    <div class="callout bad" id="f-time">
+      <h3>5 · Only ~12.5 hours, not 48</h3>
+      <p>It's 20:20 and the deadline is 09:00. The blueprint's roadmap is compressed into four parallel lanes with clock-time gates (section 6). Anything that doesn't serve the seven Must features waits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="trace">
+  <h2><span class="n">2</span>Requirements → where the plan satisfies them</h2>
+  <p class="lede">Every line the organisers wrote, mapped to a concrete deliverable. Nothing here is optional.</p>
+  <div class="tbl"><table>
+    <tr><th>Requirement (Google Doc)</th><th>Satisfied by</th></tr>
+    <tr><td>Brief view of the bigger picture + where your piece fits</td><td>System sketch (diagram A) in the brief, README and demo opening</td></tr>
+    <tr><td>Works for basic phones, non-English readers, poor coverage, officials and agents</td><td>Mobile-first PWA, offline capture + queued sync, plain-language / Pidgin explanations, large-text and screen-reader support</td></tr>
+    <tr><td>Deliverable 1 · one-page problem brief</td><td><code>docs/problem-brief.md</code>. The blueprint's section 8 is a good draft; we tighten it to one page</td></tr>
+    <tr><td>Deliverable 2 · simple system sketch</td><td>Diagram A, exported as SVG/PNG into <code>docs/</code></td></tr>
+    <tr><td>Deliverable 3 · working prototype</td><td>Deployed app, end-to-end on the core flow (diagram B)</td></tr>
+    <tr><td>Deliverable 4 · 3-minute live demo</td><td>Rehearsed script (section 8), with a recorded fallback</td></tr>
+    <tr><td>Rule 2.1 · public or shared GitHub repo</td><td>Public repo with setup instructions and <code>.env.example</code></td></tr>
+    <tr><td>Rule 2.2 · demo video, ≤ 3 min</td><td>Recorded after the 07:00 freeze, trimmed to under 3:00</td></tr>
+    <tr><td>Rule 2.3 · write-up: problem, solution, how AI is used, tools</td><td><code>docs/writeup.md</code>, with a plain "AI usage" section (OCR assist + human review)</td></tr>
+    <tr><td>Rule 2.5 · live demo link via form</td><td>Vercel production URL, smoke-tested on mobile data</td></tr>
+    <tr><td>Rule 1.2 · credit libraries, APIs, datasets, models</td><td><code>CREDITS.md</code>, updated whenever a dependency is added</td></tr>
+    <tr><td>Rule 1.4 · declare AI coding assistants</td><td>Declare Claude Code in the write-up and README</td></tr>
+    <tr><td>Two-phase submission (GitHub code, then form)</td><td>Repo tagged and submitted by 08:15, form by 08:30</td></tr>
+    <tr><td>Blueprint checklist · label synthetic data and limitations</td><td>"DEMO DATA" banner in the UI plus a Limitations section in the README</td></tr>
+  </table></div>
+</section>
+
+<!-- 3 -->
+<section id="score">
+  <h2><span class="n">3</span>Aiming past the 70% bar</h2>
+  <p class="lede">Each judging criterion and the lever in our plan that earns it. The target is the top 5 with margin, not a squeak past 70.</p>
+  <div class="grid g3">
+    <div class="card"><div class="score"><span>Relevance to theme</span><span>25%</span></div><div class="bar"><i style="width:25%"></i></div><p>Squarely on the "check results from polling unit to final announcement" example area. Lead with Amaka's wall-photo story.</p></div>
+    <div class="card"><div class="score"><span>Technical execution</span><span>25%</span></div><div class="bar"><i style="width:25%"></i></div><p>Hash computed on-device at capture, hash-chained append-only audit log, pure-function validators with a test suite. Depth the judges can see in the repo.</p></div>
+    <div class="card"><div class="score"><span>Innovation &amp; creativity</span><span>20%</span></div><div class="bar"><i style="width:20%"></i></div><p>Offline capture with tamper-evident fingerprinting, and "what a hash can and cannot prove" built into the UI. Honest framing is the differentiator.</p></div>
+    <div class="card"><div class="score"><span>Impact &amp; scalability (Nigeria)</span><span>20%</span></div><div class="bar"><i style="width:20%"></i></div><p>The roadmap slide covers 176k-polling-unit scale, IReV adapter, observer credentialing, and how the other 11 ideas plug in.</p></div>
+    <div class="card"><div class="score"><span>Presentation &amp; demo</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div><p>Tight 3:00 script, planted discrepancy, cached fallback, rehearsed twice.</p></div>
+    <div class="card"><h3>Bonus the brief rewards</h3><p>"Extra features, user testing, a plan to connect to the rest of the system." We schedule 2–3 fast user tests with whoever is available and put the quotes in the write-up.</p></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="diagrams">
+  <h2><span class="n">4</span>The picture</h2>
+  <p class="lede">Diagram A answers "where does this fit?" and Diagram B answers "how does it work?"</p>
+  <div class="grid">
+  <figure>
+    <svg viewBox="0 0 960 250" role="img" aria-labelledby="ta">
+      <title id="ta">Diagram A: where VOTE-GUARD 360 fits in the election chain</title>
+      <g id="stages">
+        <rect class="box" x="1" y="20" width="118" height="60" rx="10"><title>Voter preparation</title></rect><text x="60" y="55" text-anchor="middle">Voter prep</text>
+        <rect class="box" x="141" y="20" width="118" height="60" rx="10"><title>Polling-unit access</title></rect><text x="200" y="55" text-anchor="middle">PU access</text>
+        <rect class="box" x="281" y="20" width="118" height="60" rx="10"><title>Accreditation and voting</title></rect><text x="340" y="55" text-anchor="middle">Voting</text>
+        <rect class="box" x="421" y="20" width="118" height="60" rx="10"><title>Logistics</title></rect><text x="480" y="55" text-anchor="middle">Logistics</text>
+        <rect class="hi" x="561" y="20" width="118" height="60" rx="10"><title>Counting and evidence</title></rect><text class="t-w" x="620" y="55" text-anchor="middle">Counting</text>
+        <rect class="hi" x="701" y="20" width="118" height="60" rx="10"><title>Collation and declaration</title></rect><text class="t-w" x="760" y="55" text-anchor="middle">Collation</text>
+        <rect class="hi" x="841" y="20" width="118" height="60" rx="10"><title>Incidents and disputes</title></rect><text class="t-w" x="900" y="55" text-anchor="middle">Disputes</text>
+      </g>
+      <path class="edge" d="M620 80 V150"/><path class="edge" d="M760 80 V150"/><path class="edge" d="M900 80 V150"/>
+      <rect class="soft" x="561" y="150" width="124" height="64" rx="10"><title>Capture pillar</title></rect>
+      <text class="t-b" x="623" y="177" text-anchor="middle">CAPTURE</text><text class="t-sm" x="623" y="196" text-anchor="middle">image + who/when</text>
+      <rect class="soft" x="698" y="150" width="124" height="64" rx="10"><title>Verify pillar</title></rect>
+      <text class="t-b" x="760" y="177" text-anchor="middle">VERIFY</text><text class="t-sm" x="760" y="196" text-anchor="middle">OCR, hash, compare</text>
+      <rect class="soft" x="835" y="150" width="124" height="64" rx="10"><title>Account pillar</title></rect>
+      <text class="t-b" x="897" y="177" text-anchor="middle">ACCOUNT</text><text class="t-sm" x="897" y="196" text-anchor="middle">dashboard + audit</text>
+      <path class="dash" d="M1 100 H540"/>
+      <text class="t-sm" x="1" y="125">Not replaced. INEC systems and procedures stay the source of truth.</text>
+      <text class="t-sm" x="1" y="143">Other ideas (voter info, incident reports, logistics) plug in later.</text>
+      <text class="t-sm" x="561" y="238">VOTE-GUARD 360: an evidence layer, not an official collation system</text>
+    </svg>
+    <figcaption><b>A · Where it fits.</b> Teal stages are the weak link we chose. Everything left of "Counting" is intentionally out of scope and shown as the connection plan.</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 960 320" role="img" aria-labelledby="tb">
+      <title id="tb">Diagram B: data flow from phone to public dashboard</title>
+      <rect class="box" x="10" y="10" width="190" height="250" rx="12"><title>Phone PWA</title></rect>
+      <text class="t-b" x="105" y="36" text-anchor="middle">Phone (PWA)</text>
+      <rect class="soft" x="24" y="52" width="162" height="48" rx="8"/><text x="105" y="81" text-anchor="middle">1 Take photo</text>
+      <rect class="soft" x="24" y="112" width="162" height="48" rx="8"/><text x="105" y="134" text-anchor="middle">2 SHA-256 on device</text><text class="t-sm" x="105" y="150" text-anchor="middle">works offline</text>
+      <rect class="soft" x="24" y="172" width="162" height="48" rx="8"/><text x="105" y="194" text-anchor="middle">3 Queue in IndexedDB</text><text class="t-sm" x="105" y="210" text-anchor="middle">"pending upload"</text>
+      <path class="edge" d="M200 135 H258"/><path class="edge" d="M250 129 L258 135 L250 141"/>
+
+      <rect class="box" x="260" y="10" width="200" height="250" rx="12"><title>Supabase</title></rect>
+      <text class="t-b" x="360" y="36" text-anchor="middle">Supabase</text>
+      <rect class="soft" x="274" y="52" width="172" height="60" rx="8"/><text x="360" y="78" text-anchor="middle">Storage</text><text class="t-sm" x="360" y="97" text-anchor="middle">original image, write-once</text>
+      <rect class="soft" x="274" y="124" width="172" height="60" rx="8"/><text x="360" y="150" text-anchor="middle">Postgres</text><text class="t-sm" x="360" y="169" text-anchor="middle">submissions, results</text>
+      <rect class="soft" x="274" y="196" width="172" height="50" rx="8"/><text x="360" y="218" text-anchor="middle">Auth + roles</text><text class="t-sm" x="360" y="235" text-anchor="middle">public / observer / reviewer</text>
+      <path class="edge" d="M460 135 H518"/><path class="edge" d="M510 129 L518 135 L510 141"/>
+
+      <rect class="box" x="520" y="10" width="200" height="250" rx="12"><title>Processing</title></rect>
+      <text class="t-b" x="620" y="36" text-anchor="middle">Processing</text>
+      <rect class="soft" x="534" y="52" width="172" height="54" rx="8"/><text x="620" y="76" text-anchor="middle">OCR extraction</text><text class="t-sm" x="620" y="94" text-anchor="middle">machine-assisted, confidence</text>
+      <rect class="soft" x="534" y="116" width="172" height="54" rx="8"/><text x="620" y="140" text-anchor="middle">Arithmetic validator</text><text class="t-sm" x="620" y="158" text-anchor="middle">totals, impossibles</text>
+      <rect class="soft" x="534" y="180" width="172" height="54" rx="8"/><text x="620" y="204" text-anchor="middle">Comparator</text><text class="t-sm" x="620" y="222" text-anchor="middle">field-by-field diff</text>
+      <path class="edge" d="M720 135 H778"/><path class="edge" d="M770 129 L778 135 L770 141"/>
+
+      <rect class="box" x="780" y="10" width="170" height="250" rx="12"><title>Output</title></rect>
+      <text class="t-b" x="865" y="36" text-anchor="middle">People</text>
+      <rect class="soft" x="794" y="62" width="142" height="70" rx="8"/><text x="865" y="90" text-anchor="middle">Review queue</text><text class="t-sm" x="865" y="109" text-anchor="middle">humans decide</text>
+      <rect class="soft" x="794" y="150" width="142" height="80" rx="8"/><text x="865" y="178" text-anchor="middle">Public dashboard</text><text class="t-sm" x="865" y="197" text-anchor="middle">evidence + status</text><text class="t-sm" x="865" y="212" text-anchor="middle">+ audit history</text>
+
+      <rect class="hi" x="10" y="274" width="940" height="36" rx="10"><title>Audit log</title></rect>
+      <text class="t-w" x="480" y="297" text-anchor="middle">Append-only, hash-chained audit log: every step above writes an event that includes the previous event's hash</text>
+    </svg>
+    <figcaption><b>B · Data flow.</b> The hash is computed before the image ever leaves the phone, and recomputed on the server. A mismatch means it changed in transit.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="scope">
+  <h2><span class="n">5</span>What gets built</h2>
+  <p class="lede">The blueprint's six MVP features plus its status dashboard are all <b>Must</b>. Should-haves make it robust and demo-proof. Stretch items are the first to go; the cut order is in section 6.</p>
+  <div class="tbl"><table>
+    <tr><th>Tier</th><th>Feature</th><th>How it's built</th></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Polling Unit Explorer</td><td>State → LGA → ward → PU search over a seeded synthetic dataset (a few states, a few hundred PUs)</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Result Sheet Scanner</td><td>Upload or camera capture, then vision-model extraction to structured JSON with per-field confidence</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Evidence Fingerprinting</td><td>SHA-256 in browser (Web Crypto) and on server, original stored immutably, hash shown with a "proves / doesn't prove" explainer</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Arithmetic Validator</td><td>Pure functions: party votes sum to valid votes, valid + rejected = cast, cast ≤ accredited ≤ registered, no negatives or blanks</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Independent Evidence Comparison</td><td>Per-field diff across submissions. The same file hash from two senders counts as one image, not corroboration</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Collation Tracker</td><td>PU → ward → LGA roll-up of the evidence we hold vs. the (synthetic) published figure, using neutral language</td></tr>
+    <tr><td><span class="tag must">Must</span></td><td>Public Verification Dashboard</td><td>Statuses: <i>pending review · corroborated · disputed · needs human review</i>, with evidence viewer and audit history</td></tr>
+    <tr><td><span class="tag should">Should</span></td><td>Offline-first capture</td><td>PWA, IndexedDB queue, background sync, visible "pending upload" state</td></tr>
+    <tr><td><span class="tag should">Should</span></td><td>Tamper-evident audit chain</td><td>Postgres trigger blocks UPDATE/DELETE on events; each row stores <code>prev_hash</code></td></tr>
+    <tr><td><span class="tag should">Should</span></td><td>Human review queue and roles</td><td>Public / observer / reviewer roles via Supabase Auth and row-level security. Public view never exposes submitter identity</td></tr>
+    <tr><td><span class="tag should">Should</span></td><td><b>A1 · Listen to this result sheet</b></td><td>Reads the <i>verified</i> fields and status aloud with browser text-to-speech, English first. Wording is generated from the evidence, so it never claims more than "two people agree". Hausa, Yorùbá and Igbo shown as text only if voices are poor</td></tr>
+    <tr><td><span class="tag should">Should</span></td><td><b>A2 · Accessibility mode</b></td><td>Large text, high contrast, reduced motion, screen-reader labels, keyboard use, WCAG 2.2 AA basics checked; also low-data mode</td></tr>
+    <tr><td><span class="tag should">Should</span></td><td><b>A3 · Easy-read status explainer</b></td><td>Each status as one short sentence plus an icon, in plain English and Nigerian Pidgin. Translations checked by a native speaker</td></tr>
+    <tr><td><span class="tag stretch">Stretch</span></td><td>Near-duplicate image detection</td><td>Perceptual hash to tell "same photo re-uploaded" from "independent photo"</td></tr>
+    <tr><td><span class="tag stretch">Stretch</span></td><td>Real-data adapter</td><td>Interface only, no real import (synthetic data was chosen)</td></tr>
+    <tr><td><span class="tag stretch">Stretch</span></td><td>One-slide connection plan</td><td>EYE-WITNESS, TRUST-METER, VOICE2VOTE etc. shown as the roadmap. Not built.</td></tr>
+  </table></div>
+</section>
+
+<!-- 6 -->
+<section id="phases">
+  <h2><span class="n">6</span>The overnight plan · 20:20 → 09:00</h2>
+  <p class="lede">About 12.5 hours, so the blueprint's 48-hour roadmap is compressed into <b>four parallel lanes</b> that meet at fixed integration points. We target <b>submitting at 08:15</b>, leaving 45 minutes of buffer for the form and surprises. Lanes below assume 4 people; with 3, lane D folds into B and C.</p>
+  <div class="grid g2" style="margin-bottom:16px">
+    <div class="card"><span class="tag must">Lane A</span><h3>Platform &amp; data</h3><p>Repo, Supabase schema + RLS, seed of synthetic polling units, storage, Vercel deploy, audit-event table and trigger.</p></div>
+    <div class="card"><span class="tag must">Lane B</span><h3>Integrity engine</h3><p><code>packages/evidence</code>: <code>sha256</code>, <code>validateArithmetic</code>, <code>compareSubmissions</code>, status machine, <code>chainAuditEvent</code>. Pure functions, <b>tests written first</b>, so this lane has no dependencies and can start immediately.</p></div>
+    <div class="card"><span class="tag must">Lane C</span><h3>Frontend</h3><p>Next.js mobile-first shell, Polling Unit Explorer, capture/upload, evidence viewer, dashboard, collation tracker, then PWA/offline and the <b>access layer: A2 accessibility mode and A1 Listen</b>.</p></div>
+    <div class="card"><span class="tag must">Lane D</span><h3>Extraction, content &amp; demo</h3><p>Synthetic result sheets, Claude vision adapter with cached fixtures, then <b>A3 easy-read status text (English + Pidgin)</b>, problem brief, sketch, write-up, <code>CREDITS.md</code>, demo script and video.</p></div>
+  </div>
+  <div class="card">
+    <div class="phase"><div class="hrs">20:20 –<br>21:30</div><div><h3>Contracts first</h3><ul><li>One person writes <code>packages/shared</code>: the TypeScript types for submission, extraction, verification result and audit event. <b>Every lane codes against this</b>, which is what makes parallel work safe.</li><li>Repo public from the start, <code>.env.example</code>, declare Claude Code in the README; someone supplies <code>ANTHROPIC_API_KEY</code> (local env and Vercel only, never committed)</li><li>Lane D generates 3 sample sheets (clean, altered figure, bad arithmetic), all stamped "DEMO"</li></ul><div class="gate">Gate: Vercel URL live, shared types merged, Supabase project reachable.</div></div></div>
+    <div class="phase"><div class="hrs">21:30 –<br>00:30</div><div><h3>Parallel build, round 1</h3><ul><li><b>A:</b> schema, RLS, seed, write-once storage bucket</li><li><b>B:</b> failing tests first for each validator rule and chain tamper detection, then implementations</li><li><b>C:</b> app shell + Explorer against seed data, upload screen with on-device SHA-256</li><li><b>D:</b> extraction adapter returning typed JSON, cache results for the 3 sheets</li></ul><div class="gate">Gate: <code>packages/evidence</code> tests green; Explorer returns a polling unit.</div></div></div>
+    <div class="phase"><div class="hrs">00:30 –<br>01:15</div><div><h3>Integration 1 · walking skeleton</h3><p style="margin:6px 0 0">Everyone stops and wires one path end to end: upload → hash → store → extract → validate → evidence page. Ugly is fine; it must work.</p><div class="gate">Gate: a sheet uploaded on a phone shows extracted fields and a pass/fail arithmetic result.</div></div></div>
+    <div class="phase"><div class="hrs">01:15 –<br>04:00</div><div><h3>Parallel build, round 2</h3><ul><li><b>B/A:</b> second-submission comparison, status states, review queue, audit chain wired to every event</li><li><b>C:</b> public dashboard, evidence viewer, audit history, collation roll-up, "DEMO DATA" banner</li><li><b>D:</b> problem brief and system sketch drafts, write-up skeleton, <code>CREDITS.md</code></li></ul><div class="gate">Gate: planted discrepancy flows to <b>Disputed → human review → dashboard</b>.</div></div></div>
+    <div class="phase"><div class="hrs">04:00 –<br>05:30</div><div><h3>Rest in shifts</h3><p style="margin:6px 0 0">Two people sleep 90 minutes while two keep going, then swap. Tired people ship bugs. Lane B and D work is the safest to hand over.</p></div></div>
+    <div class="phase"><div class="hrs">05:30 –<br>07:00</div><div><h3>Robustness &amp; inclusion</h3><ul><li>PWA + IndexedDB queue with "pending upload" state (the offline demo moment)</li><li><b>Access layer:</b> A2 accessibility mode (large text, contrast, screen-reader labels), A1 "Listen to this result sheet", A3 easy-read status text in English and Pidgin, with a native-speaker check</li><li>2–3 fast user tests with anyone available (teammates' relatives count). Keep one quote each for the write-up</li></ul><div class="gate">Gate: full demo runs on a phone in airplane mode → reconnect.</div></div></div>
+    <div class="phase"><div class="hrs">07:00 –<br>08:15</div><div><h3>Freeze, record, submit code</h3><ul><li><b>07:00</b> feature freeze. Only bug fixes after this</li><li>Finalise brief, sketch, write-up, README with limitations; rehearse twice</li><li>Record the video (under 3:00); tag the repo; <b>phase 1: GitHub code</b></li></ul></div></div>
+    <div class="phase"><div class="hrs">08:15 –<br>09:00</div><div><h3>Phase 2 and buffer</h3><ul><li><b>08:15</b> submit the form with the live demo link, then check on mobile data</li><li>Remaining 45 minutes are buffer. Don't spend them on features.</li></ul></div></div>
+  </div>
+  <div class="callout warn" style="margin-top:14px"><h3>If we fall behind, cut in this order</h3><p>1) near-duplicate image detection · 2) Pidgin strings and extra voices (keep A2 and plain-English A3 text, and English A1 audio) · 3) collation roll-up polish (keep a minimal table) · 4) offline queue (keep the on-device hash). The <b>seven Must features and every submission deliverable are never cut</b>.</p></div>
+</section>
+
+<!-- 7 -->
+<section id="design">
+  <h2><span class="n">7</span>Integrity design, in one screen</h2>
+  <div class="grid g2">
+    <div>
+      <h3>Evidence record</h3>
+<pre>submissions
+  id, polling_unit_id, submitter_id
+  source_type   official_public | independent | demo_synthetic
+  image_path, sha256_client, sha256_server
+  captured_at, received_at, synced_at
+extractions       -- machine-assisted, never edited in place
+  submission_id, fields jsonb, confidence jsonb
+verification_results
+  submission_id, checks jsonb, status
+reviews           -- human decisions, append-only
+audit_events      -- append-only, hash-chained
+  id, type, subject_id, payload,
+  prev_hash, hash, created_at</pre>
+    </div>
+    <div>
+      <h3>Status labels (neutral wording)</h3>
+      <div class="states"><span>Pending review</span><span>Needs human review</span><span>Corroborated</span><span>Disputed</span></div>
+      <p style="margin-top:12px"><b>Corroborated</b> means two or more independent submitters agree on every extracted field. <b>Disputed</b> means they differ, which is "a reason to look", never an accusation. No status says "fraud" or "winner".</p>
+      <div class="callout warn" style="margin-top:12px"><h3>Hash honesty, built into the UI</h3><p>A tooltip next to every fingerprint: <i>"This proves the file hasn't changed since it was captured. It does not prove the document was genuine."</i> That is the blueprint's own safeguard, and it reads as maturity to judges.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="demo">
+  <h2><span class="n">8</span>The 3-minute demo</h2>
+  <p class="lede">Blueprint script, tightened with failure insurance. Rehearse it with a stopwatch, twice, before 07:45.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">0:00</span><h3>Amaka's wall</h3><p>One sentence of story, then diagram A to show the fit.</p></div>
+    <div class="card"><span class="tag">0:30</span><h3>Capture</h3><p>Phone in airplane mode, photo taken, "pending upload" shown. Reconnect and it syncs.</p></div>
+    <div class="card"><span class="tag">1:00</span><h3>Verify</h3><p>OCR fields, arithmetic pass, fingerprint, and the "what a hash proves" tooltip.</p></div>
+    <div class="card"><span class="tag">1:30</span><h3>Compare</h3><p>Second submission with one altered figure leads to <b>Disputed → human review</b>.</p></div>
+    <div class="card"><span class="tag">2:00</span><h3>Public view</h3><p>Search the PU, evidence, status, audit chain, collation roll-up. Tap <b>Listen</b> and the sheet is read aloud.</p></div>
+    <div class="card"><span class="tag">2:30</span><h3>Impact</h3><p>Scale, real-data adapter, and the other 11 ideas as the roadmap.</p></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="risks">
+  <h2><span class="n">9</span>Risks and mitigations</h2>
+  <div class="tbl"><table>
+    <tr><th>Risk</th><th>Mitigation</th></tr>
+    <tr><td>OCR misreads handwriting or stamps</td><td>Show values as machine-assisted, flag low confidence, human review. Demo sheets are clean typed samples, and we're honest about handwritten limits</td></tr>
+    <tr><td>API/network failure during the live demo</td><td>Cached extractions, recorded fallback video, local run as the last resort</td></tr>
+    <tr><td>Scope creep and an overnight time crunch</td><td>Tiering above. Nothing from Stretch starts before every Must passes</td></tr>
+    <tr><td>Reads as an official INEC tool or an accusation engine</td><td>Persistent "independent evidence layer, not official" label, neutral copy, no winner declared anywhere</td></tr>
+    <tr><td>Privacy of observers</td><td>Pseudonymous public view, RLS, minimal personal data</td></tr>
+    <tr><td>Disqualification by pre-built work</td><td>Clean commit history from the start, no reused code, credits kept current</td></tr>
+  </table></div>
+</section>
+
+<!-- 10 -->
+<section id="submit">
+  <h2><span class="n">10</span>Submission checklist</h2>
+  <div class="card check"><ul>
+    <li><label><input type="checkbox"> One-page problem brief</label></li>
+    <li><label><input type="checkbox"> System sketch (diagram A)</label></li>
+    <li><label><input type="checkbox"> Working deployed prototype, core flow end to end</label></li>
+    <li><label><input type="checkbox"> Demo video, under 3:00, and rehearsed live demo</label></li>
+    <li><label><input type="checkbox"> Public GitHub repo with setup instructions and <code>.env.example</code></label></li>
+    <li><label><input type="checkbox"> Write-up: problem, solution, AI usage, tools</label></li>
+    <li><label><input type="checkbox"> Live demo link submitted through the organisers' form</label></li>
+    <li><label><input type="checkbox"> <code>CREDITS.md</code>: libraries, APIs, datasets, models</label></li>
+    <li><label><input type="checkbox"> AI coding assistant (Claude Code) declared</label></li>
+    <li><label><input type="checkbox"> Synthetic data and prototype limitations clearly labelled</label></li>
+  </ul></div>
+</section>
+
+<!-- 11 -->
+<section id="decisions">
+  <h2><span class="n">11</span>Decisions locked</h2>
+  <div class="grid g3">
+    <div class="card"><span class="tag must">Scope</span><p>Deep VOTE-GUARD 360, with the other 11 ideas as a roadmap slide, not built.</p></div>
+    <div class="card"><span class="tag must">OCR</span><p>Claude vision with structured JSON output, plus cached fixtures for the demo.</p></div>
+    <div class="card"><span class="tag must">Data</span><p>Synthetic only, clearly labelled. Adapter interface left for future real records.</p></div>
+    <div class="card"><span class="tag must">Team</span><p>3–4 people, so the four-lane plan.</p></div>
+    <div class="card"><span class="tag must">Clock</span><p>Already running; deadline 09:00. Submit code by 08:15.</p></div>
+  </div>
+  <h2 style="margin-top:28px;font-size:20px">What next?</h2>
+  <p class="lede">I stayed in explore mode and wrote no product code. Pick how we start.</p>
+  <form data-lavish-question="next" onsubmit="event.preventDefault();
+    const v = new FormData(event.currentTarget).get('next');
+    if (v) window.lavish.queuePrompt('Next step: ' + v, {tag:'choice', text:'Next: ' + v, element:event.currentTarget, data:{question:'next', answer:v}});">
+    <fieldset><legend>Start with</legend>
+      <label><input type="radio" name="next" value="Run /opsx:propose to turn this plan into a change with specs and tasks per lane" checked> Turn this plan into an OpenSpec change <small>Recommended. Gives each lane a task list and the shared contract as a spec.</small></label>
+      <label><input type="radio" name="next" value="Scaffold the repo and shared types now"> Scaffold the repo and shared types now <small>Fastest to unblock the other lanes.</small></label>
+      <label><input type="radio" name="next" value="Generate the 3 synthetic sample result sheets first"> Generate the 3 synthetic result sheets first <small>Everything downstream needs them.</small></label>
+    </fieldset>
+    <button class="go" type="submit">Queue this answer</button>
+  </form>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+# Tasks
+
+Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** extraction, content and demo. Rule for lane B and any logic task: write the failing test first, then the implementation. Clock times are for 2026-11-19 to 2026-11-20; deadline 09:00, submit code by 08:15.
+
+## 1. Foundations (20:20–21:30, all lanes)
+
+- [ ] 1.1 [A] Create monorepo skeleton: `apps/web`, `packages/evidence`, `packages/shared`, `database/`, `docs/`, `public/sample-result-sheets/`
+- [ ] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
+- [ ] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
+- [ ] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
+- [ ] 1.5 [D] Generate three synthetic result sheets stamped DEMO: clean, one altered figure, bad arithmetic
+- [ ] 1.6 Gate: live Vercel URL, shared types merged, Supabase reachable
+
+## 2. Integrity engine, tests first (B, 21:30–00:30)
+
+- [ ] 2.1 Failing tests then `sha256`: known vectors, one flipped byte, browser and server agree
+- [ ] 2.2 Failing tests then `validateArithmetic`: all five rules plus negatives, blanks, missing
+- [ ] 2.3 Failing tests then `compareSubmissions`: agree, one field differs, same file hash is not independent
+- [ ] 2.4 Failing tests then `statusFor`: every transition in the status machine and nothing else
+- [ ] 2.5 Failing tests then `chainAuditEvent` and `verifyChain`: prev-hash link, tamper detection
+- [ ] 2.6 Failing tests then `narrate` (English, then Pidgin): verified fields only, no "correct", "fraud" or "winner", numbers spoken in full
+
+## 3. Platform and data (A, 21:30–00:30 then 01:15–04:00)
+
+- [ ] 3.1 Schema: polling_units, profiles, submissions, extractions, verification_results, reviews, audit_events
+- [ ] 3.2 RLS policies per role; failing RLS tests first (public cannot read submitter ids; observer cannot create reviews)
+- [ ] 3.3 Audit trigger refusing UPDATE and DELETE; revoke those privileges; server function to append chained events
+- [ ] 3.4 Write-once storage bucket and signed upload URL flow
+- [ ] 3.5 Seed script: synthetic polling units (a few states, a few hundred units), a synthetic published ward figure, demo users per role
+- [ ] 3.6 Route handlers: `/api/uploads`, `/api/submissions/:id/extract`, `/confirm`, `/api/units`, `/api/units/:id/evidence`, `/narration`, `/api/reviews`
+- [ ] 3.7 Server hash re-check wired into extract, mismatch flagged and audited
+
+## 4. Extraction, content and demo (D)
+
+- [ ] 4.1 Claude vision adapter returning typed JSON with per-field confidence; env key server-side only
+- [ ] 4.2 Cache extraction output for the three demo sheets as fixtures; add live/cached toggle
+- [ ] 4.3 Contract test for the adapter using fixtures
+- [ ] 4.4 Easy-read status sentences in English and Pidgin; native-speaker check
+- [ ] 4.5 Drafts: `docs/problem-brief.md` (one page), system sketch SVG/PNG, `docs/writeup.md` (problem, solution, AI usage, tools), `docs/architecture.md`
+- [ ] 4.6 Demo script and sample scenario (planted altered figure)
+
+## 5. Frontend (C, 21:30–04:00)
+
+- [ ] 5.1 Mobile-first shell with persistent DEMO DATA and not-INEC banner
+- [ ] 5.2 Polling unit explorer (state, LGA, ward, code or name search)
+- [ ] 5.3 Capture screen with unit confirmation, on-device SHA-256 and fingerprint time
+- [ ] 5.4 Extraction review screen: values, confidence flags, arithmetic checks, confirm or fix
+- [ ] 5.5 Evidence record screen: image, status, fingerprint with honest tooltip, audit timeline
+- [ ] 5.6 Comparison screen with differing field highlighted and neutral wording
+- [ ] 5.7 Public dashboard and collation roll-up
+- [ ] 5.8 Reviewer console: queue, side-by-side photos, decisions, public note
+
+## 6. Integration 1: walking skeleton (00:30–01:15, all)
+
+- [ ] 6.1 Wire upload, hash, store, extract, validate, evidence page end to end
+- [ ] 6.2 Gate: a sheet uploaded from a phone shows extracted fields and an arithmetic result
+
+## 7. Compare, review, audit wiring (01:15–04:00)
+
+- [ ] 7.1 [A/B] Second-submission comparison and status updates persisted
+- [ ] 7.2 [A/B] Review decisions recorded with audit events
+- [ ] 7.3 [A] Audit event appended for every step; chain verification page or check
+- [ ] 7.4 Gate: planted discrepancy flows Disputed, human review, public dashboard
+
+## 8. Offline and access layer (05:30–07:00)
+
+- [ ] 8.1 [C] PWA manifest, service worker, IndexedDB queue, "waiting to upload" state, receipt on sync
+- [ ] 8.2 [C] A2 accessibility mode: large text, high contrast, reduced motion, slow voice, screen-reader labels, keyboard use, persistence
+- [ ] 8.3 [C] A1 Listen using text-to-speech and the narration endpoint; text fallback when no voice
+- [ ] 8.4 [C/D] A3 easy-read status sentences and icons wired into every status display
+- [ ] 8.5 [D] 2 to 3 quick user tests; keep one quote each for the write-up
+- [ ] 8.6 Gate: full demo works on a phone in airplane mode then reconnect
+
+## 9. Freeze and submit (07:00–09:00)
+
+- [ ] 9.1 07:00 feature freeze; bug fixes only
+- [ ] 9.2 Finalise brief, sketch, write-up, README (setup, limitations, synthetic-data statement), `CREDITS.md`, Claude Code declaration
+- [ ] 9.3 Rehearse the 3-minute demo twice on phone and laptop
+- [ ] 9.4 Record demo video, under 3:00
+- [ ] 9.5 Tag repo, make it public; submit GitHub code (phase 1)
+- [ ] 9.6 By 08:15 submit the form with the live demo link; check it on mobile data
+- [ ] 9.7 Remaining time is buffer; no new features
+
+## Cut order if behind
+
+1. Near-duplicate image detection (already stretch)
+2. Pidgin strings and extra voices (keep A2, plain-English text, English audio)
+3. Collation roll-up polish (keep a minimal table)
+4. Offline queue (keep the on-device hash)
+
+Never cut: the core capture, verify, compare, dashboard and audit features and every submission deliverable.

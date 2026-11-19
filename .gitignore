@@ -1,0 +1,8 @@
+.qodo/
+node_modules/
+.next/
+.env
+.env.local
+.DS_Store
+coverage/
+*.tsbuildinfo
