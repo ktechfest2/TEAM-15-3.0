@@ -8,7 +8,7 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 - [ ] 1.2 [A] Create Supabase project, Vercel project, `.env.example` (no secrets), deploy a hello page
 - [x] 1.3 [B] Define shared TypeScript types in `packages/shared`: submission, extraction, verification result, status, audit event. Merge before others code against them
 - [x] 1.4 [A] Add README with Claude Code declaration, `CREDITS.md`, LICENSE, DEMO DATA statement
-- [ ] 1.5 [D] Generate three synthetic result sheets stamped DEMO: clean, one altered figure, bad arithmetic
+- [x] 1.5 [D] Generate three synthetic result sheets stamped DEMO: clean, one altered figure, bad arithmetic
 - [ ] 1.6 Gate: live Vercel URL, shared types merged, Supabase reachable
 
 ## 2. Integrity engine, tests first (B, 21:30–00:30)

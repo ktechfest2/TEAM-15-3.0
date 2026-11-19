@@ -1,0 +1,47 @@
+{
+  "sheet-a-clean": {
+    "note": "Clean: all figures consistent",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 98,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 250
+    }
+  },
+  "sheet-b-altered-figure": {
+    "note": "One figure altered: Party B 98 -> 89",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 89,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 250
+    }
+  },
+  "sheet-c-bad-arithmetic": {
+    "note": "Bad arithmetic: valid + rejected does not equal cast",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 98,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 260
+    }
+  }
+}
