@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">VOTE-GUARD 360 system sketch</title>
+  <desc id="d">A phone captures and fingerprints a photo, uploads it through a Next.js API to write-once storage and a Postgres database with a hash-chained audit log, and public pages show the status.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: #14212b; }
+    .box { fill: #fff; stroke: #12304a; stroke-width: 2; rx: 12; }
+    .head { font-weight: 800; font-size: 17px; fill: #12304a; }
+    .t { font-size: 14px; }
+    .note { font-size: 12.5px; fill: #55656f; }
+    .arrow { stroke: #0e8374; stroke-width: 3; fill: none; marker-end: url(#a); }
+    .lab { font-size: 12.5px; fill: #0e8374; font-weight: 700; }
+    .banner { fill: #fff4e0; stroke: #8a4b08; }
+  </style>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0e8374"/></marker></defs>
+  <rect width="960" height="520" fill="#f6f9f8"/>
+  <rect class="banner" x="20" y="14" width="920" height="30" rx="8"/>
+  <text x="480" y="34" text-anchor="middle" class="t" style="font-weight:700;fill:#8a4b08">DEMO DATA · independent evidence layer, not an INEC system · never says fraud, correct or winner</text>
+
+  <rect class="box" x="24" y="80" width="250" height="300"/>
+  <text x="40" y="108" class="head">1 · Phone (works offline)</text>
+  <text x="40" y="138" class="t">Choose unit, take photo</text>
+  <text x="40" y="162" class="t">SHA-256 fingerprint on the device</text>
+  <text x="40" y="186" class="t">Saved in IndexedDB queue</text>
+  <text x="40" y="210" class="t">Uploads when online and signed in</text>
+  <text x="40" y="244" class="note">Observer checks the machine-read</text>
+  <text x="40" y="262" class="note">figures against the paper sheet</text>
+  <text x="40" y="296" class="note">Public can: listen, read easy-read</text>
+  <text x="40" y="314" class="note">English or Pidgin, large text,</text>
+  <text x="40" y="332" class="note">high contrast, keyboard use</text>
+
+  <rect class="box" x="355" y="80" width="250" height="300"/>
+  <text x="371" y="108" class="head">2 · Next.js API (Vercel)</text>
+  <text x="371" y="138" class="t">Signed upload URL (no user id)</text>
+  <text x="371" y="162" class="t">Re-hash stored file, compare</text>
+  <text x="371" y="186" class="t">Read figures (adapter)</text>
+  <text x="371" y="210" class="t">Arithmetic checks (5 rules)</text>
+  <text x="371" y="234" class="t">Compare independent photos</text>
+  <text x="371" y="258" class="t">Derive one of 5 neutral statuses</text>
+  <text x="371" y="282" class="t">Append audit event per step</text>
+  <text x="371" y="316" class="note">Pure, tested engine shared with</text>
+  <text x="371" y="334" class="note">the phone: packages/evidence</text>
+
+  <rect class="box" x="686" y="80" width="250" height="300"/>
+  <text x="702" y="108" class="head">3 · Supabase</text>
+  <text x="702" y="138" class="t">Storage: write-once originals</text>
+  <text x="702" y="162" class="t">Postgres with row-level security</text>
+  <text x="702" y="186" class="t">Machine read, observer values,</text>
+  <text x="702" y="204" class="t">reviews: separate records</text>
+  <text x="702" y="234" class="t">Audit log: append-only,</text>
+  <text x="702" y="252" class="t">each event holds the previous hash,</text>
+  <text x="702" y="270" class="t">update/delete/truncate refused</text>
+  <text x="702" y="316" class="note">Public views hide who submitted</text>
+  <text x="702" y="334" class="note">and who reviewed</text>
+
+  <path class="arrow" d="M274 160 H355"/><text x="280" y="150" class="lab">photo + hash</text>
+  <path class="arrow" d="M605 160 H686"/><text x="612" y="150" class="lab">records</text>
+  <path class="arrow" d="M686 330 H605"/><path class="arrow" d="M355 330 H274"/>
+  <text x="300" y="322" class="lab">public status</text>
+
+  <rect class="box" x="24" y="410" width="912" height="88" style="fill:#e4f7ef"/>
+  <text x="40" y="436" class="head">Public: explorer · evidence record · side-by-side comparison · dashboard · "check the record has not changed"</text>
+  <text x="40" y="462" class="t">Waiting · Needs a person to check · Two people agree · Photos differ · Checked by a reviewer</text>
+  <text x="40" y="484" class="note">A fingerprint shows a photo has not changed since capture. It does not prove the document was genuine.</text>
+</svg>

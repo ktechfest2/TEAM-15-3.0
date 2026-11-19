@@ -3,13 +3,27 @@
    - never touches /api/* or anything non-GET or cross-origin (all live data and uploads go straight to the network)
    - hashed build assets (/_next/static) are cached once and reused
    - pages are network-first, falling back to the last copy we saw, then to /capture */
-const VERSION = "vg-v1";
+const VERSION = "vg-v2";
 const SHELL = ["/", "/capture", "/signin", "/settings", "/dashboard"];
 
+// Cache each shell page and the scripts/styles it references, so the first offline visit works too.
+async function precache() {
+  const c = await caches.open(VERSION);
+  const assets = new Set();
+  await Promise.all(SHELL.map(async (u) => {
+    try {
+      const res = await fetch(u);
+      if (!res.ok) return;
+      await c.put(u, res.clone());
+      const html = await res.text();
+      for (const m of html.matchAll(/\/_next\/static\/[^"'\\\s)]+\.(?:js|css)/g)) assets.add(m[0]);
+    } catch { /* a page we could not fetch now will be cached when visited */ }
+  }));
+  await Promise.all([...assets].map((a) => c.add(a).catch(() => {})));
+}
+
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => {})))).then(() => self.skipWaiting()),
-  );
+  event.waitUntil(precache().then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (event) => {
