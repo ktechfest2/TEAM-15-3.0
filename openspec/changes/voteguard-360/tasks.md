@@ -32,9 +32,9 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 
 ## 4. Extraction, content and demo (D)
 
-- [ ] 4.1 Claude vision adapter returning typed JSON with per-field confidence; env key server-side only
-- [ ] 4.2 Cache extraction output for the three demo sheets as fixtures; add live/cached toggle
-- [ ] 4.3 Contract test for the adapter using fixtures
+- [x] 4.1 Extraction adapter returning typed JSON with per-field confidence; **Anthropic call is stubbed for now** (no network, no key); real call to be added later, key server-side only
+- [x] 4.2 Cache extraction output for the three demo sheets as fixtures; add live/cached toggle
+- [x] 4.3 Contract test for the adapter using fixtures
 - [ ] 4.4 Easy-read status sentences in English and Pidgin; native-speaker check
 - [ ] 4.5 Drafts: `docs/problem-brief.md` (one page), system sketch SVG/PNG, `docs/writeup.md` (problem, solution, AI usage, tools), `docs/architecture.md`
 - [ ] 4.6 Demo script and sample scenario (planted altered figure)

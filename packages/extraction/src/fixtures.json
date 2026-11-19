@@ -1,0 +1,50 @@
+{
+  "7f41ebb8d58e96546018da675684f9413210934f8a8a359d6c07d5c1bf39c110": {
+    "sheet": "sheet-a-clean",
+    "note": "Clean: all figures consistent",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 98,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 250
+    }
+  },
+  "75191703e87ceab35e541edcd44e84f42d9b6889d016d10af24376e6fac38738": {
+    "sheet": "sheet-b-altered-figure",
+    "note": "One figure altered: Party B 98 -> 89",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 89,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 250
+    }
+  },
+  "84bf34898b15d8a09d84234079359692b87ba3836c7e17813e2f95bdb2af0ec2": {
+    "sheet": "sheet-c-bad-arithmetic",
+    "note": "Bad arithmetic: valid + rejected does not equal cast",
+    "fields": {
+      "registered": 520,
+      "accredited": 310,
+      "parties": {
+        "Party A": 112,
+        "Party B": 98,
+        "Party C": 31
+      },
+      "valid": 241,
+      "rejected": 9,
+      "cast": 260
+    }
+  }
+}
