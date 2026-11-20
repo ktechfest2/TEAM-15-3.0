@@ -6,6 +6,7 @@ import type { PublicUnit } from "../../lib/server/read";
 import { statusCopy } from "../../lib/status-copy";
 import { StatusPill } from "../../components/status-pill";
 import { useApp } from "../providers";
+import { evidenceLang } from "../../lib/guide/langs";
 
 export default function ReviewConsole() {
   const { api, session, prefs } = useApp();
@@ -37,7 +38,7 @@ export default function ReviewConsole() {
           {todo.map((u) => (
             <div className="card" key={u.id}>
               <h3>{u.name} <span className="muted">· {u.code}</span></h3>
-              <p className="status-line"><StatusPill status={u.status} lang={prefs.lang} /> <span className="muted">{statusCopy(u.status, prefs.lang).sentence}</span></p>
+              <p className="status-line"><StatusPill status={u.status} lang={evidenceLang(prefs.lang)} /> <span className="muted">{statusCopy(u.status, evidenceLang(prefs.lang)).sentence}</span></p>
               <Link className="btn small" href={`/unit/${encodeURIComponent(u.code)}`}>Open and decide</Link>
             </div>
           ))}

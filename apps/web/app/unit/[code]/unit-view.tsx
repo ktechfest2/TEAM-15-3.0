@@ -9,6 +9,8 @@ import type { AuditVerification } from "../../../lib/server/audit-verify";
 import { StatusLine } from "../../../components/status-pill";
 import { Listen } from "../../../components/listen";
 import { useApp } from "../../providers";
+import { evidenceLang } from "../../../lib/guide/langs";
+import { PlanCard } from "../../../components/my-unit";
 
 const FINGERPRINT_TIP = "This fingerprint shows the photo has not changed since it was captured. It does not prove the document was genuine.";
 
@@ -23,12 +25,12 @@ export function UnitView({ code }: { code: string }) {
   const load = useCallback(async () => {
     if (!unit) return;
     try {
-      const [ev, nar] = await Promise.all([api.evidence(unit.id), api.narration(unit.id, prefs.lang)]);
+      const [ev, nar] = await Promise.all([api.evidence(unit.id), api.narration(unit.id, evidenceLang(prefs.lang))]);
       setEvidence(ev); setNarration(nar); setError("");
     } catch (e) {
       setError(e instanceof ApiError && e.status === 0 ? "You are offline, so the latest record cannot be loaded. Try again when you have a signal." : "The record could not be loaded. Please try again.");
     }
-  }, [api, unit, prefs.lang]);
+  }, [api, unit, evidenceLang(prefs.lang)]);
   useEffect(() => { void load(); }, [load]);
 
   async function verify() {
@@ -50,16 +52,18 @@ export function UnitView({ code }: { code: string }) {
       <h1>{unit.name}</h1>
       <p className="sub">{unit.code} · {unit.ward} · {unit.lga} · {unit.state}</p>
 
+      <PlanCard unitCode={unit.code} unitName={unit.name} status={evidence?.status ?? null} />
+
       {error && <div className="callout" role="alert">{error}</div>}
       {!evidence && !error && <p className="muted" role="status">Loading the record…</p>}
 
       {evidence && narration && (
         <>
-          <StatusLine status={evidence.status} lang={prefs.lang} />
+          <StatusLine status={evidence.status} lang={evidenceLang(prefs.lang)} />
           <div className="card">
             <h3>In plain words</h3>
             <p style={{ fontSize: "1.1rem", margin: "6px 0" }}>{narration.text}</p>
-            <Listen text={narration.text} lang={prefs.lang} slow={prefs.slowVoice} />
+            <Listen text={narration.text} lang={evidenceLang(prefs.lang)} slow={prefs.slowVoice} />
           </div>
 
           {evidence.pending > 0 && <p className="muted">{evidence.pending} photo{evidence.pending === 1 ? " is" : "s are"} uploaded and waiting to be read.</p>}

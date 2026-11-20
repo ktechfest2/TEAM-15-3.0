@@ -7,10 +7,11 @@ import { optionsFor, searchUnits } from "../lib/units";
 import { statusCopy } from "../lib/status-copy";
 import { StatusPill } from "../components/status-pill";
 import { useApp } from "./providers";
+import { evidenceLang } from "../lib/guide/langs";
 
 export function Explorer() {
   const { api, prefs } = useApp();
-  const lang = prefs.lang;
+  const lang = evidenceLang(prefs.lang);
   const [state, setState] = useState("");
   const [lga, setLga] = useState("");
   const [ward, setWard] = useState("");

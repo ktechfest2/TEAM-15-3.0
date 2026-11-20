@@ -18,4 +18,9 @@ Libraries, APIs, datasets and models used. Updated whenever a dependency is adde
 | Pillow (Python) | Generates the synthetic sample sheets | HPND |
 | Web Speech API | "Listen" in the browser | Web standard |
 
-**Datasets:** none from real elections. All polling units, result sheets and figures are synthetic demo data generated for this project.
+**Datasets**
+- Polling units, result sheets and results figures: synthetic demo data generated for this project. No election has been held yet, so there are no real results.
+- Candidates: INEC's published *Final list of candidates, Presidential* (inecnigeria.org) and INEC's register of political parties, read on 2026-11-20. Names are shown as INEC prints them.
+- Election date: INEC's election calendar (inecnigeria.org/elections/calendar): Saturday 16 January 2027, presidential and National Assembly.
+- Prices: National Bureau of Statistics, Selected Food Price Watch and PMS Price Watch (microdata.nigerianstat.gov.ng), May 2026 reports.
+- Coverage: links to articles published by The Guardian (Nigeria), Premium Times, ThisDay, Vanguard, Nairametrics, Arise News and P.M. News. We store only the headline, date and link, and we do not copy article text. Ownership claims link to their source; where we could not confirm, the page says so.

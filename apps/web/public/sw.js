@@ -3,8 +3,8 @@
    - never touches /api/* or anything non-GET or cross-origin (all live data and uploads go straight to the network)
    - hashed build assets (/_next/static) are cached once and reused
    - pages are network-first, falling back to the last copy we saw, then to /capture */
-const VERSION = "vg-v2";
-const SHELL = ["/", "/capture", "/signin", "/settings", "/dashboard"];
+const VERSION = "vg-v3";
+const SHELL = ["/candidates", "/capture", "/signin", "/settings", "/dashboard"];
 
 // Cache each shell page and the scripts/styles it references, so the first offline visit works too.
 async function precache() {

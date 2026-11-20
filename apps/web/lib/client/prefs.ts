@@ -1,10 +1,10 @@
-import type { Language } from "@voteguard/shared";
+import { isGuideLang, type GuideLang } from "../guide/langs";
 
 export const TEXT_SCALES = [1, 1.25, 1.5] as const;
 export type TextScale = (typeof TEXT_SCALES)[number];
 
 export interface Prefs {
-  lang: Language;
+  lang: GuideLang;
   textScale: TextScale;
   contrast: boolean;
   reduceMotion: boolean;
@@ -21,7 +21,7 @@ export function parsePrefs(raw: string | null): Prefs {
   if (v === null || typeof v !== "object" || Array.isArray(v)) return { ...DEFAULT_PREFS };
   const o = v as Record<string, unknown>;
   return {
-    lang: o.lang === "pcm" || o.lang === "en" ? o.lang : DEFAULT_PREFS.lang,
+    lang: isGuideLang(o.lang) ? o.lang : DEFAULT_PREFS.lang,
     textScale: (TEXT_SCALES as readonly unknown[]).includes(o.textScale) ? (o.textScale as TextScale) : DEFAULT_PREFS.textScale,
     contrast: typeof o.contrast === "boolean" ? o.contrast : DEFAULT_PREFS.contrast,
     reduceMotion: typeof o.reduceMotion === "boolean" ? o.reduceMotion : DEFAULT_PREFS.reduceMotion,

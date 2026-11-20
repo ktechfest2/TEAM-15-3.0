@@ -9,6 +9,7 @@ import type { ExtractionSummary } from "../../../lib/server/extract";
 import { StatusLine } from "../../../components/status-pill";
 import { units } from "../../../lib/units";
 import { useApp } from "../../providers";
+import { evidenceLang } from "../../../lib/guide/langs";
 
 export function SubmissionReview({ id }: { id: string }) {
   const { api, session, prefs } = useApp();
@@ -54,7 +55,7 @@ export function SubmissionReview({ id }: { id: string }) {
 
       {data && (
         <>
-          <StatusLine status={data.status} lang={prefs.lang} />
+          <StatusLine status={data.status} lang={evidenceLang(prefs.lang)} />
           {!data.hash_match && <div className="callout" role="alert">The fingerprint of the stored photo does not match the one taken on your phone. A person will check this photo.</div>}
           {data.low_confidence && <div className="callout" role="status">Some figures could not be read clearly. Please check them against the paper sheet.</div>}
 

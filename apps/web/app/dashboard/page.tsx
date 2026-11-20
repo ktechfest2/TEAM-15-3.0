@@ -7,6 +7,7 @@ import { STATUSES, statusCopy } from "../../lib/status-copy";
 import type { AuditVerification } from "../../lib/server/audit-verify";
 import type { DashboardResponse } from "../../lib/client/api";
 import { useApp } from "../providers";
+import { evidenceLang } from "../../lib/guide/langs";
 
 type Ward = DashboardResponse["wards"][number];
 
@@ -44,7 +45,7 @@ export default function DashboardPage() {
     return () => { live = false; };
   }, [api]);
 
-  const lang = prefs.lang;
+  const lang = evidenceLang(prefs.lang);
   return (
     <>
       <h1>Public dashboard</h1>

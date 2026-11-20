@@ -81,6 +81,17 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 - [ ] 9.6 By 08:15 submit the form with the live demo link; check it on mobile data
 - [ ] 9.7 Remaining time is buffer; no new features
 
+## 10. Voter guide (added 2026-11-20, mock-ups approved in .lavish/ui-mockups.html)
+
+- [x] 10.1 News-desk shell (masthead, section bar, phone tab bar, black DEMO strip) and five-language switcher: English, Pidgin, Hausa, Yoruba, Igbo (drafts marked until checked)
+- [x] 10.2 Prices page: "What ₦1,000 buys", my basket, source and date on every figure, honest gaps (tests first: calc, copy, data)
+- [x] 10.3 My unit: plan card, add to calendar (made on the phone), follow this unit (kept on the phone)
+- [x] 10.4 Candidate card with compare view, same fields for everyone, no scores (first built with fictional candidates; replaced by the real INEC list in 11.2)
+- [x] 10.5 Price figures checked against the original NBS May 2026 food and petrol reports (2026-11-20); rice and garri filled; `checkedAgainstOriginal` set
+- [ ] 10.6 Native-speaker check of Pidgin, Hausa, Yoruba and Igbo text, then flip `CHECKED` in lib/guide/langs.ts
+- [x] 10.7 Deployed to production 2026-11-20 (user asked for the deploy)
+- [x] 10.8 Coverage page: show, don't rate. Facts only, two-reviewer rubric (agreed / reviewers differ / waiting), no scores (real articles from 11.3). Deployed 2026-11-20
+
 ## Cut order if behind
 
 1. Near-duplicate image detection (already stretch)
@@ -89,3 +100,15 @@ Lanes: **A** platform and data, **B** integrity engine, **C** frontend, **D** ex
 4. Offline queue (keep the on-device hash)
 
 Never cut: the core capture, verify, compare, dashboard and audit features and every submission deliverable.
+
+## 11. Real data and news-style redesign (2026-11-20, mock-ups approved in .lavish/cnn-redesign.html)
+
+- [x] 11.1 CNN-style layout (white page, black rules, serif standfirst, lead story + right rail, black-bar labels), teal accent; nav is Candidates, Coverage, Prices, My unit, Results; the front page leads with Candidates then Coverage
+- [x] 11.2 Candidates: all 18 named on INEC's final presidential list plus the one row INEC lists without a name (court order); party, age, qualifications and running mate exactly as INEC prints them; no offices, assets or audit facts until each has a source
+- [x] 11.3 Coverage: 2 real stories (election date change; final candidate list) with 11 real articles, headline, date, link; outlet ownership only with a source link, else "not confirmed"; no outlet is named as having failed to cover a story; reviewer checks empty until two real reviewers answer (each stored with name and date)
+- [x] 11.4 Election date set to Saturday 16 January 2027 (INEC), replacing the 20 Feb placeholder; calendar file links to INEC
+- [x] 11.5 Database: `guide_*` tables (database/guide_schema.sql), seed generated from the JSON (database/gen-guide-seed.mjs), applied to project hzsowrlhveaitwdfnyeg; public read only; app reads the database and falls back to the bundled JSON offline or on bad data
+- [x] 11.6 Deployed the redesign and real data to production 2026-11-20 (user said deploy)
+- [ ] 11.7 Price history for the last 12 months from the NBS (only 2 months loaded so far)
+- [ ] 11.8 Reviewer form so two real people can answer the coverage checks (until then every check reads "Awaiting two reviewers")
+- [ ] 11.9 Candidate facts beyond INEC's list (offices held, declared assets, court and audit records), each with a source

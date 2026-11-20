@@ -1,0 +1,278 @@
+{
+ "race": "President of Nigeria",
+ "election": "2027-01-16",
+ "source": {
+  "name": "INEC: Final list of candidates, Presidential (PDF on inecnigeria.org)",
+  "url": "https://inecnigeria.org/documents/uploads/2026/10/b5af9099-864c-4d5e-924d-e1a2c771c529-final-list-presidential.pdf",
+  "checkedOn": "2026-11-20"
+ },
+ "partiesSource": {
+  "name": "INEC: Registered political parties",
+  "url": "https://inecnigeria.org/parties",
+  "checkedOn": "2026-11-20"
+ },
+ "parties": {
+  "A": "Accord",
+  "AA": "Action Alliance",
+  "AAC": "African Action Congress",
+  "ADC": "African Democratic Congress",
+  "ADP": "Action Democratic Party",
+  "APC": "All Progressives Congress",
+  "APM": "Allied Peoples Movement",
+  "APP": "Action Peoples Party",
+  "BP": "Boot Party",
+  "DLA": "Democratic Leadership Alliance",
+  "LP": "Labour Party",
+  "NDC": "Nigeria Democratic Congress",
+  "NDP": "National Democratic Party",
+  "NRM": "National Rescue Movement",
+  "PDP": "Peoples Democratic Party",
+  "PRP": "Peoples Redemption Party",
+  "SDP": "Social Democratic Party",
+  "YPP": "Young Progressives Party",
+  "ZLP": "Zenith Labour Party"
+ },
+ "candidates": [
+  {
+   "id": "omo-aje-rufai-adekunle",
+   "surname": "Omo-Aje",
+   "given": "Rufai Adekunle",
+   "party": "AA",
+   "age": 71,
+   "qualifications": "FSLC WAEC",
+   "runningMate": {
+    "name": "Shehu Hussaini",
+    "age": 56,
+    "qualifications": "FSLC G.S.S, Yabo F.C.E Zaria"
+   }
+  },
+  {
+   "id": "sowore-omoyele",
+   "surname": "Sowore",
+   "given": "Omoyele",
+   "party": "AAC",
+   "age": 55,
+   "qualifications": "FSLC WAEC MASTERS DEGREE",
+   "runningMate": {
+    "name": "Magashi Haruna Garba",
+    "age": 49,
+    "qualifications": "FSLC WAEC LLB"
+   }
+  },
+  {
+   "id": "abubakar-atiku",
+   "surname": "Abubakar",
+   "given": "Atiku",
+   "party": "ADC",
+   "age": 79,
+   "qualifications": "F.S.L.C. WASC MA. (INT. RELATIONS",
+   "runningMate": {
+    "name": "Amaechi Chibuike Rotimi",
+    "age": 61,
+    "qualifications": "FSLC WAEC B.A. ENGLISH STUDIES"
+   }
+  },
+  {
+   "id": "abbas-bin-aliyu",
+   "surname": "Abbas-Bin",
+   "given": "Aliyu",
+   "party": "ADP",
+   "age": 44,
+   "qualifications": "FSLC SSCE BSC",
+   "runningMate": {
+    "name": "Ike Chinazam",
+    "age": 50,
+    "qualifications": "FSLC SSCE BNG"
+   }
+  },
+  {
+   "id": "tinubu-bola-ahmed",
+   "surname": "Tinubu",
+   "given": "Bola Ahmed",
+   "party": "APC",
+   "age": 74,
+   "qualifications": "B.Sc",
+   "runningMate": {
+    "name": "Shettima Kashim",
+    "age": 59,
+    "qualifications": "FSLC GENERAL CERTIFICATE OF EDUCATION B.Sc"
+   }
+  },
+  {
+   "id": "makinde-oluseyi-abiodun",
+   "surname": "Makinde",
+   "given": "Oluseyi Abiodun",
+   "party": "APM",
+   "age": 58,
+   "qualifications": "BISHOP PHILIPS ACADEMY IBADAN UNIVERSITY OF LAGOS, AKOKA",
+   "runningMate": {
+    "name": "Musa Lawal Daura",
+    "age": 73,
+    "qualifications": "FSLC GCE B.A (HONS) ABU ZARIA"
+   }
+  },
+  {
+   "id": "yusuf-kabiru",
+   "surname": "Yusuf",
+   "given": "Kabiru",
+   "party": "APP",
+   "age": 54,
+   "qualifications": "FSLC SSCE NATIONAL DIPLOMA",
+   "runningMate": {
+    "name": "Ofordile Peace Egobia",
+    "age": 47,
+    "qualifications": "SSCE"
+   }
+  },
+  {
+   "id": "adenuga-sunday",
+   "surname": "Adenuga",
+   "given": "Sunday",
+   "party": "BP",
+   "age": 52,
+   "qualifications": "FSLC SSCE Masters",
+   "runningMate": {
+    "name": "Mustapha Usman Turaki",
+    "age": 40,
+    "qualifications": "FSLC NABTEB DIPLOMA"
+   }
+  },
+  {
+   "id": "adebisi-moses-olusoji",
+   "surname": "Adebisi",
+   "given": "Moses Olusoji",
+   "party": "DLA",
+   "age": 35,
+   "qualifications": "FSLC SSCE BSc",
+   "runningMate": {
+    "name": "Abubakar Nafisat Usaku",
+    "age": 35,
+    "qualifications": "FSLC SSCE BSc"
+   }
+  },
+  {
+   "id": "okereke-sunday-chibuzo",
+   "surname": "Okereke",
+   "given": "Sunday Chibuzo",
+   "party": "LP",
+   "age": 43,
+   "qualifications": "FSLC NABTEC Ph.D., MLS (Distinction), MSC (Distinction) & BSC (Hons) (Nig)",
+   "runningMate": {
+    "name": "Konto Hajja Bintu",
+    "age": 54,
+    "qualifications": "FSLC WAEC MPH; BSC (Hons) Health Education & Certificate in General Nursing"
+   }
+  },
+  {
+   "id": "obi-peter-gregory",
+   "surname": "Obi",
+   "given": "Peter Gregory",
+   "party": "NDC",
+   "age": 65,
+   "qualifications": "ST. AUGUSTINES PRIMARY SCHOOL ANAMBRA CHRIST THE KING COLLEGE (C.K.C) WASC UNN B.A.",
+   "runningMate": {
+    "name": "Musa Mohammed Rabiu Kwankwaso",
+    "age": 69,
+    "qualifications": "FSLC TTC CRAFT TRAINING CERT., OND, HND, PGD, M.SC, PH.D"
+   }
+  },
+  {
+   "id": "okwori-ada-elizabeth-fredrick",
+   "surname": "Okwori",
+   "given": "Ada Elizabeth Fredrick",
+   "party": "NDP",
+   "age": 48,
+   "qualifications": "FSLC SSCE HND ACCOUNTANCY",
+   "runningMate": {
+    "name": "Chukwuemeka Uchenna Anthony",
+    "age": 48,
+    "qualifications": "FSLC SSCE L.L.B"
+   }
+  },
+  {
+   "id": "okereke-nkem-esther",
+   "surname": "Okereke",
+   "given": "Nkem Esther",
+   "party": "NRM",
+   "age": 43,
+   "qualifications": "FSLC SSCE Bsc, MSC, Phd",
+   "runningMate": {
+    "name": "Sulaiman Nasir Muhammed",
+    "age": 35,
+    "qualifications": "FSLC SSCE"
+   }
+  },
+  {
+   "id": "onor-sandy-ojang",
+   "surname": "Onor",
+   "given": "Sandy Ojang",
+   "party": "PDP",
+   "age": 60,
+   "qualifications": "FSLC W.A.S.C. PH.D",
+   "runningMate": {
+    "name": "Umaru Babangida",
+    "age": 61,
+    "qualifications": "FSLC W.A.S.C. DIPLOMA"
+   }
+  },
+  {
+   "id": "duke-donald",
+   "surname": "Duke",
+   "given": "Donald",
+   "party": "PRP",
+   "age": 64,
+   "qualifications": "FSLC WASC LLB",
+   "runningMate": {
+    "name": "Mohammed Sule",
+    "age": 70,
+    "qualifications": "WASC, BSC"
+   },
+   "remark": "C"
+  },
+  {
+   "id": "adebayo-adewole-ebenezer",
+   "surname": "Adebayo",
+   "given": "Adewole Ebenezer",
+   "party": "SDP",
+   "age": 54,
+   "qualifications": "FSLC WASCE LLB",
+   "runningMate": {
+    "name": "Bugaje Usman Muhammed",
+    "age": 74,
+    "qualifications": "FSLC SSCE PHD"
+   }
+  },
+  {
+   "id": "agada-peter-ada",
+   "surname": "Agada",
+   "given": "Peter Ada",
+   "party": "YPP",
+   "age": 54,
+   "qualifications": "WAEC BSc, & MBA",
+   "runningMate": {
+    "name": "Key Patience Ndidi",
+    "age": 52,
+    "qualifications": "WAEC BSc. & MBA"
+   }
+  },
+  {
+   "id": "nwanyanwu-daniel-daberechukwu",
+   "surname": "Nwanyanwu",
+   "given": "Daniel Daberechukwu",
+   "party": "ZLP",
+   "age": 66,
+   "qualifications": "FSLC WAEC LLB, LLM",
+   "runningMate": {
+    "name": "Hassan Khalid",
+    "age": 37,
+    "qualifications": "FSLC SSCE PGD"
+   }
+  }
+ ],
+ "notNamed": [
+  {
+   "party": "A",
+   "remark": "COURT ORDER"
+  }
+ ]
+}

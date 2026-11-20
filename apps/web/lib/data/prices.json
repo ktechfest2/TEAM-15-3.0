@@ -1,0 +1,105 @@
+{
+  "retrievedOn": "2026-11-20",
+  "items": [
+    {
+      "id": "beans",
+      "kind": "food",
+      "unit": "kg",
+      "now": {
+        "period": "2026-05",
+        "naira": 1344.93
+      },
+      "then": {
+        "period": "2025-05",
+        "naira": 2385.15
+      },
+      "publishedYoyPercent": -43.61,
+      "source": {
+        "name": "National Bureau of Statistics, Selected Food Price Watch (brown beans, per kg, national average)",
+        "url": "https://microdata.nigerianstat.gov.ng/index.php/catalog/162",
+        "checkedAgainstOriginal": true,
+        "note": "Checked on 2026-11-20 against the NBS report PDF (Selected Food Price Watch, May 2026, report date June 2026), national average table."
+      }
+    },
+    {
+      "id": "tomato",
+      "kind": "food",
+      "unit": "kg",
+      "now": {
+        "period": "2026-05",
+        "naira": 1560.56
+      },
+      "then": {
+        "period": "2025-05",
+        "naira": 1392.71
+      },
+      "publishedYoyPercent": 12.05,
+      "source": {
+        "name": "National Bureau of Statistics, Selected Food Price Watch (fresh tomatoes, per kg, national average)",
+        "url": "https://microdata.nigerianstat.gov.ng/index.php/catalog/162",
+        "checkedAgainstOriginal": true,
+        "note": "Checked on 2026-11-20 against the NBS report PDF (Selected Food Price Watch, May 2026, report date June 2026), national average table."
+      }
+    },
+    {
+      "id": "petrol",
+      "kind": "fuel",
+      "unit": "litre",
+      "now": {
+        "period": "2026-05",
+        "naira": 1596.25
+      },
+      "then": {
+        "period": "2025-05",
+        "naira": 1027.76
+      },
+      "publishedYoyPercent": 55.31,
+      "source": {
+        "name": "National Bureau of Statistics, Petrol Price Watch (premium motor spirit, per litre, national average)",
+        "url": "https://microdata.nigerianstat.gov.ng/index.php/catalog/157",
+        "checkedAgainstOriginal": true,
+        "note": "Checked on 2026-11-20 against the NBS report PDF (Premium Motor Spirit Price Watch, May 2026, report date June 2026), executive summary."
+      }
+    },
+    {
+      "id": "rice",
+      "kind": "food",
+      "unit": "kg",
+      "now": {
+        "period": "2026-05",
+        "naira": 1905.43
+      },
+      "then": {
+        "period": "2025-05",
+        "naira": 2095.29
+      },
+      "publishedYoyPercent": -9.06,
+      "source": {
+        "name": "National Bureau of Statistics, Selected Food Price Watch (local rice, short-grained, national average)",
+        "url": "https://microdata.nigerianstat.gov.ng/index.php/catalog/162",
+        "checkedAgainstOriginal": true,
+        "note": "Checked on 2026-11-20 against the NBS report PDF (Selected Food Price Watch, May 2026, report date June 2026), national average table. The table does not print a unit for this row; it prints pack sizes for every item not sold per kg, so the figure is read as per kg."
+      }
+    },
+    {
+      "id": "garri",
+      "kind": "food",
+      "unit": "kg",
+      "now": {
+        "period": "2026-05",
+        "naira": 813.24
+      },
+      "then": {
+        "period": "2025-05",
+        "naira": 1341.79
+      },
+      "publishedYoyPercent": -39.39,
+      "source": {
+        "name": "National Bureau of Statistics, Selected Food Price Watch (white garri, sold loose, per kg, national average)",
+        "url": "https://microdata.nigerianstat.gov.ng/index.php/catalog/162",
+        "checkedAgainstOriginal": true,
+        "note": "Checked on 2026-11-20 against the NBS report PDF (Selected Food Price Watch, May 2026, report date June 2026), national average table."
+      }
+    }
+  ]
+}

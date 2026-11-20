@@ -1,11 +1,11 @@
-import type { Language } from "@voteguard/shared";
+import type { GuideLang } from "../guide/langs";
 
 /**
  * Choose a voice for the language, or null. We never fake audio: if no suitable voice exists the
  * app shows the text instead. No device ships a Pidgin voice, so Pidgin is text only for now.
  */
-export function pickVoice(voices: SpeechSynthesisVoice[], lang: Language): SpeechSynthesisVoice | null {
-  if (lang === "pcm") return voices.find((v) => v.lang.toLowerCase().startsWith("pcm")) ?? null;
+export function pickVoice(voices: SpeechSynthesisVoice[], lang: GuideLang): SpeechSynthesisVoice | null {
+  if (lang !== "en") return voices.find((v) => v.lang.toLowerCase().startsWith(lang)) ?? null;
   return (
     voices.find((v) => v.lang.toLowerCase() === "en-ng") ??
     voices.find((v) => v.lang.toLowerCase().startsWith("en")) ??
@@ -34,7 +34,7 @@ export function stopSpeaking(): void {
 }
 
 /** Speak text. Resolves false when there is no voice (caller keeps showing the text). */
-export async function speak(text: string, lang: Language, slow: boolean, onEnd?: () => void): Promise<boolean> {
+export async function speak(text: string, lang: GuideLang, slow: boolean, onEnd?: () => void): Promise<boolean> {
   if (!canSpeak()) return false;
   const voice = pickVoice(await loadVoices(), lang);
   if (!voice) return false;

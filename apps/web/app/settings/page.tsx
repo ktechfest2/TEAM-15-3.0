@@ -1,5 +1,6 @@
 "use client";
 
+import { GUIDE_LANGS } from "../../lib/guide/langs";
 import { TEXT_SCALES } from "../../lib/client/prefs";
 import { useApp } from "../providers";
 
@@ -12,10 +13,11 @@ export default function SettingsPage() {
 
       <fieldset className="card"><legend>Language</legend>
         <div className="lang" role="group" aria-label="Language">
-          <button aria-pressed={prefs.lang === "en"} onClick={() => setPrefs({ lang: "en" })}>English</button>
-          <button aria-pressed={prefs.lang === "pcm"} onClick={() => setPrefs({ lang: "pcm" })}>Pidgin</button>
+          {GUIDE_LANGS.map((l) => (
+            <button key={l.code} lang={l.code} aria-pressed={prefs.lang === l.code} onClick={() => setPrefs({ lang: l.code })}>{l.name}</button>
+          ))}
         </div>
-        <p className="muted">Pidgin is shown as text. Spoken audio is English only, because phones do not have a Pidgin voice.</p>
+        <p className="muted">Pidgin, Hausa, Yoruba and Igbo are drafts until a native speaker has checked them. Result-sheet pages are available in English and Pidgin only; in other languages they show English. Audio plays only if your phone has a voice for that language; otherwise you get the text.</p>
       </fieldset>
 
       <fieldset className="card"><legend>Text size</legend>

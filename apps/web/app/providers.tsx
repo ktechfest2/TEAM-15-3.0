@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createApi, type Api } from "../lib/client/api";
 import { DEFAULT_PREFS, PREFS_KEY, htmlAttributes, parsePrefs, type Prefs } from "../lib/client/prefs";
+import { htmlLang } from "../lib/guide/langs";
 import { addReceipt, loadReceipts, type Receipt } from "../lib/client/receipts";
 import { syncAll } from "../lib/client/sync";
 import { getBrowserClient } from "../lib/client/supabase";
@@ -61,7 +62,7 @@ export function Providers({ children }: { children: ReactNode }) {
     el.dataset.contrast = a.contrast;
     el.dataset.motion = a.motion;
     el.style.setProperty("--scale", a.scale);
-    el.lang = prefs.lang === "pcm" ? "pcm" : "en";
+    el.lang = htmlLang(prefs.lang);
   }, [prefs]);
   const setPrefs = useCallback((p: Partial<Prefs>) => {
     setPrefsState((old) => {

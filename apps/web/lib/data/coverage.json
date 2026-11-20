@@ -1,0 +1,223 @@
+{
+ "outlets": [
+  {
+   "id": "the-guardian",
+   "name": "The Guardian (Nigeria)",
+   "ownership": "private",
+   "ownershipSource": "https://en.wikipedia.org/wiki/The_Guardian_(Nigeria)",
+   "region": "Lagos",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "premium-times",
+   "name": "Premium Times",
+   "ownership": "not_confirmed",
+   "ownershipSource": null,
+   "region": "Abuja",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "thisday",
+   "name": "ThisDay",
+   "ownership": "private",
+   "ownershipSource": "https://en.wikipedia.org/wiki/ThisDay",
+   "region": "Lagos",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "vanguard",
+   "name": "Vanguard",
+   "ownership": "not_confirmed",
+   "ownershipSource": null,
+   "region": "Lagos",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "nairametrics",
+   "name": "Nairametrics",
+   "ownership": "not_confirmed",
+   "ownershipSource": null,
+   "region": "Not confirmed",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "arise",
+   "name": "Arise News",
+   "ownership": "private",
+   "ownershipSource": "https://en.wikipedia.org/wiki/Arise_News",
+   "region": "Lagos and Abuja",
+   "language": "en",
+   "tracked": true
+  },
+  {
+   "id": "pm-news",
+   "name": "P.M. News",
+   "ownership": "not_confirmed",
+   "ownershipSource": null,
+   "region": "Not confirmed",
+   "language": "en",
+   "tracked": true
+  }
+ ],
+ "stories": [
+  {
+   "id": "election-date",
+   "title": "INEC moves the presidential election to 16 January 2027",
+   "summary": "INEC set the presidential and National Assembly elections for Saturday 16 January 2027. They had been set for 20 February 2027. INEC said the Electoral Act 2026 changed statutory timelines.",
+   "official": {
+    "name": "INEC: Election calendar",
+    "url": "https://inecnigeria.org/elections/calendar"
+   },
+   "articles": [
+    {
+     "outletId": "the-guardian",
+     "headline": "INEC moves 2027 Presidential election to January 16",
+     "publishedOn": "2026-02-26",
+     "type": "news_report",
+     "url": "https://guardian.ng/politics/inec-moves-2027-presidential-election-to-january-16/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "premium-times",
+     "headline": "UPDATED: INEC reschedules 2027 general election, releases new election timetable",
+     "publishedOn": "2026-02-26",
+     "type": "news_report",
+     "url": "https://www.premiumtimesng.com/news/top-news/859957-inec-reschedules-2027-general-election.html",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "thisday",
+     "headline": "Breaking: INEC Fixes January 16 for Presidential, N'Assembly Elections",
+     "publishedOn": "2026-02-26",
+     "type": "news_report",
+     "url": "https://www.thisdaylive.com/2026/02/26/breaking-inec-fixes-january-16-for-presidential-nassembly-elections",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "nairametrics",
+     "headline": "INEC revises 2027 election timetable, presidential poll now holds January 16",
+     "publishedOn": "2026-02-27",
+     "type": "news_report",
+     "url": "https://nairametrics.com/2026/02/27/inec-revises-2027-election-timetable-presidential-poll-now-holds-january-16/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "arise",
+     "headline": "2027: INEC Reschedules Presidential Election To January 16, Governorship Polls To February 6",
+     "publishedOn": "2026-02-26",
+     "type": "news_report",
+     "url": "https://www.arise.tv/2027-inec-reschedules-presidential-election-to-january-16-governorship-polls-to-february-6",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "candidate-list",
+   "title": "INEC publishes the list of presidential candidates",
+   "summary": "Press reports on 12 and 13 September 2026 described 18 candidates. INEC's current list, which the Candidates page uses, has 18 named candidates and one row without a name.",
+   "official": {
+    "name": "INEC: Final list of candidates, Presidential",
+    "url": "https://inecnigeria.org/press/updated-list-of-candidates-for-2027-presidential-election"
+   },
+   "articles": [
+    {
+     "outletId": "vanguard",
+     "headline": "INEC unveils final list of presidential candidates for 2027 election",
+     "publishedOn": "2026-09-12",
+     "type": "news_report",
+     "url": "https://www.vanguardngr.com/2026/09/inec-unveils-final-list-of-presidential-candidates-for-2027-election/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "pm-news",
+     "headline": "Who is running in 2027? INEC publishes final presidential list",
+     "publishedOn": "2026-09-12",
+     "type": "news_report",
+     "url": "https://pmnewsnigeria.com/2026/09/12/who-is-running-in-2027-inec-publishes-final-presidential-list/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "nairametrics",
+     "headline": "INEC releases final list of 18 Presidential candidates for 2027 elections",
+     "publishedOn": "2026-09-12",
+     "type": "news_report",
+     "url": "https://nairametrics.com/2026/09/12/inec-releases-final-list-of-18-presidential-candidates-for-2027-elections/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "arise",
+     "headline": "2027 Polls: INEC Clears Tinubu, Obi, Atiku, Others as Presidential Candidates",
+     "publishedOn": "2026-09-12",
+     "type": "news_report",
+     "url": "https://www.arise.tv/2027-polls-inec-clears-tinubu-obi-atiku-others-as-presidential-candidates/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "thisday",
+     "headline": "INEC Publishes Final List of Presidential, N'Assembly Candidates",
+     "publishedOn": "2026-09-12",
+     "type": "news_report",
+     "url": "https://www.thisdaylive.com/2026/09/12/inec-publishes-final-list-of-presidential-nassembly-candidates/",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    },
+    {
+     "outletId": "premium-times",
+     "headline": "2027: Tinubu, Atiku, Obi, 15 others make INEC final presidential candidates' list (Full List)",
+     "publishedOn": "2026-09-13",
+     "type": "news_report",
+     "url": "https://www.premiumtimesng.com/news/headlines/909126-2027-tinubu-atiku-obi-15-others-make-inec-final-presidential-candidates-list-full-list.html",
+     "checks": {
+      "names_sources": [],
+      "marks_fact_opinion": [],
+      "corrections_page": []
+     }
+    }
+   ]
+  }
+ ]
+}

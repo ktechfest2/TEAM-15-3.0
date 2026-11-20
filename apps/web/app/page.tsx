@@ -1,11 +1,6 @@
-import { Explorer } from "./explorer";
+import { redirect } from "next/navigation";
 
+/** There is no separate home page: the site opens on the candidates. */
 export default function Home() {
-  return (
-    <>
-      <h1>Find a polling unit</h1>
-      <p className="sub">Pick a place, or search by unit code or name. All units here are synthetic demo data.</p>
-      <Explorer />
-    </>
-  );
+  redirect("/candidates");
 }
