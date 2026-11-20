@@ -1,6 +1,6 @@
 import type { UiKey } from "./ui";
 
-export type SectionId = "prices" | "candidates" | "coverage" | "unit" | "results" | "settings";
+export type SectionId = "watchpoint" | "prices" | "candidates" | "coverage" | "unit" | "results" | "settings";
 
 export interface Section { id: SectionId; href: string; labelKey: UiKey }
 
@@ -10,11 +10,12 @@ export const SECTIONS: Section[] = [
   { id: "prices", href: "/prices", labelKey: "nav.prices" },
   { id: "unit", href: "/unit", labelKey: "nav.unit" },
   { id: "results", href: "/dashboard", labelKey: "nav.results" },
+  { id: "watchpoint", href: "/watchpoint", labelKey: "nav.watchpoint" },
   { id: "settings", href: "/settings", labelKey: "nav.settings" },
 ];
 
 /** The bar under the masthead and the bottom bar on phones: candidates first, then coverage. There is no separate home page: the site opens on Candidates, and the logo goes there. Settings sit in the masthead. */
-export const NAV: SectionId[] = ["candidates", "coverage", "prices", "unit", "results"];
+export const NAV: SectionId[] = ["candidates", "coverage", "prices", "unit", "results", "watchpoint"];
 export const TABS: SectionId[] = NAV;
 
 const PREFIXES: [string, SectionId][] = [
@@ -26,6 +27,7 @@ const PREFIXES: [string, SectionId][] = [
   ["/dashboard", "results"],
   ["/submission", "results"],
   ["/review", "results"],
+  ["/watchpoint", "watchpoint"],
   ["/settings", "settings"],
   ["/signin", "settings"],
 ];

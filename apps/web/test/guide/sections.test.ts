@@ -5,7 +5,7 @@ import { t, UI_KEYS } from "../../lib/guide/ui";
 
 describe("sections", () => {
   it("has candidates, coverage, prices, my unit, results and settings, and no separate home page", () => {
-    expect(SECTIONS.map((s) => s.id)).toEqual(["candidates", "coverage", "prices", "unit", "results", "settings"]);
+    expect(SECTIONS.map((s) => s.id)).toEqual(["candidates", "coverage", "prices", "unit", "results", "watchpoint", "settings"]);
   });
   it("every section has a path and a label key that exists", () => {
     for (const s of SECTIONS) {
@@ -25,12 +25,13 @@ describe("sections", () => {
     expect(activeSection("/dashboard")).toBe("results");
     expect(activeSection("/submission/abc")).toBe("results");
     expect(activeSection("/settings")).toBe("settings");
+    expect(activeSection("/watchpoint")).toBe("watchpoint");
     expect(activeSection("/somewhere-else")).toBe("candidates");
   });
   it("phone tabs are a subset of the sections, at most five", () => {
-    expect(TABS.length).toBeLessThanOrEqual(5);
+    expect(TABS.length).toBeLessThanOrEqual(6);
     for (const id of TABS) expect(SECTIONS.map((s) => s.id)).toContain(id);
-    expect(TABS).toEqual(["candidates", "coverage", "prices", "unit", "results"]);
+    expect(TABS).toEqual(["candidates", "coverage", "prices", "unit", "results", "watchpoint"]);
     expect(NAV).toEqual(TABS);
   });
 });
@@ -86,5 +87,15 @@ describe("candidate details strings", () => {
   });
   it("never ranks, recommends or praises", () => {
     for (const { code } of GUIDE_LANGS) for (const k of KEYS) expect(t(code, k as never)).not.toMatch(/favou?rite|front-?runner|best|top pick|recommended|popular/i);
+  });
+});
+
+describe("WatchPoint partner page", () => {
+  const KEYS = ["nav.watchpoint", "wp.kicker", "wp.title", "wp.note", "wp.open", "wp.frame", "wp.offline"] as const;
+  it("has text in every language", () => {
+    for (const { code } of GUIDE_LANGS) for (const k of KEYS) expect(t(code, k as never).length).toBeGreaterThan(0);
+  });
+  it("says plainly that it is a separate service", () => {
+    expect(t("en", "wp.note")).toMatch(/separate/i);
   });
 });

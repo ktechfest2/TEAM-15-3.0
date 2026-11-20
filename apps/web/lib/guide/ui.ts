@@ -140,6 +140,13 @@ const EN = {
   "cd.photo": "Photo",
   "cd.logo": "Logo",
   "cd.opening": "Opening lines, exactly as published",
+  "nav.watchpoint": "WatchPoint",
+  "wp.kicker": "Partner service",
+  "wp.title": "WatchPoint: road safety for your community",
+  "wp.note": "WatchPoint is a separate service with its own team and its own content. It is shown here so you can reach it from VOTE-GUARD 360; we have not checked what it publishes.",
+  "wp.open": "Open WatchPoint in its own tab ↗",
+  "wp.frame": "WatchPoint, a separate road-safety service",
+  "wp.offline": "WatchPoint needs a connection. Open it when you are online.",
 } as const;
 
 export type UiKey = keyof typeof EN;
@@ -276,6 +283,13 @@ const PCM: Record<UiKey, string> = {
   "cd.photo": "Photo",
   "cd.logo": "Logo",
   "cd.opening": "First lines, just as dem publish am",
+  "nav.watchpoint": "WatchPoint",
+  "wp.kicker": "Partner service",
+  "wp.title": "WatchPoint: road safety for your community",
+  "wp.note": "WatchPoint na separate service wey get im own team and im own content. We show am here so you fit reach am from VOTE-GUARD 360; we no check wetin e dey publish.",
+  "wp.open": "Open WatchPoint for im own tab ↗",
+  "wp.frame": "WatchPoint, separate road-safety service",
+  "wp.offline": "WatchPoint need connection. Open am when you get network.",
 };
 const HA: Record<UiKey, string> = {
   "nav.coverage": "Rahoto",
@@ -406,6 +420,13 @@ const HA: Record<UiKey, string> = {
   "cd.photo": "Hoto",
   "cd.logo": "Tambari",
   "cd.opening": "Layukan farko, yadda aka wallafa",
+  "nav.watchpoint": "WatchPoint",
+  "wp.kicker": "Haɗin gwiwa",
+  "wp.title": "WatchPoint: tsaron hanya ga al’ummarku",
+  "wp.note": "WatchPoint wani sabis ne daban mai nasa ƙungiya da abubuwan da yake wallafawa. Ana nuna shi a nan don ku isa gare shi daga VOTE-GUARD 360; ba mu duba abin da yake wallafawa ba.",
+  "wp.open": "Buɗe WatchPoint a sabon shafi ↗",
+  "wp.frame": "WatchPoint, sabis na tsaron hanya daban",
+  "wp.offline": "WatchPoint yana bukatar haɗin intanet. Buɗe shi idan kuna kan layi.",
 };
 const YO: Record<UiKey, string> = {
   "nav.coverage": "Ìròyìn",
@@ -536,6 +557,13 @@ const YO: Record<UiKey, string> = {
   "cd.photo": "Fọ́tò",
   "cd.logo": "Àmì",
   "cd.opening": "Àwọn ìlà ìbẹ̀rẹ̀, bí wọ́n ṣe tẹ̀ wọ́n jáde",
+  "nav.watchpoint": "WatchPoint",
+  "wp.kicker": "Iṣẹ́ alábàákẹ́gbẹ́",
+  "wp.title": "WatchPoint: ààbò ojú ọ̀nà fún àdúgbò yín",
+  "wp.note": "WatchPoint jẹ́ iṣẹ́ ọ̀tọ̀ tó ní ẹgbẹ́ tirẹ̀ àti àkóónú tirẹ̀. A fi í hàn níbí kí ẹ lè dé ọ̀dọ̀ rẹ̀ láti VOTE-GUARD 360; a kò tíì yẹ ohun tó ń tẹ̀jáde wò.",
+  "wp.open": "Ṣí WatchPoint ní táàbù tirẹ̀ ↗",
+  "wp.frame": "WatchPoint, iṣẹ́ ààbò ojú ọ̀nà ọ̀tọ̀",
+  "wp.offline": "WatchPoint nílò ìsopọ̀. Ṣí i nígbà tí o bá wà lórí ayélujára.",
 };
 const IG: Record<UiKey, string> = {
   "nav.coverage": "Akụkọ",
@@ -666,6 +694,13 @@ const IG: Record<UiKey, string> = {
   "cd.photo": "Foto",
   "cd.logo": "Akara",
   "cd.opening": "Ahịrị mbụ, dị ka e bipụtara",
+  "nav.watchpoint": "WatchPoint",
+  "wp.kicker": "Ọrụ ndị mmekọ",
+  "wp.title": "WatchPoint: nchekwa okporo ụzọ maka obodo gị",
+  "wp.note": "WatchPoint bụ ọrụ dị iche nwere otu nke ya na ọdịnaya nke ya. A na-egosi ya ebe a ka ị nweta ya site na VOTE-GUARD 360; anyị enyochaghị ihe ọ na-ebipụta.",
+  "wp.open": "Meghe WatchPoint n’taabụ nke ya ↗",
+  "wp.frame": "WatchPoint, ọrụ nchekwa okporo ụzọ dị iche",
+  "wp.offline": "WatchPoint chọrọ njikọ. Meghe ya mgbe ị nọ na ịntanetị.",
 };
 
 const TABLE: Record<GuideLang, Record<UiKey, string>> = { en: EN, pcm: PCM, ha: HA, yo: YO, ig: IG };

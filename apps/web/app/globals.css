@@ -272,3 +272,7 @@ nav.sections a { font-weight: 800; }
 .how { background: #fafafa; }
 .pn { display: flex; justify-content: space-between; gap: 12px; border-top: 2px solid var(--ink); padding-top: 10px; margin-top: 12px; font-size: .88rem; }
 .pn a { color: var(--ink); text-decoration: none; } .pn a:hover b { color: var(--teal); } .pn .r { text-align: right; }
+
+/* partner service shown inside our page */
+.partner-frame { width: 100%; height: calc(100vh - 260px); min-height: 520px; border: 1px solid var(--line); border-radius: 6px; background: #fff; display: block; }
+@media (max-width: 700px) { nav.tabbar a { font-size: .6rem; } .partner-frame { height: calc(100vh - 330px); } }
