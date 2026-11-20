@@ -24,7 +24,9 @@ VOTE-GUARD 360 is an **independent evidence layer** for result sheets. It is not
 
 - **Real and running:** capture with on-device hashing, offline queue and service worker, signed uploads, write-once storage, server re-hash, arithmetic checks, comparison, status rules, reviewer decisions, hash-chained audit log enforced by the database, row-level security, public evidence pages, dashboard, Listen, accessibility settings. Over 200 automated tests, plus five database tests run against the live project.
 - **Stubbed:** reading figures from photos. The three demo sheets (and a second photo of one of them) are served from stored results keyed by file fingerprint; any other image is marked unreadable and sent to a person, never guessed. The call to a vision model sits behind an adapter and is not connected in this build.
-- **Synthetic:** every polling unit, sheet, figure and the "published" ward total. All are labelled DEMO.
+- **Synthetic:** every polling unit, sheet, figure and the "published" ward total in the evidence layer. All are labelled DEMO.
+- **Real and sourced (voter guide):** INEC's final list of 18 presidential candidates with running mates, ages and qualifications as INEC prints them; the 16 January 2027 election date; coverage of two stories across seven outlets, each article linked; NBS price reports. The guide opens on Candidates, and each candidate has a details page (speeches, videos, publications) with the same sections and limits for everyone. Those item lists are **empty for now by design**: nothing is added until it has been opened and checked. Reviewer answers on coverage stay "awaiting two reviewers" until two real people answer. Photos and party logos need a recorded source and licence; none are added yet.
+- **Unchecked:** Pidgin, Hausa, Yoruba and Igbo interface text are drafts, labelled as such in the app.
 - **Needs checking by a speaker:** the Pidgin text. Spoken audio is English only because phones have no Pidgin voice, so Pidgin shows text rather than faking audio.
 
 ## AI usage

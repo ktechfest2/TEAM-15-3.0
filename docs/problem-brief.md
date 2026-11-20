@@ -33,4 +33,4 @@ It proves the file is the same as when it was captured. It does **not** prove th
 
 ## Honest limits
 
-All data is synthetic and labelled DEMO. Reading figures from photos is machine-assisted and can be wrong; uncertain values go to a person. In this build the reader serves stored results for the three demo sheets and flags any other image as unreadable for human review; the live model call is a stub until a key is supplied. Pidgin text needs a native-speaker check. No Pidgin voice exists on phones, so Pidgin is text only.
+The result-sheet data (polling units, sheets, figures) is synthetic and labelled DEMO. The voter guide uses real public records, each with a source. Reading figures from photos is machine-assisted and can be wrong; uncertain values go to a person. In this build the reader serves stored results for the three demo sheets and flags any other image as unreadable for human review; the live model call is a stub until a key is supplied. Pidgin text needs a native-speaker check. No Pidgin voice exists on phones, so Pidgin is text only.

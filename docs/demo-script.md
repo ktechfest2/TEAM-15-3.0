@@ -11,15 +11,16 @@
 | 1:50 | "Anyone can listen to this, and read it in plain words or Pidgin." | Tap **Listen to this result sheet** (English). Switch to Pidgin: text shown, with the honest note that no Pidgin voice exists. Open Settings: large text, high contrast. |
 | 2:10 | "A reviewer decides, and the decision is public." | Sign in as reviewer, open the unit, record a decision with a public note. Status becomes "Checked by a reviewer". |
 | 2:30 | "Every step is a link in a chain. Anyone can check nothing was changed or removed." | Scroll the step-by-step timeline. Tap "Check that the record has not been changed": all steps link correctly. |
-| 2:45 | "Dashboard: units by status, and a collation tracker that compares photo totals to a published figure only when every unit is counted. Synthetic data, neutral language." | Open Dashboard, Ward 04. |
-| 2:55 | "Evidence, not verdicts." | Close on the banner. |
+| 2:40 | "Dashboard: units by status, and a collation tracker. The sheets are synthetic demo data; neutral language." | Open Dashboard, Ward 04. |
+| 2:50 | "The site opens on the real INEC candidate list: same card for all 18, a page for each with speeches, videos and publications. Nothing is added until we have checked it, so empty means not checked yet." | Open the site root (lands on Candidates), open one candidate. |
+| 2:58 | "Evidence, not verdicts." | Close on the banner. |
 
 ## If something fails
 
 - No signal at the venue: the phone queue still works; open the live site for the public pages.
 - Camera permission refused: choose a file from the sample sheets folder (`public/sample-result-sheets`).
 - Live site down: use the recorded video.
-- Never improvise a claim about fraud, a winner, or a real election.
+- Never improvise a claim about fraud, a winner, or real results. The candidate list is real INEC data; the result sheets are not.
 
 ## Sample sheets
 

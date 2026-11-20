@@ -10,11 +10,12 @@ VOTE-GUARD 360 is an **independent evidence layer** for polling-unit result shee
 
 ## Important limitations
 
-- **All data is synthetic demo data**, clearly labelled DEMO in the app and in the sample sheets. No real election data is used.
+- **Two kinds of data, kept apart.** The *voter guide* (candidates, coverage, prices, election date) uses real public records, each with a source link and a check date. The *result-sheet evidence layer* (polling units, sample sheets, figures, the "published" ward total) is **synthetic demo data**, labelled DEMO. No election results exist yet, so none are shown as real.
 - A fingerprint proves a file has not changed since it was captured. It does **not** prove the document was genuine.
 - Reading figures is machine-assisted and can misread; low-confidence values are flagged for human review. In this build the reader is stubbed (see below).
 - Pidgin text needs a native-speaker check; browser voices for Hausa, Yorùbá and Igbo are limited, so those show text only.
-- Real INEC/IReV records are not imported (an adapter interface is left for that).
+- Real INEC/IReV result records are not imported (an adapter interface is left for that). The guide uses only INEC's published candidate list and calendar.
+- Candidate pages (speeches, videos, publications, photos, party logos) are built but **empty on purpose**: an item is added only after it is opened and checked, with the same limits for every candidate. A blank means "not checked yet", never a hint about the candidate.
 
 ## Repository layout
 
@@ -24,7 +25,7 @@ packages/evidence/   Pure, tested functions: sha256, validateArithmetic, compare
                      statusFor, chainAuditEvent/verifyChain, narrate
 packages/extraction/ Extraction adapter, cached fixtures, stubbed live adapter
 packages/shared/     Shared TypeScript types
-database/            Postgres schema, RLS, seed (synthetic)
+database/            Postgres schema, RLS, seeds (evidence layer: synthetic; voter guide: real, sourced)
 docs/                Problem brief, architecture, write-up
 public/sample-result-sheets/   Synthetic sample sheets (stamped DEMO)
 openspec/            Specs, design and task plan for the build
@@ -62,9 +63,9 @@ See [CREDITS.md](CREDITS.md) for libraries, APIs and models.
 
 Besides the result-sheet evidence layer, the app has a news-style voter guide in five languages (English, Pidgin, Hausa, Yoruba, Igbo; the last four are drafts until a native speaker checks them):
 
-- **Candidates**: everyone on INEC's final presidential list, A to Z by surname, the same card for each, shown as INEC prints it. No scores or rankings. Facts INEC does not publish are not added until we have a source.
+- **Candidates** (the front page; there is no separate home page): everyone on INEC's final presidential list, A to Z by surname, the same card for each, shown as INEC prints it. Each links to a details page with **Speeches** (to help people connect with the candidate), tap-to-load **YouTube videos** and **Publications**, plus previous/next A to Z. Up to 3 speeches, 4 videos and 5 publications each, newest first; each item shows who published it. Photos and party logos need a recorded source and licence, otherwise everyone gets the same neutral placeholder. No scores or rankings.
 - **Coverage**: the same news story from several outlets, with facts about each source (ownership with a source link, city, type of article) and a link to every original. Two independent reviewers answer the same three questions per article; until two real reviewers have answered, the page says so. We do not rate or rank outlets.
 - **Prices**: what N1,000 buys, from National Bureau of Statistics reports.
 - **My unit**: plan card with the INEC election date and an add-to-calendar file made on the phone.
 
-Data lives in `guide_*` tables (`database/guide_schema.sql`, seed in `database/guide_seed.sql`, generated from `apps/web/lib/data` by `node database/gen-guide-seed.mjs`). The app reads the tables and falls back to the bundled JSON when offline. Sources are listed in `CREDITS.md`.
+Data lives in `guide_*` tables (`database/guide_schema.sql`, `database/guide_items_schema.sql` for candidate pages, seed in `database/guide_seed.sql`, generated from `apps/web/lib/data` by `node database/gen-guide-seed.mjs`). The app reads the tables and falls back to the bundled JSON when offline. Sources are listed in `CREDITS.md`.
